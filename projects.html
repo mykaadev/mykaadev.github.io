@@ -4,7 +4,20 @@
 <head>
     <meta name="viewport" content="width=device-width">
     <meta charset="utf-8">
- 
+    <script>
+        ! function() {
+            try {
+                var d = document.documentElement.classList;
+                d.remove('light', 'dark');
+                var e = localStorage.getItem('theme');
+                if ("system" === e || (!e && true)) {
+                    var t = "(prefers-color-scheme: dark)",
+                        m = window.matchMedia(t);
+                    d.add('dark')
+                } else if (e) d.add(e)
+            } catch (e) {}
+        }()
+    </script>
    <title>Projects | Micael Silva</title>
    <meta name="robots" content="follow, index">
    <meta content="Gameplay Programmer, Game Design enthusiast, and a passionate learner." name="description">
@@ -12,6 +25,7 @@
    <meta property="og:site_name" content="Micael Silva">
    <meta property="og:description" content="Gameplay Programmer, Game Design enthusiast, and a passionate learner.">
    <meta property="og:title" content="Micael Silva">
+   <meta property="og:image" content="https://kevinzun igacuellar.com/banner.png">
    <meta name="twitter:card" content="summary_large_image">
    <meta name="twitter:site" content="@mykaadev">
    <meta name="next-head-count" content="18">
