@@ -2838,7 +2838,7 @@ th):not(:where([class~=not-prose] *))) {
     padding: .5rem 1rem;
   }
 
-  hr {
+  .contentBarHR {
     border: 0;
     border-bottom: solid 1px #355172;
     margin: 2em 0;
