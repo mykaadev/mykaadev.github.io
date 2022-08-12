@@ -2033,6 +2033,16 @@ ol ol):not(:where([class~=not-prose] *)) {
     --tw-scale-y: 1.25
 }
 
+.group:hover .group-hover\:scale-225 {
+    --tw-scale-x: 2.25;
+    --tw-scale-y: 2.25
+}
+
+.group:hover .group-hover\:scale-275 {
+    --tw-scale-x: 2.75;
+    --tw-scale-y: 2.75
+}
+
 .group:hover .group-hover\:scale-100 {
     --tw-scale-x: 1;
     --tw-scale-y: 1;
@@ -2858,10 +2868,47 @@ th):not(:where([class~=not-prose] *))) {
 
   .latestProjectsToggle
   {
-    background-color: rgba(57, 36, 92, 0.9);
+    background-color: rgba(47, 47, 55, 1);
   }
 
   .collapsible-content .latestProjectsInner
   {
-    background:  rgba(46, 28, 73, 0.9);
+    background:  rgba(47, 47, 55, 1);
   }
+
+  .latestProjectsInnerTexts
+  {
+    --tw-text-opacity: 1;
+    color: rgb(200 200 200/var(--tw-text-opacity)) 
+  }
+
+  .pastRealeases
+  {
+        --tw-bg-opacity: 1;
+        background-color: rgb(47 47 55/var(--tw-bg-opacity)) 
+  }
+
+  
+  .pastRealeasesToggle
+  {
+    background-color: rgba(40, 40, 40, 0.9);
+  }
+
+  .collapsible-content .pastRealeasesInner
+  {
+    background:  rgba(40, 40, 40,  0.9);
+  }
+
+  .borderInner
+  {
+    border-width: 1px;
+    border-color: rgba(200, 200, 200, 0.8);
+    
+  }
+
+  .contentBarProjects {
+    border: 0;
+    border-bottom: solid 1px rgb(173, 173, 173);;
+    margin: 2em 0;
+  }
+
