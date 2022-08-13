@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <meta charset="utf-8">
     <script>
-        ! function() {
+        ! function () {
             try {
                 var d = document.documentElement.classList;
                 d.remove('light', 'dark');
@@ -15,7 +15,7 @@
                         m = window.matchMedia(t);
                     d.add('dark')
                 } else if (e) d.add(e)
-            } catch (e) {}
+            } catch (e) { }
         }()
     </script>
     <title>Home | Micael Silva</title>
@@ -32,38 +32,91 @@
 
 </head>
 
-<body style="background-color:#27272B;" class="bg-gray-100 antialiased selection:bg-teal-300 selection:text-teal-900 dark:bg-gray-900/95 dark:selection:bg-indigo-300 dark:selection:text-indigo-900">
-  
-    <div id="__next" >
-        <header  class="fixed bottom-6 left-1/2 z-10 w-5/6 max-w-min sm:max-w-none -translate-x-1/2 rounded-3xl border border-gray-300 bg-white/60 px-2.5 py-1.5 shadow backdrop-blur-md dark:border-gray-600 dark:bg-gray-900/60 dark:shadow-black/60 sm:w-auto sm:p-2.5 menuColor">
-            <nav class="flex snap-x items-center justify-start sm:gap-2.5 gap-1.5 overflow-x-auto sm:overflow-x-visible">
-                <a style="background-color:#2F2F37;" class="group relative ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"
-                    href="index.html"><span class="h-8 w-8 text-gray-400 duration-300 group-hover:scale-125 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="#dbdbdb" aria-hidden="true"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg></span><span style="background-color:#3c3c41;" class="absolute bottom-20 w-auto min-w-max translate-y-10 scale-0 rounded-lg border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-500 opacity-0 shadow transition-all duration-200 group-hover:translate-y-2 group-hover:scale-100 group-hover:opacity-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/60 group-hover:sm:translate-y-1">Home</span></a>
-              <a style="background-color:#2F2F37;" class="group relative ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"
-                    href="projects.html"><span class="h-8 w-8 text-gray-400 duration-300 group-hover:scale-125 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <g> <path fill="none" d="M0 0h24v24H0z"/> <path d="M13.414 5H20a1 1 0 0 1 1 1v1H3V4a1 1 0 0 1 1-1h7.414l2 2zM3.087 9h17.826a1 1 0 0 1 .997 1.083l-.834 10a1 1 0 0 1-.996.917H3.92a1 1 0 0 1-.996-.917l-.834-10A1 1 0 0 1 3.087 9z" fill= "#dbdbdb"/> </g> </svg></span><span style="background-color:#3c3c41;" class="absolute bottom-20 w-auto min-w-max translate-y-10 scale-0 rounded-lg border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-500 opacity-0 shadow transition-all duration-200 group-hover:translate-y-2 group-hover:scale-100 group-hover:opacity-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/60 group-hover:sm:translate-y-1">Projects</span></a>
+<body style="background-color:#27272B;"
+    class="bg-gray-100 antialiased selection:bg-teal-300 selection:text-teal-900 dark:bg-gray-900/95 dark:selection:bg-indigo-300 dark:selection:text-indigo-900">
+
+    <div id="__next">
+        <header
+            class="fixed bottom-6 left-1/2 z-10 w-5/6 max-w-min sm:max-w-none -translate-x-1/2 rounded-3xl border border-gray-300 bg-white/60 px-2.5 py-1.5 shadow backdrop-blur-md dark:border-gray-600 dark:bg-gray-900/60 dark:shadow-black/60 sm:w-auto sm:p-2.5 menuColor">
+            <nav
+                class="flex snap-x items-center justify-start sm:gap-2.5 gap-1.5 overflow-x-auto sm:overflow-x-visible">
+                <a style="background-color:#2F2F37;"
+                    class="group relative ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"
+                    href="index.html"><span
+                        class="h-8 w-8 text-gray-400 duration-300 group-hover:scale-125 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-400"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="#dbdbdb" aria-hidden="true">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg></span><span style="background-color:#3c3c41;"
+                        class="absolute bottom-20 w-auto min-w-max translate-y-10 scale-0 rounded-lg border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-500 opacity-0 shadow transition-all duration-200 group-hover:translate-y-2 group-hover:scale-100 group-hover:opacity-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/60 group-hover:sm:translate-y-1">Home</span></a>
+                <a style="background-color:#2F2F37;"
+                    class="group relative ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"
+                    href="projects.html"><span
+                        class="h-8 w-8 text-gray-400 duration-300 group-hover:scale-125 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-400"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g>
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M13.414 5H20a1 1 0 0 1 1 1v1H3V4a1 1 0 0 1 1-1h7.414l2 2zM3.087 9h17.826a1 1 0 0 1 .997 1.083l-.834 10a1 1 0 0 1-.996.917H3.92a1 1 0 0 1-.996-.917l-.834-10A1 1 0 0 1 3.087 9z"
+                                    fill="#dbdbdb" />
+                            </g>
+                        </svg></span><span style="background-color:#3c3c41;"
+                        class="absolute bottom-20 w-auto min-w-max translate-y-10 scale-0 rounded-lg border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-500 opacity-0 shadow transition-all duration-200 group-hover:translate-y-2 group-hover:scale-100 group-hover:opacity-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/60 group-hover:sm:translate-y-1">Projects</span></a>
                 <hr class="h-16 rounded-lg border border-r ml-1 sm:ml-0 dark:border-gray-700">
-                
-                <a style="background-color:#2F2F37;" class="group relative ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"
-                href="mailto: micaelsilva.work@gmail.com"><span class="h-8 w-8 text-gray-400 duration-300 group-hover:scale-125 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="#dbdbdb" aria-hidden="true"><path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg></span><span style="background-color:#3c3c41;" class="absolute bottom-20 w-auto min-w-max translate-y-10 scale-0 rounded-lg border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-500 opacity-0 shadow transition-all duration-200 group-hover:translate-y-2 group-hover:scale-100 group-hover:opacity-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/60 group-hover:sm:translate-y-1">Contact Me</span></a>
-            
+
+                <a style="background-color:#2F2F37;"
+                    class="group relative ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 transition-all hover:scale-110 hover:border-opacity-100 active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"
+                    href="mailto: micaelsilva.work@gmail.com"><span
+                        class="h-8 w-8 text-gray-400 duration-300 group-hover:scale-125 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-400"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="#dbdbdb" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
+                                clip-rule="evenodd"></path>
+                        </svg></span><span style="background-color:#3c3c41;"
+                        class="absolute bottom-20 w-auto min-w-max translate-y-10 scale-0 rounded-lg border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-500 opacity-0 shadow transition-all duration-200 group-hover:translate-y-2 group-hover:scale-100 group-hover:opacity-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/60 group-hover:sm:translate-y-1">Contact
+                        Me</span></a>
+
                 </a>
-                <a style="background-color:#2F2F37;"  href="https://www.linkedin.com/in/mykaa/" target="_blank" rel="noopener noreferrer" class="group relative mr-1.5 ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 shadow-none transition-all hover:scale-110 hover:border-opacity-100 active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 23" class="ml-0.5 mb-0.5 h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400"><path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S.02 4.881.02 3.5C.02 2.12 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM5 8H0v16h5V8zm7.982 0H8.014v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0V24H24V13.869c0-7.88-8.922-7.593-11.018-3.714V8z" fill="#dbdbdb" ></path></svg>
-                    <span style="background-color:#3c3c41;"  class="absolute bottom-20 w-auto min-w-max translate-y-10 scale-0 rounded-lg border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-500 opacity-0 shadow transition-all duration-200 group-hover:translate-y-2 group-hover:scale-100 group-hover:opacity-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/60 group-hover:sm:translate-y-1">LinkedIn</span>
+                <a style="background-color:#2F2F37;" href="https://www.linkedin.com/in/mykaa/" target="_blank"
+                    rel="noopener noreferrer"
+                    class="group relative mr-1.5 ml-1 flex h-14 w-14 flex-shrink-0 snap-end items-center justify-center rounded-2xl border-2 border-blue-600 border-opacity-0 bg-gray-200 shadow-none transition-all hover:scale-110 hover:border-opacity-100 active:scale-95 dark:border-indigo-600 dark:border-opacity-0 dark:bg-gray-800 dark:hover:border-opacity-100 dark:hover:shadow-indigo-500/30 sm:m-0 sm:h-16 sm:w-16 sm:hover:shadow-md sm:hover:shadow-indigo-200"><svg
+                        xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 23"
+                        class="ml-0.5 mb-0.5 h-8 w-8 fill-gray-400 duration-300 group-hover:scale-125 group-hover:fill-gray-500 dark:fill-gray-500 dark:group-hover:fill-gray-400">
+                        <path
+                            d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S.02 4.881.02 3.5C.02 2.12 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM5 8H0v16h5V8zm7.982 0H8.014v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0V24H24V13.869c0-7.88-8.922-7.593-11.018-3.714V8z"
+                            fill="#dbdbdb"></path>
+                    </svg>
+                    <span style="background-color:#3c3c41;"
+                        class="absolute bottom-20 w-auto min-w-max translate-y-10 scale-0 rounded-lg border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-500 opacity-0 shadow transition-all duration-200 group-hover:translate-y-2 group-hover:scale-100 group-hover:opacity-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:shadow-black/60 group-hover:sm:translate-y-1">LinkedIn</span>
                 </a>
             </nav>
         </header>
         <main class="mx-auto max-w-3xl px-6 sm:px-8 mt-20 mb-36">
-            
+
             <!-- INFO -->
-            
+
             <section class="mb-16 sm:flex sm:items-center sm:justify-between">
-                <div class="order-2 block h-auto w-40 overflow-hidden rounded-full sm:m-0"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;padding-top:100%"></span>
-                    <img alt="Picture of the author" src="images/ActualMe.jpg" decoding="async" data-nimg="responsive" class="aspect-square h-full w-full" style='position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;filter:blur(px);background-size:cover;background-image:url("data:image/jpeg;base64,/9j/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAAIAAgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAeEAABAwQDAAAAAAAAAAAAAAACAAEDBAURISNBUf/EABQBAQAAAAAAAAAAAAAAAAAAAAP/xAAZEQEAAgMAAAAAAAAAAAAAAAABAAIRITH/2gAMAwEAAhEDEQA/AKUNpuAHBUlEw1rCwycmRZm1jes9+oiIExxhWoan/9k=");background-position:0% 0%'><noscript><img alt="Picture of the author" sizes="100vw" srcset="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=3840&amp;q=75 3840w" src="images/_next-image" decoding="async" data-nimg="responsive" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="aspect-square h-full w-full" loading="lazy"></noscript></span>
+                <div class="order-2 block h-auto w-40 overflow-hidden rounded-full sm:m-0"><span
+                        style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative"><span
+                            style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;padding-top:100%"></span>
+                        <img alt="Picture of the author" src="images/ActualMe.jpg" decoding="async"
+                            data-nimg="responsive" class="aspect-square h-full w-full"
+                            style='position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;filter:blur(px);background-size:cover;background-image:url("data:image/jpeg;base64,/9j/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAAIAAgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAeEAABAwQDAAAAAAAAAAAAAAACAAEDBAURISNBUf/EABQBAQAAAAAAAAAAAAAAAAAAAAP/xAAZEQEAAgMAAAAAAAAAAAAAAAABAAIRITH/2gAMAwEAAhEDEQA/AKUNpuAHBUlEw1rCwycmRZm1jes9+oiIExxhWoan/9k=");background-position:0% 0%'><noscript><img
+                                alt="Picture of the author" sizes="100vw"
+                                srcset="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fme.cac4ae41.jpg&amp;w=3840&amp;q=75 3840w"
+                                src="images/_next-image" decoding="async" data-nimg="responsive"
+                                style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
+                                class="aspect-square h-full w-full" loading="lazy"></noscript></span>
                 </div>
                 <header class="mt-6 max-w-lg sm:my-0">
-                    <h1 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Micael Silva</h1>
+                    <h1 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Micael
+                        Silva</h1>
                     <h2 class="mb-4 text-gray-900 dark:text-gray-300">Gameplay Programmer</h2>
-                    <p class="w-full font-normal leading-7 text-gray-600 dark:text-gray-400 sm:max-w-sm md:max-w-xl">Welcome to my slice of the internet!<br>I am a student in Games & Multimedia at Polythecnic of Leiria. In my free time I enjoy programming games and replicate interesting game mechanics from other titles. </p>
+                    <p class="w-full font-normal leading-7 text-gray-600 dark:text-gray-400 sm:max-w-sm md:max-w-xl">
+                        Welcome to my slice of the internet!<br>I am a student in Games & Multimedia at Polythecnic of
+                        Leiria. In my free time I enjoy programming games and replicate interesting game mechanics from
+                        other titles. </p>
                 </header>
             </section>
 
@@ -72,221 +125,253 @@
             <section class="mb-16">
                 <h2 class="mb-6 text-2xl font-semibold dark:text-white">Favorite Technologies</h2>
                 <table style="width: 100%;">
-                    <tr>  
+                    <tr>
                         <th class="items-center space-x-3 rounded-xl p-2">
-                            <li class="flex items-center space-x-3 rounded-xl p-2"><span class="flex h-10 w-10 items-center justify-center">
-                                <svg viewbox="0 0 24 24" class="h-auto w-full rounded"><path d="M12 0a12 12 0 1012 12A12 12 0 0012 0zm0 23.52A11.52 11.52 0 1123.52 12 11.52 11.52 0 0112 23.52zm7.13-9.791c-.206.997-1.126 3.557-4.06 4.942l-1.179-1.325-1.988 2a7.338 7.338 0 01-5.804-2.978 2.859 2.859 0 00.65.123c.326.006.678-.114.678-.66v-5.394a.89.89 0 00-1.116-.89c-.92.212-1.656 2.509-1.656 2.509a7.304 7.304 0 012.528-5.597 7.408 7.408 0 013.73-1.721c-1.006.573-1.57 1.507-1.57 2.29 0 1.262.76 1.109.984.923v7.28a1.157 1.157 0 00.148.256 1.075 1.075 0 00.88.445c.76 0 1.747-.868 1.747-.868V9.172c0-.6-.452-1.324-.905-1.572 0 0 .838-.149 1.484.346a5.537 5.537 0 01.387-.425c1.508-1.48 2.929-1.902 4.112-2.112 0 0-2.151 1.69-2.151 3.96 0 1.687.043 5.801.043 5.801.799.771 1.986-.342 3.059-1.441Z" style="fill:#fff"></path></svg></span>
+                            <li class="flex items-center space-x-3 rounded-xl p-2"><span
+                                    class="flex h-10 w-10 items-center justify-center">
+                                    <svg viewbox="0 0 24 24" class="h-auto w-full rounded">
+                                        <path
+                                            d="M12 0a12 12 0 1012 12A12 12 0 0012 0zm0 23.52A11.52 11.52 0 1123.52 12 11.52 11.52 0 0112 23.52zm7.13-9.791c-.206.997-1.126 3.557-4.06 4.942l-1.179-1.325-1.988 2a7.338 7.338 0 01-5.804-2.978 2.859 2.859 0 00.65.123c.326.006.678-.114.678-.66v-5.394a.89.89 0 00-1.116-.89c-.92.212-1.656 2.509-1.656 2.509a7.304 7.304 0 012.528-5.597 7.408 7.408 0 013.73-1.721c-1.006.573-1.57 1.507-1.57 2.29 0 1.262.76 1.109.984.923v7.28a1.157 1.157 0 00.148.256 1.075 1.075 0 00.88.445c.76 0 1.747-.868 1.747-.868V9.172c0-.6-.452-1.324-.905-1.572 0 0 .838-.149 1.484.346a5.537 5.537 0 01.387-.425c1.508-1.48 2.929-1.902 4.112-2.112 0 0-2.151 1.69-2.151 3.96 0 1.687.043 5.801.043 5.801.799.771 1.986-.342 3.059-1.441Z"
+                                            style="fill:#fff"></path>
+                                    </svg></span>
                                 <p class="text-gray-600 dark:text-gray-400">Unreal <br>Engine</p>
                             </li>
                         </th>
                         <th class=" items-center space-x-3 rounded-xl p-2">
-                            <li class="flex items-center space-x-3 rounded-xl p-2"><span class="flex h-10 w-10 items-center justify-center">
-                                <svg fill="none" viewbox="0 0 32 32" class="h-auto w-full"><g clip-path="url(#a)"><path fill="#fff" fill-rule="evenodd" d="M29.86 8c-0.224-0.385-0.532-0.724-0.871-0.921l-11.755-6.787c-0.677-0.391-1.787-0.391-2.464 0l-11.755 6.787c-0.677 0.391-1.235 1.353-1.235 2.135v13.573c0 0.391 0.14 0.828 0.364 1.213 0.219 0.385 0.532 0.724 0.871 0.917l11.749 6.791c0.683 0.391 1.787 0.391 2.464 0l11.755-6.791c0.339-0.193 0.647-0.532 0.871-0.917s0.359-0.823 0.359-1.213v-13.573c0.005-0.391-0.135-0.828-0.353-1.213zM16 25.479c-5.229 0-9.479-4.249-9.479-9.479s4.249-9.479 9.479-9.479c3.385 0.005 6.511 1.812 8.208 4.733l-4.104 2.376c-0.849-1.464-2.411-2.365-4.104-2.371-2.615 0-4.74 2.125-4.74 4.74s2.125 4.74 4.74 4.74c1.693-0.005 3.255-0.907 4.104-2.371l4.104 2.376c-1.697 2.921-4.823 4.728-8.208 4.733zM25.479 16.527h-1.052v1.052h-1.057v-1.052h-1.052v-1.053h1.052v-1.052h1.057v1.052h1.052zM29.427 16.527h-1.052v1.052h-1.052v-1.052h-1.052v-1.053h1.052v-1.052h1.052v1.052h1.052z" clip-rule="evenodd"></path></g><defs><clippath id="a"><path fill="#fff" d="M0 0h54v32.4H0z"></path></clippath></defs></svg></span>
+                            <li class="flex items-center space-x-3 rounded-xl p-2"><span
+                                    class="flex h-10 w-10 items-center justify-center">
+                                    <svg fill="none" viewbox="0 0 32 32" class="h-auto w-full">
+                                        <g clip-path="url(#a)">
+                                            <path fill="#fff" fill-rule="evenodd"
+                                                d="M29.86 8c-0.224-0.385-0.532-0.724-0.871-0.921l-11.755-6.787c-0.677-0.391-1.787-0.391-2.464 0l-11.755 6.787c-0.677 0.391-1.235 1.353-1.235 2.135v13.573c0 0.391 0.14 0.828 0.364 1.213 0.219 0.385 0.532 0.724 0.871 0.917l11.749 6.791c0.683 0.391 1.787 0.391 2.464 0l11.755-6.791c0.339-0.193 0.647-0.532 0.871-0.917s0.359-0.823 0.359-1.213v-13.573c0.005-0.391-0.135-0.828-0.353-1.213zM16 25.479c-5.229 0-9.479-4.249-9.479-9.479s4.249-9.479 9.479-9.479c3.385 0.005 6.511 1.812 8.208 4.733l-4.104 2.376c-0.849-1.464-2.411-2.365-4.104-2.371-2.615 0-4.74 2.125-4.74 4.74s2.125 4.74 4.74 4.74c1.693-0.005 3.255-0.907 4.104-2.371l4.104 2.376c-1.697 2.921-4.823 4.728-8.208 4.733zM25.479 16.527h-1.052v1.052h-1.057v-1.052h-1.052v-1.053h1.052v-1.052h1.057v1.052h1.052zM29.427 16.527h-1.052v1.052h-1.052v-1.052h-1.052v-1.053h1.052v-1.052h1.052v1.052h1.052z"
+                                                clip-rule="evenodd"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="a">
+                                                <path fill="#fff" d="M0 0h54v32.4H0z"></path>
+                                            </clippath>
+                                        </defs>
+                                    </svg></span>
                                 <p class="text-gray-600 dark:text-gray-400">C++</p>
                             </li>
                         </th>
 
                         <th class=" items-center space-x-3 rounded-xl p-2">
-                            <li class="flex items-center space-x-3 rounded-xl p-2"><span class="flex h-10 w-10 items-center justify-center"><svg height="32" viewbox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg" class="h-auto w-full"><g fill="#fff"><path d="M26.531 25.599l-5.728-9.599 5.728-9.599 2.803 9.599zM13.864 24.667l-7.197-7.068h11.469l5.728 9.599zM13.864 7.197l10-2.531-5.728 9.599h-11.605c0 0.136 7.333-7.068 7.333-7.068zM28.531 0l-13.061 3.333-2 3.333h-3.871l-9.599 9.333 9.599 9.333h3.871l1.864 3.333 13.068 3.333 3.463-12.667-1.864-3.333 2-3.333z"></path><circle cx="420.9" cy="296.5" r="45.7"></circle></g></svg></span>
+                            <li class="flex items-center space-x-3 rounded-xl p-2"><span
+                                    class="flex h-10 w-10 items-center justify-center"><svg height="32"
+                                        viewbox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg"
+                                        class="h-auto w-full">
+                                        <g fill="#fff">
+                                            <path
+                                                d="M26.531 25.599l-5.728-9.599 5.728-9.599 2.803 9.599zM13.864 24.667l-7.197-7.068h11.469l5.728 9.599zM13.864 7.197l10-2.531-5.728 9.599h-11.605c0 0.136 7.333-7.068 7.333-7.068zM28.531 0l-13.061 3.333-2 3.333h-3.871l-9.599 9.333 9.599 9.333h3.871l1.864 3.333 13.068 3.333 3.463-12.667-1.864-3.333 2-3.333z">
+                                            </path>
+                                            <circle cx="420.9" cy="296.5" r="45.7"></circle>
+                                        </g>
+                                    </svg></span>
                                 <p class="text-gray-600 dark:text-gray-400">Unity</p>
                             </li>
                         </th>
 
                         <th class=" items-center space-x-3 rounded-xl p-2">
-                            <li class="flex items-center space-x-3 rounded-xl p-2"><span class="flex h-10 w-10 items-center justify-center"><svg style="color: white" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>C Sharp</title><path d="M12 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0zM9.426 7.12a5.55 5.55 0 011.985.38v1.181a4.5 4.5 0 00-2.25-.566 3.439 3.439 0 00-2.625 1.087 4.099 4.099 0 00-1.012 2.906 3.9 3.9 0 00.945 2.754 3.217 3.217 0 002.482 1.023 4.657 4.657 0 002.464-.634l-.004 1.08a5.543 5.543 0 01-2.625.555 4.211 4.211 0 01-3.228-1.297 4.793 4.793 0 01-1.212-3.409 5.021 5.021 0 011.365-3.663 4.631 4.631 0 013.473-1.392 5.55 5.55 0 01.12-.004 5.55 5.55 0 01.122 0zm5.863.155h.836l-.555 2.652h1.661l.567-2.652h.81l-.555 2.652 1.732-.004-.15.697H17.91l-.412 1.98h1.852l-.176.698h-1.816l-.58 2.625h-.83l.567-2.625h-1.65l-.555 2.625h-.81l.555-2.625h-1.74l.131-.698h1.748l.401-1.976h-1.826l.138-.697h1.826zm.142 3.345L15 12.6h1.673l.423-1.98z" fill="white"></path></svg></span>
+                            <li class="flex items-center space-x-3 rounded-xl p-2"><span
+                                    class="flex h-10 w-10 items-center justify-center"><svg style="color: white"
+                                        role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <title>C Sharp</title>
+                                        <path
+                                            d="M12 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0zM9.426 7.12a5.55 5.55 0 011.985.38v1.181a4.5 4.5 0 00-2.25-.566 3.439 3.439 0 00-2.625 1.087 4.099 4.099 0 00-1.012 2.906 3.9 3.9 0 00.945 2.754 3.217 3.217 0 002.482 1.023 4.657 4.657 0 002.464-.634l-.004 1.08a5.543 5.543 0 01-2.625.555 4.211 4.211 0 01-3.228-1.297 4.793 4.793 0 01-1.212-3.409 5.021 5.021 0 011.365-3.663 4.631 4.631 0 013.473-1.392 5.55 5.55 0 01.12-.004 5.55 5.55 0 01.122 0zm5.863.155h.836l-.555 2.652h1.661l.567-2.652h.81l-.555 2.652 1.732-.004-.15.697H17.91l-.412 1.98h1.852l-.176.698h-1.816l-.58 2.625h-.83l.567-2.625h-1.65l-.555 2.625h-.81l.555-2.625h-1.74l.131-.698h1.748l.401-1.976h-1.826l.138-.697h1.826zm.142 3.345L15 12.6h1.673l.423-1.98z"
+                                            fill="white"></path>
+                                    </svg></span>
                                 <p class="text-gray-600 dark:text-gray-400">C#</p>
                             </li>
                         </th>
-                    </tr>  
+                    </tr>
                 </table>
             </section>
 
-
             <!-- SKILLS -->
 
-            <section class="mb-16 sm:flex sm:items-center sm:justify-between">
-                <header class="mt-6 max-w-lg sm:my-0">
+            <section class="mb-6 ">
+                <header class="mt-6 sm:my-0">
                     <h2 class="mb-6 text-2xl font-semibold dark:text-white">Skills</h2>
-                   <div>
 
-                     <!-- ENGINES -->
+                    <table class="tableCheck" style="width: 100%;">
+                        <tr class="tableCheck">
+                            <th class="tableTop" style="text-align: center; font-size:large;">
+                                <p class="text-gray-600 dark:text-gray-300"> Engines</p>
+                            </th>
+                            <th class="tableTop" style="text-align: center;font-size:large;">
+                                <p class="text-gray-600 dark:text-gray-300"> Lanugages</p>
+                            </th>
+                            <th class="tableTop" style="text-align: center;font-size:large;">
+                                <p class="text-gray-600 dark:text-gray-300"> Platforms</p>
+                            </th>
+                            <th class="tableTop" style="text-align: center;font-size:large;">
+                                <p class="text-gray-600 dark:text-gray-300"> QA Tools</p>
+                            </th>
 
-                    <table>
-                        <tr>  
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-300">Engines &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</p>
+                            <th class="tableTop" style="text-align: center;font-size:large;">
+                                <p class="text-gray-600 dark:text-gray-300"> Edition</p>
                             </th>
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">Unreal Engine</p>
-                            </th>
-    
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">Unity</p>
-                            </th>
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">CryEngine</p>
+                            <th class="tableTop" style="text-align: center;font-size:large;">
+                                <p class="text-gray-600 dark:text-gray-300"> 3D Tools</p>
                             </th>
                         </tr>
+
+
+                        <tr class="mt-10">
+                            <th style="text-align: center; font-weight: normal;">
+                                <img src="images/Icons/icons8-unreal-engine-50.png" alt=""
+                                    style="width: 40px; display: block; margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: 5%;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> Unreal Engine</p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <img src="images/Icons/icons8-c++-50.png" alt=""
+                                    style="width: 40px; display: block; margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: 5%;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> C++</p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <img src="images/Icons/icons8-windows-10-50.png" alt=""
+                                    style="width: 40px; display: block; margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: 5%;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> Windows</p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <img src="images/Icons/icons8-github-50.png" alt=""
+                                    style="width: 45px; display: block; margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: 5%;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> GitHub</p>
+                            </th>
+
+                            <th style="text-align: center;font-weight: normal;">
+                                <img src="images/Icons/icons8-adobe-photoshop-50.png" alt=""
+                                    style="width: 45px; display: block; margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: 5%;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> Photoshop</p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <img src="images/Icons/icons8-autodesk-maya-50.png" alt=""
+                                    style="width: 40px; display: block; margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: 5%;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> Maya</p>
+                            </th>
+                        </tr>
+
+                        <tr class="mt-10">
+                            <th style="text-align: center;font-weight: normal;">
+                                <img src="images/Icons/icons8-unity-50.png" alt=""
+                                    style="width: 40px; display: block; margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: 5%;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> Unity</p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <img src="images/Icons/icons8-c-sharp-logo-50.png" alt=""
+                                    style="width: 40px; display: block; margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: 5%;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> C#</p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> </p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"></p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <img src="images/Icons/icons8-adobe-premiere-pro-50.png" alt=""
+                                    style="width: 40px; display: block; margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: 5%;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> Premiere</p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <img src="images/Icons/icons8-cinema-4d-50.png" alt=""
+                                    style="width: 40px; display: block; margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: 5%;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> Cinema4D</p>
+                            </th>
+                        </tr>
+
+                        <tr class="mt-10">
+                            <th style="text-align: center;font-weight: normal;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> </p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> </p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> </p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> </p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <img src="images/Icons/icons8-adobe-after-effects-50.png" alt=""
+                                    style="width: 40px; display: block; margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: 5%;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"> After Effects</p>
+                            </th>
+                            <th style="text-align: center;font-weight: normal;">
+                                <p class="mb-4 text-gray-600 dark:text-gray-300"></p>
+                            </th>
+                        </tr>
+
+
                     </table>
 
-                    <!-- Languages -->
-
-                    <table >
-                        <tr>  
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-300"> Languages&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</p>
-                            </th>
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">C++</p>
-                            </th>
-    
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">C#</p>
-                            </th>
-                        </tr>
-                    </table>
-                   
-             
-
-                    
-                     <!-- External Tools Modeleation -->
-
-                     <table>
-                        <tr>  
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-300"> Tools 3D &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -</p>
-                            </th>
-
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">Autodesk Maya</p>
-                            </th>
-                            
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">Cinema4D</p>
-                            </th>
-
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400"> Substance Painter</p>
-                            </th>
-                        </tr>
-                    </table>    
-
-
-                        <!-- External Tools Edition -->
-
-                        <table>
-                            <tr>  
-                                <th class="items-center space-x-3 rounded-xl p-2">
-                                    <p class="text-gray-600 dark:text-gray-300"> Tools Edition &nbsp;-</p>
-                                </th>
-    
-                                <th class="items-center space-x-3 rounded-xl p-2">
-                                    <p class="text-gray-600 dark:text-gray-400">Photoshop</p>
-                                </th>
-    
-                                <th class="items-center space-x-3 rounded-xl p-2">
-                                    <p class="text-gray-600 dark:text-gray-400">Premiere</p>
-                                </th>
-
-                                <th class="items-center space-x-3 rounded-xl p-2">
-                                    <p class="text-gray-600 dark:text-gray-400">After Effects</p>
-                                </th>
-                            </tr>
-                        </table>
-
-                               <!-- FIELDS-->
-
-                    <table >
-                        <tr>  
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-300"> Fields &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</p>
-                            </th>
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">Gameplay</p>
-                            </th>
-    
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">Networking</p>
-                            </th>
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">Production</p>
-                            </th>
-                        </tr>
-                    </table>
-
-                     <!-- Speech -->
-
-                    <table >
-                        <tr>  
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-300">Speech &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</p>
-                            </th>
-
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">English</p>
-                            </th>
-
-                            <th class="items-center space-x-3 rounded-xl p-2">
-                                <p class="text-gray-600 dark:text-gray-400">Portuguese</p>
-                            </th>
-                        </tr>
-                    </table>
-
-                   </div>    
-                </header>
             </section>
 
             <section class="mb-16">
                 <h2 class="mb-6 text-2xl font-semibold dark:text-white"> About</h2>
                 <p class="text-gray-600 dark:text-gray-400">
-                    My main interests are Gameplay, Networking and AI. I love creating the feel of a game, such as making a jump feel nice or tweaking movement until it feels responsive. I like collaborating with designers to create cool, weird or unique mechanics.
+                    My main interests are Gameplay, Networking and AI. I love creating the feel of a game, such as
+                    making a jump feel nice or tweaking movement until it feels responsive. I like collaborating with
+                    designers to create cool, weird or unique mechanics.
                 </p>
-                </section>
-              
-                <section class="mb-16">
-                    <h2 class="mb-6 text-2xl font-semibold dark:text-white"> Hobbies</h2>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        I do like reading books and research about Game Design.
-                        <br>
-                        I've been learning more about UX through courses provided by Google aswell.
-                    </p>
-                    </section>
-
-            <!--  FAVORITE TECHNOLOGIES -->
-
-            <section class="mb-16">
-            <h2 class="mb-6 text-2xl font-semibold dark:text-white">My Background</h2>
-            <p class="text-gray-600 dark:text-gray-400">
-            I grew up in a village in the middle of nowhere, with no one to play with, and when I went to school I used to stand behind the older kids so I could see what they were playing on their PCs.
-            <br>
-            Years passed, I got my first computer and I decided that I would make a game to show the kids at the school, but without internet, I couldn't do much. Only when I was able to go to the library.
-            <br><br>
-            I was 14 years old and managed to download Unity and install it on my computer at home.
-            <br>
-            I was completely lost, I didn't know what to do or where to start, it was then that I discovered that I had to know how to program in order to make a game. 
-            <br>
-            Since I had no internet at home, whenever I went to the library I took my flash drive and saved the code in a Word document so I could copy it into Visual Studio at home. This is how I completed a series of tutorials that led to my first RPG...
-            <br><br>
-            <h2 class="mb-8 text-gray-900 dark:text-gray-300">
-            Obviously this didn't went well, since my project had a very large scope.
-            </h2>
-            <p class="text-gray-600 dark:text-gray-400">
-            About a year later I finally got internet access and I have started to make simple things that were enjoyable to do. My motivation ramped up as I found that the joy of programming came from seeing these little things working.
-            <br><br>
-            I've learned 3D Softwares so I could make props and texture them to complete some projects. 
-            <br> But, all I wanted was to program, and when it came to putting art into the project new ideas would come and it meant that there was more to do and more to program!
-            <br><br>
-            Nowadays I love programming, I find joy in seeing little things working,
-            I hope to continue doing what I love, and learn much more in a near future.
-            <br><br><br>
-
-            <h2 class=" text-gray-900 dark:text-white">TL;DR: </h2>
-            <p class="text-gray-600 dark:text-gray-400">
-            I grew up in the middle of nowhere, I loved to watch the boys playing games at school, I discovered Unity, I wanted to make an RPG, I gave up on doing the RPG, I started doing small projects, and here I am!
-            </p>
             </section>
 
-         
+            <section class="mb-16">
+                <h2 class="mb-6 text-2xl font-semibold dark:text-white"> Hobbies</h2>
+                <p class="text-gray-600 dark:text-gray-400">
+                    I do like reading books and research about Game Design.
+                    <br>
+                    I've been learning more about UX through courses provided by Google aswell.
+                </p>
+            </section>
+
+            <!--  Backgorund -->
+
+            <section class="mb-16">
+                <h2 class="mb-6 text-2xl font-semibold dark:text-white">My Background</h2>
+                <p class="text-gray-600 dark:text-gray-400">
+                    I grew up in a village in the middle of nowhere, with no one to play with, and when I went to school
+                    I used to stand behind the older kids so I could see what they were playing on their PCs.
+                    <br>
+                    Years passed, I got my first computer and I decided that I would make a game to show the kids at the
+                    school, but without internet, I couldn't do much. Only when I was able to go to the library.
+                    <br><br>
+                    I was 14 years old and managed to download Unity and install it on my computer at home.
+                    <br>
+                    I was completely lost, I didn't know what to do or where to start, it was then that I discovered
+                    that I had to know how to program in order to make a game.
+                    <br>
+                    Since I had no internet at home, whenever I went to the library I took my flash drive and saved the
+                    code in a Word document so I could copy it into Visual Studio at home. This is how I completed a
+                    series of tutorials that led to my first RPG...
+                    <br><br>
+                <h2 class="mb-8 text-gray-900 dark:text-gray-300">
+                    Obviously this didn't went well, since my project had a very large scope.
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400">
+                    About a year later I finally got internet access and I have started to make simple things that were
+                    enjoyable to do. My motivation ramped up as I found that the joy of programming came from seeing
+                    these little things working.
+                    <br><br>
+                    I've learned 3D Softwares so I could make props and texture them to complete some projects.
+                    <br> But, all I wanted was to program, and when it came to putting art into the project new ideas
+                    would come and it meant that there was more to do and more to program!
+                    <br><br>
+                    Nowadays I love programming, I find joy in seeing little things working,
+                    I hope to continue doing what I love, and learn much more in a near future.
+                    <br><br><br>
+
+                <h2 class=" text-gray-900 dark:text-white">TL;DR: </h2>
+                <p class="text-gray-600 dark:text-gray-400">
+                    I grew up in the middle of nowhere, I loved to watch the boys playing games at school, I discovered
+                    Unity, I wanted to make an RPG, I gave up on doing the RPG, I started doing small projects, and here
+                    I am!
+                </p>
+            </section>
+
+
 
         </main>
     </div>
@@ -295,7 +380,7 @@
         <p style="text-align: center;" class="w-fullfont-normal leading-7 text-gray-600 dark:text-gray-400">
             // it just works - todd howard
         </p>
-        
+
     </div>
 
 
