@@ -2995,3 +2995,15 @@ input[type='checkbox'] {
     height: 100%;
     border: none;
   }
+
+  .imgHoverShowcase
+  {
+   
+        transition:transform 0.15s ease;
+
+  }
+
+  .imgHoverShowcase:hover {
+    -webkit-transform:scale(3.5);
+    transform:scale(3.5);
+}
