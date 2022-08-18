@@ -2998,9 +2998,7 @@ input[type='checkbox'] {
 
   .imgHoverShowcase
   {
-   
-        transition:transform 0.15s ease;
-
+    transition:transform 0.15s ease;
   }
 
   .imgHoverShowcase:hover {
