@@ -3005,3 +3005,9 @@ input[type='checkbox'] {
     -webkit-transform:scale(3.5);
     transform:scale(3.5);
 }
+
+.donwloadButton
+{
+    width: 20px; 
+    height: 20px;
+}
