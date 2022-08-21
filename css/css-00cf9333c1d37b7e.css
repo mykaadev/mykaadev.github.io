@@ -3011,3 +3011,9 @@ input[type='checkbox'] {
     width: 20px; 
     height: 20px;
 }
+
+.copypasta
+{
+    white-space: pre;
+    text-align: center;
+}
