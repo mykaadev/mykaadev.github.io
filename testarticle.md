@@ -47,3 +47,10 @@ The tavern fills the need of the player to:
 **Tavern Food**:
 - Meat & Fish
 - Local Vegetables
+
+``` cpp
+int main()
+{
+    return 0;
+}
+```
