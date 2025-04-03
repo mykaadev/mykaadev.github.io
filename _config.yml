@@ -33,8 +33,8 @@ github_username:  mykaadev
 theme: minima
 plugins:
   - jekyll-feed
-  
-keep_files: ["library"]
+
+keep_files: ["library", "main", "articles", "portfolio"]
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
