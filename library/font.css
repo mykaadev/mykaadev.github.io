@@ -1,0 +1,65 @@
+/* Regular text and code */
+/*@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap');*/
+
+/* Titles */
+/* @import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap'); */
+
+/*---------------------------------------------
+Fonts
+(Cannot use url linking to Google because of GDPR, need local copy)
+From:
+ - https://google-webfonts-helper.herokuapp.com/fonts/rubik?subsets=latin
+ - https://google-webfonts-helper.herokuapp.com/fonts/overpass-mono?subsets=latin
+---------------------------------------------*/
+/* rubik-regular - latin */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  src: url("resoutces/fonts/rubik-v21-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("resoutces/fonts/rubik-v21-latin-regular.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("fonts/rubik-v21-latin-regular.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("resoutces/fonts/rubik-v21-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */ url("resoutces/fonts/rubik-v21-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */ url("resoutces/fonts/rubik-v21-latin-regular.svg#Rubik")
+      format("svg"); /* Legacy iOS */
+}
+/* rubik-500 - latin */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  src: url("resoutces/fonts/rubik-v21-latin-500.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("resoutces/fonts/rubik-v21-latin-500.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("resoutces/fonts/rubik-v21-latin-500.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("resoutces/fonts/rubik-v21-latin-500.woff")
+      format("woff"),
+    /* Modern Browsers */ url("resoutces/fonts/rubik-v21-latin-500.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */ url("resoutces/fonts/rubik-v21-latin-500.svg#Rubik")
+      format("svg"); /* Legacy iOS */
+}
+/* overpass-mono-regular - latin */
+@font-face {
+  font-family: "Overpass Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("resoutces/fonts/overpass-mono-v15-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("resoutces/fonts/overpass-mono-v15-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("resoutces/fonts/overpass-mono-v15-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("resoutces/fonts/overpass-mono-v15-latin-regular.woff") format("woff"),
+    /* Modern Browsers */ url("resoutces/fonts/overpass-mono-v15-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("resoutces/fonts/overpass-mono-v15-latin-regular.svg#OverpassMono")
+      format("svg"); /* Legacy iOS */
+}
