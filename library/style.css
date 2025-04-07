@@ -1480,12 +1480,11 @@ blockquote.logo-quote:hover {
 ---------------------------------------------*/
 #page-not-found {
     /* color: #474747; */
-    color: #888888;
+    color: #f03a6c;
     text-align: center;
     padding: 13px;
     font-size: 16px;
     font-family: "Overpass Mono", monospace;
-    padding-bottom: 64px;
 }
 
 
