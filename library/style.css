@@ -1476,6 +1476,17 @@ blockquote.logo-quote:hover {
 
 
 /*---------------------------------------------
+404
+---------------------------------------------*/
+#page-not-found {
+    color: #919191;
+    text-align: center;
+    padding: 13px;
+    font-size: 14px;
+    font-family: "Overpass Mono", monospace;
+}
+
+/*---------------------------------------------
 Footer
 ---------------------------------------------*/
 
