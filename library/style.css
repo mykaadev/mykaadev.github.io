@@ -40,7 +40,7 @@ body {
     font-size: 17px;
     font-weight: 400;
     background-color: #212121;
-    background-image: url("bg_white_noise.webp");
+    background-image: url("/resources/images/common/bg_white_noise.webp");
     background-repeat: repeat;
     text-rendering: geometricPrecision;
 }
