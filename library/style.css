@@ -814,6 +814,7 @@ Index
 
 .index-section {
     margin-bottom: 64px;
+    z-index: 100;
 }
 
 .index-section .card {
