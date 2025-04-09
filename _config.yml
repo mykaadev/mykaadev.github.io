@@ -21,9 +21,9 @@
 title: Micael Silva
 email: micaelsilva.desk@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+   Hi, I'm Micael Silva aka mykaa. 
+   I'm a Tools Programmer working at Saber Interactive with 4 years of experience and technical knowledge in game programming, tools development and user experience.
+   I'm game design enthusiast and a passionate learner, always exploring new ideas. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mykaadev.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mykaadev
@@ -34,7 +34,7 @@ theme: minima
 plugins:
   - jekyll-feed
 
-keep_files: ["library", "main", "articles", "portfolio"]
+keep_files: ["library", "resources", "articles", "portfolio"]
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
