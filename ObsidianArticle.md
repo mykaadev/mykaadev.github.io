@@ -48,5 +48,5 @@ and links?
  [Test to Google](https://dev.epicgames.com/documentation/en-us/unreal-engine/distance-field-ambient-occlusion-in-unreal-engine)
 
 and local images? do they get transferred?
-![TestImage.png](resources/articles/TestImage.png)
+![TestImage.png](articles/resources/TestImage.png)
 ![DD_CombatMenu](DD_CombatMenu.md)
