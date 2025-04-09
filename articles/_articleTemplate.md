@@ -1,5 +1,4 @@
 ---
-share: true
 layout: default
 title: "ArticleTemplate"
 ---
