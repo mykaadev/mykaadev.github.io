@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+ 
+<head>
+    <title>Micael Silva</title>
+    <link rel="profile" href="https://gmpg.org/xfn/11" />
+    <link rel="shortcut icon" href="/resources/images//resources/images/common/logo_mykaa_handwritten.png" sizes="128x128" type="image/png" />
+    <link rel="alternate" type="application/rss+xml" title="mykaa RSS feed" href="/rss.xml" />
+    
+    <link rel="stylesheet" type="text/css" href="/library/style.css" />
+    <link rel="stylesheet" type="text/css" href="/library/code.css?v=2" />
+    <link rel="stylesheet" type="text/css" href="/library/font.css?v=1" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="Author" content="Micael Silva (mykaa)" />
+    <meta name="Description" content="Personal portfolio and blog of Micael Silva (mykaa) about game development." />
+    <meta name="Keywords" content="mykaa, micael, silva, tutorial, tutorials, breakdown, articles, dev, development, tools, AAA, indie, plugins, plugin, gamedev, computer graphics, shaders, rendering, unreal, engine, ue4, realtime, opengl" />
+
+    <meta property="og:description" content="Personal website of mykaa" />
+    <meta property="og:image" content="https://www.mykaadev.guithub.io//resources/images/common/logo_mykaa_handwritten.png" />
+    <meta property="twitter:description" name="twitter:description" content="Personal website of mykaa" />
+    <meta property="twitter:image" name="twitter:image" content="https://www.mykaadev.guithub.io//resources/images/common/logo_mykaa_handwritten.png" />
+
+    <meta property="og:title" content="Micael Silva" />
+    <meta property="og:url" content="https://www.mykaadev.guithub.io" />
+    <meta property="twitter:title" name="twitter:title" content="Micael Silva" />
+    <meta property="twitter:domain" name="twitter:domain" content="https://www.mykaadev.guithub.io" />
+    <meta name="twitter:card" content="summary_large_image" />
+</head>
+
+<body>
+    <span id="page-top"></span>
+    <div id="header-background-area">
+        <div id="main-header">
+            <div id="main-header-name">
+                <img alt="" id="main-logo" rel="preload" src="/resources/images/common/mykaaPic.jpg" />
+                <img alt="" id="main-mykaa-logo" rel="preload" src="/resources/images/common//logo_mykaa_handwritten.png">
+                <a href="/index.html" id="main-header-link"></a>
+                </img>
+            </div>
+            <div id="main-header-icons">
+                <a class="logo-link" rel="me" href="https://github.com/mykaadev" target="_blank">
+                    <img id="header-github-link" alt="" src="/resources/icons/github.svg" />
+                </a>
+                <a class="logo-link" href="https://bsky.app/profile/mykaadev.bsky.social" rel="me" target="_blank">
+                    <img alt="" id="header-bluesky-link" src="/resources/icons/bluesky.svg" />
+                </a>
+                <a class="logo-link" href="https://discord.gg/A8bwhNp" target="_blank">
+                    <img alt="" id="header-discord-link" src="/resources/icons/discord.svg" />
+                </a>
+            </div>
+            <div id="main-header-text">
+                <a href="/about.html" id="link-about">About</a>
+                <a class="header-link-current" id="link-plugins" href="/plugins.html">Plugins</a>
+                <a href="/resources/files/ResumeMicaelSilva.pdf" id="link-resume">Resume</a>
+            </div>
+        </div>
+        <div id="page-title-parent">
+            <img alt="unfurl" id="header-background-image-resource" rel="preload" src= {{ page.thumbnail }}/>
+            <div id="page-title-gradient"></div>
+            <div id="page-title">
+                <h1>{{ page.title }}</h1>
+                <p>{{ page.short-description }}</p>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="main-body">
+            <p>{{ page.description }}</p>
+            <hr>
+            {{ content }}
+            <hr>
+            <h2>Contact</h2>
+            <div class="contact-links">
+                <a href="mailto:micaelsilva.desk@gmail.com" class="contact-link">
+                    <img src="/resources/icons/email.svg" alt="Email icon">
+                    <span>E-mail</span>
+                </a>
+                <a href="http://linkedin.com/in/mykaa" class="contact-link">
+                    <img src="/resources/icons/linkedin.svg" alt="LinkedIn icon">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/mykaadev" class="contact-link">
+                    <img src="/resources/icons/github.svg" alt="GitHub icon">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://bsky.app/profile/mykaadev.bsky.social" class="contact-link">
+                    <img src="/resources/icons/bluesky.svg" alt="Bluesky icon">
+                    <span>Bluesky</span>
+                </a>
+                <a href="https://discord.gg/A8bwhNp" class="contact-link">
+                    <img src="/resources/icons/discord.svg" alt="Discord icon">
+                    <span>Discord</span>
+                </a>
+            </div>
+            <div id="main-footer">
+                <p>
+                    <a alt="back to top" aria-label="back to top" href="#page-top" id="link-back-top" title="back to top">Back To Top</a>
+                </p>
+                <p>
+                    ╔═══════════════════════╗<br/> mykaa - 2025 <span id="character-flicker">█</span><br/> ╚═══════════════════════╝
+                </p>
+                <p class="ai-disclaimer">
+                    The content provided on this website cannot be used, consumed or gathered in order to train large language model, build datasets or make any other kind of AI based solution.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
