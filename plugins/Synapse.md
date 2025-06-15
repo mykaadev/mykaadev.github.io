@@ -1,13 +1,13 @@
 ---
 layout: plugin
-title: "Utility AI"
-thumbnail: "https://raw.githubusercontent.com/mykaadev/NsUtilityAI/refs/heads/main/Resources/UtilityAIBanner.png"
-short-description: "Dynamic decision-making"
+title: "Synapse"
+thumbnail: "https://raw.githubusercontent.com/mykaadev/NsSynapse/refs/heads/main/Resources/UtilityAIBanner.png"
+short-description: "Decision-Making System"
 description: "A decision-making framework for Unreal Engine agents where every possible action is evaluated by a set of considerations. The resulting utility score selects which action to execute"
 ---
 
 ## 👀 Summary
-Utility AI is a decision-making framework for Unreal Engine agents where each possible *Action* is evaluated by multiple *Considerations*, producing a utility score that determines the best action to execute. 
+Synapse is a decision-making framework for Unreal Engine agents where each possible *Action* is evaluated by multiple *Considerations*, producing a utility score that determines the best action to execute. 
 
 This approach enables smoother, more emergent behaviors compared to rigid Finite State Machines or tree-based architectures.
 
@@ -36,20 +36,20 @@ Utility AI evaluates many potential actions and ranks them based on their desira
 Unreal Engine 5.2+
 
 ## 🛠️ Installation
-1. **[Download](https://github.com/mykaadev/NsUtilityAI/releases)** the latest release.
-2. Extract the archive into your project's `Plugins` folder: `.../UEGame/Plugins/NsUtilityAI`.
+1. **[Download](https://github.com/mykaadev/NsSynapse)** the latest release.
+2. Extract the archive into your project's `Plugins` folder: `.../UEGame/Plugins/NsSynapse`.
 3. Add the plugin to your `UEGame.uproject` and generate project files.
 4. Open the project and enable **NsUtilityAI** if prompted.
 
 ## 🔧 Usage / API Reference
 ### Key Classes
-- `UNsUtilAIBrainComponent` – attach to an actor and call **Think** to evaluate actions.
-- `UNsUtilAIAction` – base class for actions. Override **ExecuteAction** and provide **Considerations**.
-- `UNsUtilAIConsideration` – base class for scoring logic with a customizable curve.
+- `UNsSynapseBrainComponent` – attach to an actor and call **Think** to evaluate actions.
+- `UNsSynapseAction` – base class for actions. Override **ExecuteAction** and provide **Considerations**.
+- `UNsSynapseConsideration` – base class for scoring logic with a customizable curve.
 
 ### Main Functions
-- `Think()` – evaluates `PossibleActions`, runs the best scoring action.
-- `ThinkAndReact()` – evaluates `PossibleActions`, and executes the best action.
+- `Think()` – evaluates `PossibleActions`.
+- `ThinkAndReact()` – evaluates `PossibleActions` and executes the best action.
 - `ChooseAction` – given an array of actions, selects the highest scoring one.
 - `ScoreAction` – multiplies consideration scores to produce an action utility value.
 - `ExecuteAction` – override in your action subclass to perform behaviour.
@@ -57,9 +57,9 @@ Unreal Engine 5.2+
 - `GetBestAction` – returns the action chosen by the last call to **Think**.
 
 ### Getting Started
-1. In your AI actor, add **`UNsUtilAIBrainComponent`**.
-2. Create custom **`UNsUtilAIAction`** subclasses and assign them to the Brain Component’s **`PossibleActions`** array.
-3. Implement **`CalculateScore()`** in each **`UNsUtilAIConsideration`** to read your game data.
+1. In your AI actor, add **`UNsSynapseBrainComponent`**.
+2. Create custom **`UNsSynapseAction`** subclasses and assign them to the Brain Component’s **`PossibleActions`** array.
+3. Implement **`CalculateScore()`** in each **`UNsSynapseConsideration`** to read your game data.
 4. For each Consideration, adjust the **Response Curve** to shape decision sensitivity and assign it to the action that you want..
 5. Call **`ThinkAndReact()`** whenever the AI should evaluate and execute an action.
 
@@ -87,7 +87,7 @@ Each action is scored by its considerations:
 // Actor with brain component
 AMyBot::AMyBot()
 {
-    Brain = CreateDefaultSubobject<UNsUtilAIBrainComponent>(TEXT("Brain"));
+    Brain = CreateDefaultSubobject<UNsSynapseBrainComponent>(TEXT("Brain"));
 }
 
 void AMyBot::BeginPlay()
@@ -100,7 +100,7 @@ void AMyBot::BeginPlay()
 
 // Custom consideration
 UCLASS()
-class UHealthConsideration : public UNsUtilAIConsideration
+class UHealthConsideration : public UNsSynapseConsideration
 {
     GENERATED_BODY()
 
@@ -117,7 +117,7 @@ public:
 
 // Custom action
 UCLASS()
-class UAttackAction : public UNsUtilAIAction
+class UAttackAction : public UNsSynapseAction
 {
     GENERATED_BODY()
 
@@ -136,6 +136,6 @@ class UAttackAction : public UNsUtilAIAction
 
 ---
 
-> **Download**: [Github](https://www.github.com/mykaadev/NsUtilityAI)
+> **Download**: [Github](https://www.github.com/mykaadev/NsSynapse)
 
 
