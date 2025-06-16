@@ -54,3 +54,8 @@ keep_files: ["library", "resources", "articles", "portfolio"]
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+collections:
+  plugins:
+    output: true
+    permalink: /plugins/:name/

@@ -1,0 +1,56 @@
+---
+layout: pluginShowcaseLayout
+permalink: /plugins
+---
+
+<h2>📦 Vault Distribution</h2>
+<table>
+  {% assign cat_icons = "Algorithm:🟨,Gameplay:🟧,Tools:🟩,Visuals:🟦,Utility:🟪" | split: "," %}
+  {% for row in cat_icons %}
+    {% assign pair = row | split: ":" %}
+    {% assign cat = pair[0] %}
+    {% assign icon = pair[1] %}
+    {% assign count = site.pages 
+      | where: "category", cat 
+      | where_exp: "p", "p.path contains 'plugins/'" 
+      | size %}
+    <tr>
+      <td>{{ cat }}</td>
+      <td>
+        {% for i in (1..count) %}
+          {{ icon }}
+        {% endfor %}
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+<hr>
+
+<h2>📦 Content</h2>
+<p>Selection of some content from this vault</p>
+
+{% assign categories = "Algorithm,Gameplay,Tools,Utility,Visuals" | split: "," %}
+{% for cat in categories %}
+  {% assign plugins_in_cat = site.pages
+       | where: "category", cat
+       | where_exp: "item", "item.path contains 'plugins/'"
+       | sort: "date" | reverse %}
+  {% if plugins_in_cat.size > 0 %}
+    <h3>{{ cat }}</h3>
+    <div class="card-container">
+      {% for plugin in plugins_in_cat %}
+        <a class="card" href="{{ plugin.url }}">
+          <div class="card-image" style="background-image: url({{ plugin.thumbnail }});"></div>
+          <div class="card-content">
+            <p class="date">{{ plugin.date | date: "%Y-%m-%d" }}</p>
+            <hr/>
+            <h3>{{ plugin.title }}</h3>
+            <p>{{ plugin.short-description }}</p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endfor %}

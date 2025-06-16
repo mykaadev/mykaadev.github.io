@@ -820,7 +820,7 @@ Index
 .index-section .card {
     flex: 0 0 33.3333%;
     max-width: calc(33.3333% - 8px - 5px);
-    height: 400px;
+    height: 256px;
     border-radius: 8px;
     /* background: #2F2F2F; */
     background: #190d0f;
@@ -1039,7 +1039,7 @@ blockquote.logo-quote:hover {
     margin: 8px;
     margin-left: 0px;
     margin-right: 0px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .index-section .card .date {

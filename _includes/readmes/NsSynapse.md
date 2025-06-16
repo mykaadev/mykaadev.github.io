@@ -1,15 +1,5 @@
----
-layout: plugin
-title: "Synapse"
-thumbnail: "https://raw.githubusercontent.com/mykaadev/NsSynapse/refs/heads/main/Resources/UtilityAIBanner.png"
-short-description: "Decision-Making System"
-description: "A decision-making framework for Unreal Engine agents where every possible action is evaluated by a set of considerations. The resulting utility score selects which action to execute"
----
-
 ## 👀 Summary
-Synapse is a decision-making framework for Unreal Engine agents where each possible *Action* is evaluated by multiple *Considerations*, producing a utility score that determines the best action to execute. 
-
-This approach enables smoother, more emergent behaviors compared to rigid Finite State Machines or tree-based architectures.
+A decision-making framework for Unreal Engine agents where every possible action is evaluated by a set of considerations. The resulting utility score selects which action to execute.
 
 ## ❓ What is Utility AI?
 Utility AI evaluates many potential actions and ranks them based on their desirability. Each action gathers scores from considerations (for example health, distance or ammo) and the highest score wins. This approach results in more nuanced behaviour than simple state machines or behaviour trees.
@@ -128,14 +118,8 @@ class UAttackAction : public UNsSynapseAction
 };
 ```
 
-## FAQ
 
-**Q:** *Can Utility AI replace Behavior Trees?*
-
-**A:** It complements them. Use Utility AI for high-level decision making and Behavior Trees for action execution sequences when needed.
 
 ---
 
-> **Download**: [Github](https://www.github.com/mykaadev/NsSynapse)
-
-
+[⬇ Download on GitHub](https://github.com/mykaadev/NsSynapse)
