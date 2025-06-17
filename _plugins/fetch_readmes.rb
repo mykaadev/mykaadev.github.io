@@ -49,7 +49,7 @@ module Jekyll
           content = response.body.force_encoding("UTF-8")
           content = remove_gh_only_sections(content)
           content = remove_meta_blocks(content)
-          content << "\n\n---\n\n[⬇ Download on GitHub](https://github.com/mykaadev/#{repo})"
+          content << "\n\n---\n\n> [⬇ Download on GitHub](https://github.com/mykaadev/#{repo})"
 
           File.write(File.join(dest_dir, "#{repo}.md"), content.strip)
         rescue StandardError => e

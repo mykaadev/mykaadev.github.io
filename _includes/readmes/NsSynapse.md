@@ -122,4 +122,4 @@ class UAttackAction : public UNsSynapseAction
 
 ---
 
-[⬇ Download on GitHub](https://github.com/mykaadev/NsSynapse)
+> [⬇ Download on GitHub](https://github.com/mykaadev/NsSynapse)
