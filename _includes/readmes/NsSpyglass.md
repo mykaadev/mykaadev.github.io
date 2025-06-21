@@ -20,7 +20,7 @@ Unreal Engine 5.2+
 3. Generate project files and enable the plugin when prompted.
 
 ## 🚀 Getting Started
-Open your Unreal Engine editor and head up to `Window` > `Spyglass` > `Plugin Dependency Viewer` and start exploreing all your loaded plugins and their references.
+Open your Unreal Engine editor and head up to `Window` > `Spyglass` > `Plugin Dependency Viewer` and start exploring all your loaded plugins and their dependencies.
 
 
 
