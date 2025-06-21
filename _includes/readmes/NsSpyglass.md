@@ -2,9 +2,9 @@
 NsSpyglass is a small yet powerful plugin dependency viewer for Unreal Engine.
 
 <div align="center">
-  <img src="https://github.com/mykaadev/NsSpyglass/blob/main/Resources/ShowcaseGraphOut.gif" width="250" /> &nbsp;
-  <img src="https://github.com/mykaadev/NsSpyglass/blob/main/Resources/ShowcaseGraphIn.gif" width="250" /> &nbsp;
-  <img src="https://github.com/mykaadev/NsSpyglass/blob/main/Resources/ShowcaseGraphMove.gif" width="250" />
+  <img src="https://raw.githubusercontent.com/mykaadev/NsSpyglass/refs/heads/main/Resources/ShowcaseGraphOut.gif" width="250" /> &nbsp;
+  <img src="https://raw.githubusercontent.com/mykaadev/NsSpyglass/refs/heads/main/Resources/ShowcaseGraphIn.gif" width="250" /> &nbsp;
+  <img src="https://raw.githubusercontent.com/mykaadev/NsSpyglass/refs/heads/main/Resources/ShowcaseGraphMove.gif" width="250" />
 </div>
 
 ## 📦 Features
@@ -20,7 +20,7 @@ Unreal Engine 5.2+
 3. Generate project files and enable the plugin when prompted.
 
 ## 🚀 Getting Started
-Open your Unreal Engine editor and head up to `Window` > `Spyglass` > `Plugin Dependency Viewer` and start exploreing all your loaded plugins and their references.
+Open your Unreal Engine editor and head up to `Window` > `Spyglass` > `Plugin Dependency Viewer` and start exploring all your loaded plugins and their dependencies.
 
 
 
