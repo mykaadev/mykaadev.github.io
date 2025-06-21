@@ -1,5 +1,5 @@
 ## 👀 Summary
-NsSpyglass is a small yet powerful plugin dependency viewer for Unreal Engine.
+NsSpyglass is a lightweight Unreal Engine editor plugin that builds an interactive graph showing how your plugins depend on one another. Hover over a node to see detailed information, pan around the view and tweak layout forces to suit your preferences.
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/mykaadev/NsSpyglass/refs/heads/main/Resources/ShowcaseGraphOut.gif" width="250" /> &nbsp;
@@ -8,19 +8,20 @@ NsSpyglass is a small yet powerful plugin dependency viewer for Unreal Engine.
 </div>
 
 ## 📦 Features
-- **Graph Viewer**: A Slate-based force-directed graph viewer
-- **Custom Graph Settings**: Adjust the forces of your graph
+- **Force-directed graph** that visualises plugin dependencies.
+- **Hover info panel** describing authors, modules and references.
+- **Customisable settings** to tune repulsion and centering forces.
 
 ## ⚙️ Requirements
-Unreal Engine 5.2+
+Unreal Engine 5.2 or newer.
 
 ## 🛠️ Installation
-1. **Clone** or download this repository.
+1. Clone or download this repository.
 2. Copy the `NsSpyglass` folder into your project's `Plugins` directory.
-3. Generate project files and enable the plugin when prompted.
+3. Generate project files and enable the plugin.
 
-## 🚀 Getting Started
-Open your Unreal Engine editor and head up to `Window` > `Spyglass` > `Plugin Dependency Viewer` and start exploring all your loaded plugins and their dependencies.
+## 🚀 Usage
+Launch your Unreal Engine editor and navigate to `Window` → `Spyglass` → `Plugin Dependency Viewer`. Start exploring your project by dragging nodes, zooming and hovering for details.
 
 
 
