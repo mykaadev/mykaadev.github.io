@@ -12,6 +12,7 @@ module Jekyll
     PLUGINS = {
       "NsNeuralFramework" => "main",
       "NsSynapse"         => "main",
+      "NsSpyglass"        => "main",
       "NsSaveWizard"      => "main",
       "NsAchievements"    => "main",
       "NsInteraction"     => "main",

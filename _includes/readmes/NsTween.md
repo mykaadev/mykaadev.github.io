@@ -1,5 +1,5 @@
 ## 👀 Summary
-NsTwee is a small yet powerful tweening framework for Unreal Engine. It allows smooth interpolation of floats, vectors and quaternions using a rich set of easing functions. Tweens can be controlled entirely through C++ or Blueprint nodes.
+NsTween is a small yet powerful tweening framework for Unreal Engine. It allows smooth interpolation of floats, vectors and quaternions using a rich set of easing functions. Tweens can be controlled entirely through C++ or Blueprint nodes.
 
 ## 📦 Features
 - **Multiple data types**: Tween `float`, `vector`, `vector2D`, `rotator` and `quaternion` values.
@@ -50,7 +50,7 @@ void AFloatingItem::BeginPlay()
 {
     Super::BeginPlay();
 
-    // Float continuously
+        // Float continuously
     NsTweenCore::Play(
          /**Start*/   GetActorLocation().Z,
          /**End*/     GetActorLocation().Z + 40.f,
@@ -58,26 +58,28 @@ void AFloatingItem::BeginPlay()
          /**Ease*/    ENsTweenEase::InOutSine,
          /**Update*/  [this](float Z)
         {
-            const FVector Loc = GetActorLocation();
-            Loc.Z = Z;
-            SetActorLocation(Loc);
+            FVector CurrentLocation = GetActorLocation();
+            CurrentLocation.Z = Z;
+            SetActorLocation(CurrentLocation);
         })
-        ->SetPingPong(true)
-        ->SetLoops(-1);
+        .SetPingPong(true)
+        .SetLoops(-1); // infinite loops
 
-    // Rotate once then pop
+
+    // Rotate and print 10 times the Loop
     NsTweenCore::Play(
-        /**Start*/   GetActorRotation().Quaternion(),
-        /**End*/     GetActorRotation().Quaternion() * FQuat(FRotator(0.f, 360.f, 0.f)),
-        /**Time*/    2.f,
-        /**Ease*/    ENsTweenEase::Linear,
-        /**Update*/  [this](FQuat Q)
+        /** Start  */  0.f,
+        /** End    */  360.f,
+        /** Time   */  2.f,
+        /** Ease   */  ENsTweenEase::Linear,
+        /** Update */  [this](float Yaw)
         {
-            SetActorRotation(Q.Rotator());
+            SetActorRotation(FRotator(0.f, Yaw, 0.f));
         })
-        /**On Ease Complete*/ ->SetOnComplete([this]()
+        .SetLoops(10) // 10 full spins
+        .OnLoop([this]()
         {
-            Pop();
+            UE_LOG(LogTemp, Warning, TEXT("Spin finished"));
         });
 }
 ```
