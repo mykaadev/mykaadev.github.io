@@ -32,6 +32,24 @@ module Jekyll
       content.gsub(/<!--\s*PLUGIN_META.*?PLUGIN_META\s*-->/m, "")
     end
 
+    def fix_relative_asset_links(content, repo, branch)
+      base = "https://raw.githubusercontent.com/mykaadev/#{repo}/#{branch}/"
+
+      # Replace Markdown image paths
+      content = content.gsub(/!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/) do
+        alt = Regexp.last_match(1)
+        path = Regexp.last_match(2).sub(%r{^\.?/}, "")
+        "![#{alt}](#{base}#{path})"
+      end
+
+      # Replace HTML <img> src attributes
+      content.gsub(/<img([^>]*?)src=\"(?!https?:\/\/)([^\">]+)\"/) do
+        attrs = Regexp.last_match(1)
+        path  = Regexp.last_match(2).sub(%r{^\.?/}, "")
+        "<img#{attrs}src=\"#{base}#{path}\""
+      end
+    end
+
     def generate(site)
       dest_dir = File.join(site.source, "_includes", "readmes")
       FileUtils.mkdir_p(dest_dir)
@@ -50,6 +68,7 @@ module Jekyll
           content = response.body.force_encoding("UTF-8")
           content = remove_gh_only_sections(content)
           content = remove_meta_blocks(content)
+          content = fix_relative_asset_links(content, repo, branch)
           content << "\n\n---\n\n> [⬇ Download on GitHub](https://github.com/mykaadev/#{repo})"
 
           File.write(File.join(dest_dir, "#{repo}.md"), content.strip)
