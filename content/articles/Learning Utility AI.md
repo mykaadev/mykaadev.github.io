@@ -1,7 +1,7 @@
 ---
-title: "Utility AI"
+title: "Utility AI & The Sims"
 date: 2025-10-17
-summary: "Why Utility AI clicked for me, why The Sims is such a great reference point"
+summary: "Utility AI and why The Sims is such a great reference point"
 thumbnail: /resources/images/plugins/UtilityAI.png
 ---
 
