@@ -38,7 +38,14 @@ module Jekyll
           "utility" => "Utility",
           "visuals" => "Visuals"
         },
-        "repo_overrides" => {}
+        "repo_overrides" => {},
+        "discussions" => {
+          "enabled" => true,
+          "category" => "General",
+          "mapping" => "specific",
+          "term_prefix" => "plugin-",
+          "repo_overrides" => {}
+        }
       }.freeze
 
       def initialize(site)
@@ -47,6 +54,7 @@ module Jekyll
         @config = deep_merge(DEFAULT_CONFIG, stringify_keys(site.config["plugin_sync"] || {}))
         @github_user = @config["github_user"].to_s.strip
         @github_token = ENV["PLUGIN_SYNC_GITHUB_TOKEN"] || ENV["GITHUB_TOKEN"]
+        @discussion_category_cache = {}
       end
 
       def sync!
@@ -303,6 +311,7 @@ module Jekyll
           "/plugins/#{slugify(repo_name)}/"
         )
 
+        discussion_data = build_discussion_data(repo_name, repo, overrides, meta)
         date_value = parse_date(first_present(overrides["date"], meta["date"], repo["pushed_at"], repo["created_at"]))
         {
           "title" => title_value,
@@ -313,7 +322,15 @@ module Jekyll
           "date" => date_value.strftime("%Y-%m-%d"),
           "topics" => topics,
           "github" => repo["html_url"].to_s.empty? ? "https://github.com/#{@github_user}/#{repo_name}" : repo["html_url"].to_s,
-          "permalink" => permalink_value
+          "permalink" => permalink_value,
+          "discussion" => discussion_data["enabled"],
+          "discussion_mapping" => discussion_data["mapping"],
+          "discussion_term" => discussion_data["term"],
+          "discussion_repo" => discussion_data["repo"],
+          "discussion_repo_id" => discussion_data["repo_id"],
+          "discussion_category" => discussion_data["category"],
+          "discussion_category_id" => discussion_data["category_id"],
+          "discussion_configured" => discussion_data["configured"]
         }
       end
 
@@ -340,6 +357,16 @@ module Jekyll
           repo: "#{escape_yaml(repo_name)}"
           github: "#{escape_yaml(page_data["github"])}"
           permalink: "#{escape_yaml(page_data["permalink"])}"
+          discussion: #{page_data["discussion"] ? "true" : "false"}
+          discussion_heading: "Discuss this plugin"
+          discussion_description: "Comment here and this thread lives in the plugin repository discussions."
+          discussion_mapping: "#{escape_yaml(page_data["discussion_mapping"])}"
+          discussion_term: "#{escape_yaml(page_data["discussion_term"])}"
+          discussion_repo: "#{escape_yaml(page_data["discussion_repo"])}"
+          discussion_repo_id: "#{escape_yaml(page_data["discussion_repo_id"])}"
+          discussion_category: "#{escape_yaml(page_data["discussion_category"])}"
+          discussion_category_id: "#{escape_yaml(page_data["discussion_category_id"])}"
+          discussion_configured: #{page_data["discussion_configured"] ? "true" : "false"}
           topics:
           #{topics.empty? ? "  - plugin" : topics}
           ---
@@ -348,6 +375,124 @@ module Jekyll
         MARKDOWN
 
         File.write(path, page_content)
+      end
+
+      def build_discussion_data(repo_name, repo, overrides, meta)
+        discussions_cfg = stringify_keys(@config["discussions"] || {})
+        enabled = truthy?(discussions_cfg.fetch("enabled", true))
+
+        mapping_value = first_present(
+          overrides["discussion-mapping"],
+          overrides["discussion_mapping"],
+          meta["discussion-mapping"],
+          meta["discussion_mapping"],
+          discussions_cfg["mapping"],
+          "specific"
+        )
+
+        term_prefix = first_present(discussions_cfg["term_prefix"], "plugin-")
+        term_value = first_present(
+          overrides["discussion-term"],
+          overrides["discussion_term"],
+          meta["discussion-term"],
+          meta["discussion_term"],
+          "#{term_prefix}#{slugify(repo_name)}"
+        )
+
+        discussion_repo_value = first_present(
+          overrides["discussion-repo"],
+          overrides["discussion_repo"],
+          meta["discussion-repo"],
+          meta["discussion_repo"],
+          "#{@github_user}/#{repo_name}"
+        )
+
+        discussion_repo_id_value = first_present(
+          overrides["discussion-repo-id"],
+          overrides["discussion_repo_id"],
+          meta["discussion-repo-id"],
+          meta["discussion_repo_id"],
+          repo["node_id"]
+        )
+
+        category_value = first_present(
+          overrides["discussion-category"],
+          overrides["discussion_category"],
+          meta["discussion-category"],
+          meta["discussion_category"],
+          discussion_repo_override(repo_name, discussions_cfg, "category"),
+          discussions_cfg["category"],
+          "General"
+        )
+
+        category_id_value = first_present(
+          overrides["discussion-category-id"],
+          overrides["discussion_category_id"],
+          meta["discussion-category-id"],
+          meta["discussion_category_id"],
+          discussion_repo_override(repo_name, discussions_cfg, "category_id")
+        )
+
+        if category_id_value.empty? && enabled
+          resolved_category = fetch_discussion_category(repo_name, category_value)
+          unless resolved_category.nil?
+            category_value = first_present(category_value, resolved_category["name"])
+            category_id_value = first_present(category_id_value, resolved_category["id"])
+          end
+        end
+
+        configured = enabled &&
+                     !discussion_repo_value.empty? &&
+                     !discussion_repo_id_value.empty? &&
+                     !category_value.empty? &&
+                     !category_id_value.empty?
+
+        if enabled && !configured
+          Jekyll.logger.warn("[plugin_sync] Discussion setup incomplete for #{repo_name}; skipping embedded discussion.")
+        end
+
+        {
+          "enabled" => enabled,
+          "mapping" => mapping_value,
+          "term" => term_value,
+          "repo" => discussion_repo_value,
+          "repo_id" => discussion_repo_id_value,
+          "category" => category_value,
+          "category_id" => category_id_value,
+          "configured" => configured
+        }
+      end
+
+      def discussion_repo_override(repo_name, discussions_cfg, key)
+        repo_overrides = stringify_keys(discussions_cfg["repo_overrides"] || {})
+        repo_cfg = stringify_keys(repo_overrides[repo_name] || {})
+        first_present(repo_cfg[key])
+      end
+
+      def fetch_discussion_category(repo_name, preferred_category)
+        cache_key = "#{repo_name}:#{preferred_category.to_s.downcase}"
+        return @discussion_category_cache[cache_key] if @discussion_category_cache.key?(cache_key)
+
+        payload = github_get_json("https://api.github.com/repos/#{@github_user}/#{repo_name}/discussions/categories")
+        categories = payload.is_a?(Array) ? payload : []
+        if categories.empty?
+          @discussion_category_cache[cache_key] = nil
+          return nil
+        end
+
+        preferred = preferred_category.to_s.strip.downcase
+        selected = categories.find { |category| category["name"].to_s.strip.downcase == preferred }
+        selected ||= categories.first
+
+        result = {
+          "id" => selected["node_id"].to_s,
+          "name" => selected["name"].to_s
+        }
+
+        @discussion_category_cache[cache_key] = result
+      rescue StandardError => e
+        Jekyll.logger.warn("[plugin_sync] Could not fetch discussion categories for #{repo_name}: #{e.message}")
+        @discussion_category_cache[cache_key] = nil
       end
 
       def cleanup_stale_generated_files(current_repo_names)

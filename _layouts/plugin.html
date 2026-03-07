@@ -5,3 +5,16 @@ show_contact: true
 ---
 
 {{ content }}
+
+{% if page.discussion != false %}
+  {% include site/giscus.html
+    heading=page.discussion_heading
+    description=page.discussion_description
+    mapping=page.discussion_mapping
+    term=page.discussion_term
+    repo=page.discussion_repo
+    repo_id=page.discussion_repo_id
+    category=page.discussion_category
+    category_id=page.discussion_category_id
+    configured=page.discussion_configured %}
+{% endif %}

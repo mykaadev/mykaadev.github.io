@@ -1646,3 +1646,22 @@ a.blog-link:hover .blog-date {
         display: none;
     }
 }
+/*---------------------------------------------
+Discussion / Guestbook
+---------------------------------------------*/
+
+.discussion-section {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #333;
+}
+
+.discussion-section p {
+    opacity: 0.85;
+}
+
+.guestbook-section .discussion-section {
+    margin-top: 12px;
+    padding-top: 0;
+    border-top: 0;
+}

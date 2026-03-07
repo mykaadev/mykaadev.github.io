@@ -1,0 +1,77 @@
+{% assign giscus = site.giscus %}
+{% assign effective_enabled = include.enabled %}
+{% if effective_enabled == nil %}
+  {% assign effective_enabled = giscus.enabled %}
+{% endif %}
+
+{% assign effective_configured = include.configured %}
+{% if effective_configured == nil %}
+  {% assign effective_configured = giscus.configured %}
+{% endif %}
+
+{% assign repo = include.repo | default: giscus.repo %}
+{% assign repo_id = include.repo_id | default: giscus.repo_id %}
+{% assign category = include.category | default: giscus.category %}
+{% assign category_id = include.category_id | default: giscus.category_id %}
+{% assign mapping = include.mapping | default: giscus.mapping | default: 'pathname' %}
+
+{% if effective_enabled %}
+  {% if effective_configured == true or effective_configured == 'true' %}
+    {% if repo != blank and repo_id != blank and category != blank and category_id != blank %}
+      <section class="{{ include.section_class | default: 'discussion-section' }}">
+        {% if include.heading %}
+          <h2>{{ include.heading }}</h2>
+        {% endif %}
+        {% if include.description %}
+          <p>{{ include.description }}</p>
+        {% endif %}
+        <script src="https://giscus.app/client.js"
+          data-repo="{{ repo }}"
+          data-repo-id="{{ repo_id }}"
+          data-category="{{ category }}"
+          data-category-id="{{ category_id }}"
+          data-mapping="{{ mapping }}"
+          data-strict="{{ giscus.strict | default: '0' }}"
+          data-reactions-enabled="{{ giscus.reactions_enabled | default: '1' }}"
+          data-emit-metadata="{{ giscus.emit_metadata | default: '0' }}"
+          data-input-position="{{ giscus.input_position | default: 'top' }}"
+          data-theme="{{ include.theme | default: giscus.theme | default: 'dark_dimmed' }}"
+          data-lang="{{ giscus.lang | default: 'en' }}"
+          data-loading="{{ giscus.loading | default: 'lazy' }}"
+          {% if mapping == 'specific' and include.term %}
+          data-term="{{ include.term }}"
+          {% endif %}
+          {% if mapping == 'number' and include.term %}
+          data-term="{{ include.term }}"
+          {% endif %}
+          crossorigin="anonymous"
+          async>
+        </script>
+      </section>
+    {% elsif include.show_setup_hint %}
+      <section class="{{ include.section_class | default: 'discussion-section' }}">
+        {% if include.heading %}
+          <h2>{{ include.heading }}</h2>
+        {% endif %}
+        <p>Discussion is enabled but missing giscus identifiers for this page.</p>
+      </section>
+    {% endif %}
+  {% elsif include.show_setup_hint %}
+    <section class="{{ include.section_class | default: 'discussion-section' }}">
+      {% if include.heading %}
+        <h2>{{ include.heading }}</h2>
+      {% endif %}
+      <p>
+        Guestbook and comments are disabled until giscus is configured in
+        <code>_config.yml</code>.
+      </p>
+    </section>
+  {% endif %}
+{% elsif include.show_setup_hint %}
+  <section class="{{ include.section_class | default: 'discussion-section' }}">
+    {% if include.heading %}
+      <h2>{{ include.heading }}</h2>
+    {% endif %}
+    <p>Guestbook and comments are currently disabled.</p>
+  </section>
+{% endif %}

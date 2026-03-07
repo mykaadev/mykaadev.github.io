@@ -7,3 +7,11 @@ show_contact: false
 ---
 
 {{ content }}
+
+{% if page.discussion != false %}
+  {% include site/giscus.html
+    heading=page.discussion_heading
+    description=page.discussion_description
+    mapping=page.discussion_mapping
+    term=page.discussion_term %}
+{% endif %}

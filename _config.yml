@@ -37,7 +37,10 @@ defaults:
       hero_image: /resources/images/common/unfurl_articles.webp
       hero_subtitle: Notes, breakdowns, and development logs.
       permalink: /articles/:basename/
-
+      discussion: true
+      discussion_heading: Discuss this article
+      discussion_description: Questions, feedback, and ideas are welcome.
+      discussion_mapping: pathname
 plugin_sync:
   enabled: true
   github_user: mykaadev
@@ -72,3 +75,25 @@ plugin_sync:
       category: Algorithm
     NsTween:
       category: Visuals
+  discussions:
+    enabled: true
+    category: General
+    mapping: specific
+    term_prefix: plugin-
+    repo_overrides: {}
+
+giscus:
+  enabled: true
+  configured: true
+  repo: mykaadev/mykaadev.github.io
+  repo_id: "R_kgDOHvxdlQ"
+  category: General
+  category_id: "IC_kwDOHvxdlc4C36IY"
+  mapping: pathname
+  strict: "0"
+  reactions_enabled: "1"
+  emit_metadata: "0"
+  input_position: top
+  theme: noborder_gray
+  lang: en
+  loading: lazy

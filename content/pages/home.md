@@ -19,3 +19,12 @@ meta_description: Personal portfolio and blog of Micael Silva (mykaa) about game
   <h2>Contact</h2>
   <p>To contact me you can check out the <a href="{{ '/about.html' | relative_url }}">About</a> page.</p>
 </div>
+<div class="index-section guestbook-section">
+  <h2>Guestbook</h2>
+  <p>Drop a message here. I read every note.</p>
+  {% include site/giscus.html
+    mapping='specific'
+    term='Guestbook'
+    section_class='discussion-section discussion-section-guestbook'
+    show_setup_hint=true %}
+</div>
