@@ -1,7 +1,8 @@
 ---
-title: "Utility AI & Unreal Engine"
+title: "Utility AI"
 date: 2025-10-17
-summary: "Why Utility AI clicked for me, why The Sims is such a great reference point, and how that ended up becoming NsSynapse in Unreal Engine."
+summary: "Why Utility AI clicked for me, why The Sims is such a great reference point"
+thumbnail: /resources/images/plugins/UtilityAI.png
 ---
 
 # Learning Utility AI by Building It in Unreal Engine
