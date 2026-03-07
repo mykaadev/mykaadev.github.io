@@ -21,7 +21,6 @@ meta_description: Personal portfolio and blog of Micael Silva (mykaa) about game
 </div>
 <div class="index-section guestbook-section">
   <h2>Guestbook</h2>
-  <p>Drop a message here. I read every note.</p>
   {% include site/giscus.html
     mapping='specific'
     term='Guestbook'

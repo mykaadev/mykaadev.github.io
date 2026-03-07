@@ -722,6 +722,8 @@ Index
     left: 0;
     width: 100vw;
     max-width: 100%;
+    pointer-events: none;
+    user-select: none;
 }
 
 #index-background-image img {
