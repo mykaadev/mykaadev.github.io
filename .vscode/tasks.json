@@ -9,6 +9,26 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "New Article",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/new-article.ps1",
+        "${input:articleTitle}"
+      ],
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "articleTitle",
+      "type": "promptString",
+      "description": "Article title"
     }
   ]
 }

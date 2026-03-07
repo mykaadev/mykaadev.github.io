@@ -1,0 +1,26 @@
+<title>{{ page.title | default: site.title | escape }}</title>
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="shortcut icon" href="{{ '/resources/images/common/logo_mykaa_handwritten.png' | relative_url }}" sizes="128x128" type="image/png" />
+<link rel="alternate" type="application/rss+xml" title="mykaa RSS feed" href="{{ '/rss.xml' | relative_url }}" />
+
+<link rel="stylesheet" type="text/css" href="{{ '/library/style.css' | relative_url }}" />
+<link rel="stylesheet" type="text/css" href="{{ '/library/code.css?v=2' | relative_url }}" />
+<link rel="stylesheet" type="text/css" href="{{ '/library/font.css?v=1' | relative_url }}" />
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="Author" content="Micael Silva (mykaa)" />
+<meta name="Description" content="{{ page.meta_description | default: site.description | strip_newlines | strip | escape }}" />
+<meta name="Keywords" content="mykaa, micael, silva, tutorial, tutorials, breakdown, articles, dev, development, tools, AAA, indie, plugins, plugin, gamedev, computer graphics, shaders, rendering, unreal, engine, ue4, realtime, opengl" />
+
+<meta property="og:description" content="{{ page.og_description | default: page.meta_description | default: site.description | strip_newlines | strip | escape }}" />
+<meta property="og:image" content="{{ page.og_image | default: '/resources/images/common/logo_mykaa_handwritten.png' | absolute_url }}" />
+<meta property="twitter:description" name="twitter:description" content="{{ page.og_description | default: page.meta_description | default: site.description | strip_newlines | strip | escape }}" />
+<meta property="twitter:image" name="twitter:image" content="{{ page.og_image | default: '/resources/images/common/logo_mykaa_handwritten.png' | absolute_url }}" />
+
+<meta property="og:title" content="{{ page.og_title | default: page.title | default: site.title | escape }}" />
+<meta property="og:url" content="{{ page.url | absolute_url }}" />
+<meta property="twitter:title" name="twitter:title" content="{{ page.og_title | default: page.title | default: site.title | escape }}" />
+<meta property="twitter:domain" name="twitter:domain" content="{{ site.url }}" />
+<meta name="twitter:card" content="summary_large_image" />

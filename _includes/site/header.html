@@ -1,0 +1,31 @@
+{% assign active_nav = include.active | default: page.nav | default: '' %}
+
+<div id="main-header">
+  <div id="main-header-name">
+    <img alt="" id="main-logo" rel="preload" src="{{ '/resources/images/common/mykaaPic.jpg' | relative_url }}" />
+    <img alt="" id="main-mykaa-logo" rel="preload" src="{{ '/resources/images/common/logo_mykaa_handwritten.png' | relative_url }}" />
+    <a href="{{ '/index.html' | relative_url }}" id="main-header-link"></a>
+  </div>
+
+  <div id="main-header-icons">
+    <a class="logo-link" rel="me" href="https://github.com/mykaadev" target="_blank">
+      <img id="header-github-link" alt="" src="{{ '/resources/icons/github.svg' | relative_url }}" />
+    </a>
+    <a class="logo-link" rel="me" href="https://bsky.app/profile/mykaadev.bsky.social" target="_blank">
+      <img id="header-bluesky-link" alt="" src="{{ '/resources/icons/bluesky.svg' | relative_url }}" />
+    </a>
+    <a class="logo-link" rel="me" href="https://x.com/mykaadev" target="_blank">
+      <img id="header-twitter-link" alt="" src="{{ '/resources/icons/twitter.svg' | relative_url }}" />
+    </a>
+    <a class="logo-link" href="https://www.linkedin.com/in/mykaa/" target="_blank">
+      <img id="header-linkedin-link" alt="" src="{{ '/resources/icons/linkedin.svg' | relative_url }}" />
+    </a>
+  </div>
+
+  <div id="main-header-text">
+    <a id="link-about" class="{% if active_nav == 'about' %}header-link-current{% endif %}" href="{{ '/about.html' | relative_url }}">About</a>
+    <a id="link-blog" class="{% if active_nav == 'articles' %}header-link-current{% endif %}" href="{{ '/articles/' | relative_url }}">Articles</a>
+    <a id="link-plugins" class="{% if active_nav == 'plugins' %}header-link-current{% endif %}" href="{{ '/plugins' | relative_url }}">Plugins</a>
+    <a id="link-resume" href="{{ '/resources/files/ResumeMicaelSilva.pdf' | relative_url }}">Resume</a>
+  </div>
+</div>

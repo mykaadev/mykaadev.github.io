@@ -1,8 +1,8 @@
 ---
-layout: default
 title: "Markdown Test"
+date: 2025-10-17
+summary: "Formatting playground for markdown rendering on this site."
 ---
-
 # H1 Heading
 ## H2 Heading
 ### H3 Heading
@@ -236,3 +236,5 @@ It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
 ::: warning
 *here be dragons*
 :::
+
+

@@ -1,0 +1,19 @@
+---
+layout: base
+---
+
+<div id="index-background-image">
+  <img src="{{ '/resources/images/common/home_bridge.jpg' | relative_url }}" alt="" />
+</div>
+
+<div id="header-background-area">
+  {% include site/header.html active=page.nav %}
+</div>
+
+<div id="main">
+  <div id="main-body">
+    {{ content }}
+  </div>
+</div>
+
+{% include site/footer.html %}

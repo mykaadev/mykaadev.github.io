@@ -3,3 +3,6 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+.bundle
+_generated/plugins/*.md
+_includes/generated/readmes/*.md

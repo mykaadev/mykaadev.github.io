@@ -1,0 +1,51 @@
+---
+layout: base
+---
+
+{% assign hero_image = page.hero_image | default: page.thumbnail %}
+{% assign hero_title = page.hero_title | default: page.title %}
+{% assign hero_subtitle = page.hero_subtitle | default: page.short-description %}
+{% assign lead_text = page.lead | default: page.description %}
+
+<div id="header-background-area">
+  {% include site/header.html active=page.nav %}
+  {% if hero_image %}
+    {% include site/hero.html image=hero_image title=hero_title subtitle=hero_subtitle hero_class=page.hero_class %}
+  {% endif %}
+</div>
+
+<div id="main">
+  <div id="main-body">
+    {% if lead_text %}
+      <p>{{ lead_text }}</p>
+    {% endif %}
+
+    {% if page.wrap_content %}
+      <div class="{{ page.content_wrapper_class | default: 'index-section' }}">
+        {{ content }}
+      </div>
+    {% else %}
+      {{ content }}
+    {% endif %}
+
+    {% if page.show_vault_link %}
+      <hr>
+      <blockquote>
+        <table>
+          <tr>
+            <td>Get full vault access at</td>
+            <td><a href="https://github.com/mykaadev/NightShift-Vault" rel="nofollow">GitHub</a></td>
+          </tr>
+        </table>
+      </blockquote>
+    {% endif %}
+
+    {% if page.show_contact != false %}
+      <hr>
+      <h2>Contact</h2>
+      {% include site/contact_links.html %}
+    {% endif %}
+
+    {% include site/footer.html %}
+  </div>
+</div>
