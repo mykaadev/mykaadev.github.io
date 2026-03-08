@@ -23,5 +23,5 @@ show_contact: false
     </a>
   </div>
 {% endif %}
-<script defer src="{{ '/library/article-quick-nav.js' | relative_url }}"></script>
-<script defer src="{{ '/library/media-zoom.js' | relative_url }}"></script>
+<script defer src="{{ '/library/article-quick-nav.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<script defer src="{{ '/library/media-zoom.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

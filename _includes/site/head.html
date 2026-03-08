@@ -1,14 +1,15 @@
 {% assign social_description = page.og_description | default: page.meta_description | default: page["short-description"] | default: page.summary | default: page.description | default: page.hero_subtitle | default: site.description %}
 {% assign social_image = page.og_image | default: page.thumbnail | default: page.hero_image | default: '/resources/images/common/home_bridge.jpg' %}
+{% assign asset_version = site.time | date: '%s' %}
 
 <title>{{ page.title | default: site.title | escape }}</title>
 <link rel="profile" href="https://gmpg.org/xfn/11" />
 <link rel="shortcut icon" href="{{ '/resources/images/common/logo_mykaa_handwritten.png' | relative_url }}" sizes="128x128" type="image/png" />
 <link rel="alternate" type="application/rss+xml" title="mykaa RSS feed" href="{{ '/rss.xml' | relative_url }}" />
 
-<link rel="stylesheet" type="text/css" href="{{ '/library/style.css' | relative_url }}" />
-<link rel="stylesheet" type="text/css" href="{{ '/library/code.css?v=2' | relative_url }}" />
-<link rel="stylesheet" type="text/css" href="{{ '/library/font.css?v=1' | relative_url }}" />
+<link rel="stylesheet" type="text/css" href="{{ '/library/style.css' | relative_url }}?v={{ asset_version }}" />
+<link rel="stylesheet" type="text/css" href="{{ '/library/code.css' | relative_url }}?v={{ asset_version }}" />
+<link rel="stylesheet" type="text/css" href="{{ '/library/font.css' | relative_url }}?v={{ asset_version }}" />
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />

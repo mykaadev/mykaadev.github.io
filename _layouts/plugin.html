@@ -18,4 +18,4 @@ show_contact: true
     category_id=page.discussion_category_id
     configured=page.discussion_configured %}
 {% endif %}
-<script defer src="{{ '/library/media-zoom.js' | relative_url }}"></script>
+<script defer src="{{ '/library/media-zoom.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
