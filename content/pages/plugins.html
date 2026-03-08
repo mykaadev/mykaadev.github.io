@@ -51,7 +51,7 @@ show_contact: true
             <p class="date">{{ plugin.date | date: "%Y-%m-%d" }}</p>
             <hr/>
             <h3>{{ plugin.title }}</h3>
-            <p>{{ plugin.short-description }}</p>
+            <p>{{ plugin["short-description"] }}</p>
           </div>
         </a>
       {% endfor %}

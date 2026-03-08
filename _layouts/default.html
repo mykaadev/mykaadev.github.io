@@ -9,9 +9,19 @@ show_contact: false
 {{ content }}
 
 {% if page.discussion != false %}
+  <div id="discussion"></div>
   {% include site/giscus.html
-    heading=page.discussion_heading
-    description=page.discussion_description
     mapping=page.discussion_mapping
     term=page.discussion_term %}
+
+  <div class="article-quick-nav" aria-label="Article quick actions">
+    <a class="article-quick-nav-btn article-quick-nav-top" href="#page-top" title="Back to top" aria-label="Back to top">
+      <img src="{{ '/resources/icons/UpArrow.png' | relative_url }}" alt="" aria-hidden="true" />
+    </a>
+    <a class="article-quick-nav-btn article-quick-nav-discussion" href="#discussion" title="Jump to discussion" aria-label="Jump to discussion">
+      <img src="{{ '/resources/icons/Discussion.png' | relative_url }}" alt="" aria-hidden="true" />
+    </a>
+  </div>
 {% endif %}
+<script defer src="{{ '/library/article-quick-nav.js' | relative_url }}"></script>
+<script defer src="{{ '/library/media-zoom.js' | relative_url }}"></script>

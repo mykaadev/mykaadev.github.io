@@ -4,7 +4,7 @@ layout: base
 
 {% assign hero_image = page.hero_image | default: page.thumbnail %}
 {% assign hero_title = page.hero_title | default: page.title %}
-{% assign hero_subtitle = page.hero_subtitle | default: page.short-description %}
+{% assign hero_subtitle = page.hero_subtitle | default: page["short-description"] %}
 {% assign lead_text = page.lead | default: page.description %}
 
 <div id="header-background-area">
@@ -33,7 +33,7 @@ layout: base
       <h2>Contact</h2>
       {% include site/contact_links.html %}
     {% endif %}
-
-    {% include site/footer.html %}
   </div>
 </div>
+
+{% include site/footer.html %}
