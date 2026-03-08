@@ -14,19 +14,35 @@ show_contact: false
 {% assign article_pages = site.pages | where_exp: "p", "p.path contains 'content/articles/'" | where_exp: "p", "p.name != '_articleTemplate.md'" | where_exp: "p", "p.name != '_README.md'" | sort: "date" | reverse %}
 
 {% if article_pages.size > 0 %}
-<div class="card-container">
+<div class="articles-archive">
+  {% assign current_year = "" %}
   {% for article in article_pages %}
+    {% assign article_year = article.date | date: "%Y" %}
     {% assign article_image = article.thumbnail | default: '/resources/images/common/unfurl_articles.webp' %}
-    <a class="card" href="{{ article.url }}">
-      <div class="card-image" style="background-image: url({{ article_image }});"></div>
-      <div class="card-content">
-        {% if article.date %}
-          <p class="date">{{ article.date | date: "%Y-%m-%d" }}</p>
-          <hr />
+    {% assign article_summary = article.summary | default: article["short-description"] | default: article.description %}
+    {% assign article_excerpt = article.excerpt | strip_html | strip %}
+
+    {% if article_year != current_year %}
+      <h2 class="articles-year">{{ article_year }}</h2>
+      {% assign current_year = article_year %}
+    {% endif %}
+
+    <a class="articles-row" href="{{ article.url }}">
+      <img class="articles-thumb" src="{{ article_image | relative_url }}" alt="{{ article.title | escape }}" loading="lazy" />
+
+      <div class="articles-body">
+        <h3 class="articles-title">{{ article.title }}</h3>
+        {% if article_summary %}
+          <p class="articles-summary">{{ article_summary }}</p>
         {% endif %}
-        <h3>{{ article.title }}</h3>
-        <p>{{ article.summary | default: article.excerpt | strip_html | truncate: 150 }}</p>
+        {% if article_excerpt != "" %}
+          <p class="articles-excerpt">{{ article_excerpt | truncate: 190 }}</p>
+        {% endif %}
       </div>
+
+      {% if article.date %}
+        <span class="articles-date">{{ article.date | date: "%b %-d" }}</span>
+      {% endif %}
     </a>
   {% endfor %}
 </div>

@@ -1,13 +1,16 @@
 ---
 title: "Utility AI & The Sims"
-date: 2025-10-17
+date: 2024-10-17
 summary: "Utility AI and why The Sims is such a great reference point"
-thumbnail: /resources/images/plugins/UtilityAI.png
+thumbnail: /resources/images/articles/UtilityAI/UtilityAI.png
+meta_description: "Utility AI and why The Sims is such a great reference point."
+og_description: "Utility AI and why The Sims is such a great reference point."
+og_image: /resources/images/articles/UtilityAI/UtilityAI.png
 ---
 
 # Learning Utility AI by Building It in Unreal Engine
 
-![Cool sketch](/resources/images/articles/UtilityAIProcess.png)
+![Cool sketch](/resources/images/articles/UtilityAI/UtilityAIProcess.png)
 
 Before I even get into the plugin side of this, I think the more interesting question is:
 
@@ -151,7 +154,7 @@ Way messier.
 
 ## The point where traditional logic started annoying me
 
-![The horror](/resources/images/articles/BehaviourTree.png)
+![The horror](/resources/images/articles/UtilityAI/BehaviourTree.png)
 
 I think the biggest thing that started bothering me was how often AI logic felt too *binary*.
 
@@ -189,7 +192,7 @@ That tiny change completely changed how I thought about AI.
 
 ## Utility AI clicked because it felt more... human?
 
-![Cool sketch](/resources/images/plugins/UtilityAI.png)
+![Cool sketch](/resources/images/articles/UtilityAI/UtilityAI.png)
 
 That might sound dramatic, but that was honestly my reaction.
 
@@ -348,7 +351,7 @@ And that made the system a lot more fun to build.
 ## The annoying middle phase
 
 <!-- Image slot: work-in-progress notes / whiteboard / debugging screenshot -->
-![Cool sketch](/resources/images/articles/UtilityAIProcess.png)
+![Cool sketch](/resources/images/articles/UtilityAI/UtilityAIProcess.png)
 
 
 There was definitely a stretch where things felt worse before they felt better.

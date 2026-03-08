@@ -1,4 +1,5 @@
-{% assign social_description = page.og_description | default: page.meta_description | default: page["short-description"] | default: page.summary | default: page.description | default: page.hero_subtitle | default: site.description %}
+{% assign social_description_raw = page.og_description | default: page.meta_description | default: page["short-description"] | default: page.summary | default: page.description | default: page.excerpt | default: page.hero_subtitle | default: site.description %}
+{% assign social_description = social_description_raw | strip_html | strip_newlines | strip %}
 {% assign social_image = page.og_image | default: page.thumbnail | default: page.hero_image | default: '/resources/images/common/home_bridge.jpg' %}
 {% assign asset_version = site.time | date: '%s' %}
 
@@ -14,18 +15,20 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta name="Author" content="Micael Silva (mykaa)" />
-<meta name="Description" content="{{ social_description | strip_newlines | strip | escape }}" />
-<meta name="Keywords" content="mykaa, micael, silva, tutorial, tutorials, breakdown, articles, dev, development, tools, AAA, indie, plugins, plugin, gamedev, computer graphics, shaders, rendering, unreal, engine, ue4, realtime, opengl" />
+<meta name="author" content="Micael Silva (mykaa)" />
+<meta name="description" content="{{ social_description | escape }}" />
+<meta name="keywords" content="mykaa, micael, silva, tutorial, tutorials, breakdown, articles, dev, development, tools, AAA, indie, plugins, plugin, gamedev, computer graphics, shaders, rendering, unreal, engine, ue4, realtime, opengl" />
+<link rel="canonical" href="{{ page.url | absolute_url }}" />
 
 <meta property="og:type" content="{{ page.og_type | default: 'website' }}" />
 <meta property="og:title" content="{{ page.og_title | default: page.title | default: site.title | escape }}" />
-<meta property="og:description" content="{{ social_description | strip_newlines | strip | escape }}" />
+<meta property="og:description" content="{{ social_description | escape }}" />
 <meta property="og:url" content="{{ page.url | absolute_url }}" />
 <meta property="og:image" content="{{ social_image | absolute_url }}" />
+<meta property="og:site_name" content="{{ site.title | escape }}" />
 
 <meta property="twitter:title" name="twitter:title" content="{{ page.og_title | default: page.title | default: site.title | escape }}" />
-<meta property="twitter:description" name="twitter:description" content="{{ social_description | strip_newlines | strip | escape }}" />
+<meta property="twitter:description" name="twitter:description" content="{{ social_description | escape }}" />
 <meta property="twitter:image" name="twitter:image" content="{{ social_image | absolute_url }}" />
 <meta property="twitter:domain" name="twitter:domain" content="{{ site.url }}" />
 <meta name="twitter:card" content="summary_large_image" />
