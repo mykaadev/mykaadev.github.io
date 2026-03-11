@@ -195,8 +195,10 @@ module Jekyll
 
       def normalize_readme(content, repo_name, branch)
         normalized = remove_gh_only_sections(content)
+        normalized = strip_utf8_bom(normalized)
         normalized, extracted_meta = extract_meta_block(normalized)
         normalized = rewrite_asset_links(normalized, repo_name, branch)
+        normalized = normalize_markdown_tables(normalized)
 
         if truthy?(@config["download_footer"])
           normalized = normalized.strip + "\n\n---\n\n> [Download on GitHub](https://github.com/#{@github_user}/#{repo_name})\n"
@@ -205,6 +207,74 @@ module Jekyll
         [normalized.strip + "\n", extracted_meta]
       end
 
+      def strip_utf8_bom(content)
+        content.to_s.sub(/\A\uFEFF/, "")
+      end
+
+      # Kramdown table parsing is strict and expects a blank line before table blocks.
+      # Also normalize separator rows in case non-ASCII dashes sneak in from source markdown.
+      def normalize_markdown_tables(content)
+        lines = content.to_s.gsub("\r\n", "\n").split("\n", -1)
+        lines.map! { |line| normalize_table_separator_line(line) }
+
+        normalized = []
+        lines.each_with_index do |line, idx|
+          next_line = idx + 1 < lines.length ? lines[idx + 1] : nil
+          if markdown_table_header_line?(line) && markdown_table_separator_line?(next_line)
+            prev = normalized.last
+            normalized << "" unless prev.nil? || prev.strip.empty?
+          end
+          normalized << line
+        end
+
+        normalized.join("\n")
+      end
+
+      def markdown_table_header_line?(line)
+        stripped = line.to_s.strip
+        return false if stripped.empty?
+        return false unless stripped.start_with?("|") && stripped.end_with?("|")
+        return false if markdown_table_separator_line?(stripped)
+
+        true
+      end
+
+      def markdown_table_separator_line?(line)
+        stripped = line.to_s.strip
+        return false if stripped.empty?
+        return false unless stripped.match?(/\A\|?[\s:\-\u2013\u2014|]+\|?\z/)
+
+        inner = stripped.sub(/\A\|/, "").sub(/\|\z/, "")
+        cells = inner.split("|").map(&:strip)
+        return false if cells.length < 2
+
+        cells.all? { |cell| cell.match?(/\A:?[ \-\u2013\u2014]{1,}:?\z/) }
+      end
+
+      def normalize_table_separator_line(line)
+        return line unless markdown_table_separator_line?(line)
+
+        indent = line[/^\s*/].to_s
+        stripped = line.strip
+        has_leading_pipe = stripped.start_with?("|")
+        has_trailing_pipe = stripped.end_with?("|")
+        inner = stripped.sub(/\A\|/, "").sub(/\|\z/, "")
+
+        rebuilt_cells = inner.split("|").map do |cell|
+          token = cell.strip
+          next token unless token.match?(/\A:?[ \-\u2013\u2014]{1,}:?\z/)
+
+          left = token.start_with?(":") ? ":" : ""
+          right = token.end_with?(":") ? ":" : ""
+          "#{left}---#{right}"
+        end
+
+        rebuilt = rebuilt_cells.join("|")
+        rebuilt = "|#{rebuilt}" if has_leading_pipe
+        rebuilt = "#{rebuilt}|" if has_trailing_pipe
+
+        "#{indent}#{rebuilt}"
+      end
       def remove_gh_only_sections(content)
         content.gsub(/<!--\s*GH_ONLY_START\s*-->.*?<!--\s*GH_ONLY_END\s*-->/m, "")
       end
@@ -648,11 +718,3 @@ end
 Jekyll::Hooks.register :site, :after_reset do |site|
   Jekyll::PluginSync::Engine.new(site).sync!
 end
-
-
-
-
-
-
-
-
