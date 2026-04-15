@@ -165,7 +165,7 @@ It is evaluating **state transitions**.
 
 That is why tactical systems so often feel deeper even when they contain fewer raw abilities than classic systems. Space multiplies consequences.
 
-![Triangle Strategy](/resources/images/articles/TurnsTilesTension/Triangle_Strategy.png)
+![Tactics Ogre Combat](/resources/images/articles/TurnsTilesTension/Tactics-Ogre-Reborn-Review_05.png)
 
 A simple attack command in a tactical game is rarely just an attack command. It is bundled with:
 
@@ -253,6 +253,8 @@ The player has to understand things like:
 - cover or elevation advantage
 - whether a tile is safe now but terrible one turn later
 
+![Tactics Ogre Combat](/resources/images/articles/TurnsTilesTension/Tactics-Ogre-Reborn%20Combat.png)
+
 That means the interface burden is much higher.
 
 A tactical game with poor readability can feel unfair even when it is mathematically consistent.
@@ -296,6 +298,8 @@ The second one tends to feel more personal because movement is commitment.
 I kept circling back to that idea while thinking about these systems.
 
 Position is commitment.
+
+![Into the Breach](/resources/images/articles/TurnsTilesTension/IntoTheBreach.jpg)
 
 Once a tactical game is good, movement stops being a setup action and becomes the action. The attack is often just the visible payoff.
 
@@ -419,6 +423,8 @@ A lot of tactical games are excellent at **short-arc decision-making**. They ask
 - can I stop this threat this turn?
 - can I hold this tile?
 - can I survive the next wave?
+
+![Tactics Ogre Inventory](/resources/images/articles/TurnsTilesTension/Tactics-Ogre-Reborn-Review_01.jpg)
 
 Keith Burgun’s framing of short arcs and long arcs is useful here: tactical games often excel at immediate local operations, but they can still need larger structures to create strategic texture over time.[7]
 
