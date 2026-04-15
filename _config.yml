@@ -34,7 +34,6 @@ defaults:
       layout: default
       nav: articles
       show_contact: false
-      hero_image: /resources/images/common/unfurl_articles.webp
       hero_subtitle: Notes, breakdowns, and development logs.
       permalink: /articles/:basename/
       discussion: true

@@ -1846,7 +1846,8 @@ Articles Archive
     display: grid;
     grid-template-columns: 200px 1fr auto;
     gap: 12px;
-    align-items: start;
+    align-items: stretch;
+    box-sizing: border-box;
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.07);
     padding: 8px;
@@ -1877,12 +1878,16 @@ Articles Archive
 }
 
 .articles-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     min-width: 0;
+    padding-top: 8px;
+    padding-bottom: 6px;
 }
 
 .articles-title {
     margin: 0;
-    margin-top: 2px;
     font-size: 28px;
     letter-spacing: 0;
     color: #ffffff;
