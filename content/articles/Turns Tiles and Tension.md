@@ -2,6 +2,10 @@
 title: "Turns, Tiles, and Tension"
 date: 2026-03-23
 summary: "A deep look at how space changes decision-making in turn-based combat."
+thumbnail: /resources/images/articles/TurnsTilesTension/Tactics-Ogre-Reborn%20Combat.png
+meta_description: "A deep look at how space changes decision-making in turn-based combat"
+og_description: "A deep look at how space changes decision-making in turn-based combat"
+og_image: /resources/images/articles/TurnsTilesTension/Tactics-Ogre-Reborn%20Combat.png
 ---
 
 # Classic Turn-Based vs Tactical Turn-Based Combat
