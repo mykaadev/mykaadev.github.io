@@ -647,7 +647,6 @@ module Jekyll
 
       def slugify(value)
         value.to_s
-          .gsub(/([a-z0-9])([A-Z])/, "\\1-\\2")
           .downcase
           .gsub(/[^a-z0-9]+/, "-")
           .gsub(/\A-+|-+\z/, "")
