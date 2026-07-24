@@ -1,5 +1,5 @@
 ---
-title: "Translating MonHun Nikki: Poka Poka"
+title: "Patching MonHun: Poka Poka"
 date: 2026-07-24
 summary: "Turning a Japanese PSP Game Into an English Build Without Setting the ISO on Fire"
 thumbnail: /resources/images/articles/MonHunNikki/Lovely.png
