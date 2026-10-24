@@ -68,6 +68,8 @@ plugin_sync:
     utility: Utility
     visuals: Visuals
   repo_overrides:
+    NsDungeons:
+      category: Algorithm
     NsSpyglass:
       category: Utility
     NsSynapse:
