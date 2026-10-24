@@ -359,6 +359,9 @@ module Jekyll
 
         if target.match?(/\Ahttps?:\/\//i)
           uri = URI.parse(target)
+          site_path = site_doc_path(uri, repo_name)
+          return [site_path, uri.fragment.to_s] if site_path
+
           parts = uri.path.to_s.split("/")
           return nil unless uri.host == "github.com" && parts[1] == @github_user && parts[2] == repo_name
           return nil unless %w[blob tree].include?(parts[3]) && parts[4] == branch && parts.size > 5
@@ -374,6 +377,22 @@ module Jekyll
           segment == ".." ? segments.pop : segments << URI.decode_www_form_component(segment.gsub("+", "%2B"))
         end
         segments.empty? ? nil : [segments.join("/"), anchor.to_s]
+      rescue StandardError
+        nil
+      end
+
+      # A link to this site's page of the plugin, or to one of its doc pages, maps back to the repo file
+      # (/plugins/nsmusic/user-guide/ is Docs/UserGuide.md), so a README can link to the site and still sync its docs
+      def site_doc_path(uri, repo_name)
+        site_host = URI.parse(@site.config["url"].to_s).host
+        return nil if site_host.nil? || uri.host != site_host
+
+        parts = uri.path.to_s.split("/").reject(&:empty?)
+        return nil unless parts[0] == "plugins" && parts[1] == slugify(repo_name)
+        return "README.md" if parts.size == 2
+        return nil unless parts.size == 3
+
+        "Docs/#{parts[2].split("-").map(&:capitalize).join}.md"
       rescue StandardError
         nil
       end
