@@ -1982,3 +1982,174 @@ Articles Archive
 #main-body .article-content video {
     border: 0;
 }
+
+/*---------------------------------------------
+Plugin Showcase (small fragments from plugin docs)
+---------------------------------------------*/
+
+.ns-showcase {
+    margin: 24px 0 32px;
+}
+
+.ns-steps {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 16px 24px;
+    align-items: start;
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.ns-steps figcaption {
+    grid-column: 1 / -1;
+    font-size: 14px;
+    color: #989898;
+}
+
+.ns-steps-view img {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: 6px;
+    background: #101114;
+}
+
+.ns-steps-view input[type="range"] {
+    width: 100%;
+    margin: 12px 0 0;
+    accent-color: #f03a6c;
+}
+
+.ns-steps ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2px;
+    counter-reset: ns-step;
+}
+
+.ns-steps li {
+    counter-increment: ns-step;
+    display: grid;
+    grid-template-columns: 2em 1fr;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.ns-steps li::before {
+    content: counter(ns-step);
+    font-family: "Overpass Mono", monospace;
+    color: #666666;
+}
+
+.ns-steps li b {
+    display: block;
+    font-weight: normal;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.ns-steps.is-live li {
+    cursor: pointer;
+}
+
+.ns-steps.is-live li:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.ns-steps li[aria-current="true"] {
+    background: #190d0f;
+}
+
+.ns-steps li[aria-current="true"]::before {
+    color: #f03a6c;
+}
+
+.ns-steps li:focus-visible {
+    outline: 2px solid #f03a6c;
+    outline-offset: 2px;
+}
+
+/* Without the script, the list reads as a plain numbered list */
+.ns-steps:not(.is-live) {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 760px) {
+    .ns-steps {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 12px;
+    }
+}
+
+/*---------------------------------------------
+Plugin Doc Cards
+---------------------------------------------*/
+
+.doc-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    margin: 16px 0 24px;
+}
+
+#main-body a.doc-card,
+#main-body a.doc-card:visited {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px 20px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: #190d0f;
+    color: #989898;
+    overflow: hidden;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25));
+    transition: all ease-in-out 0.2s;
+}
+
+#main-body a.doc-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, transparent 40%, rgba(241, 59, 109, 1) 200%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all ease-in-out 0.2s;
+}
+
+#main-body a.doc-card:hover,
+#main-body a.doc-card:active {
+    color: #989898;
+    background: #190d0f;
+    border-color: #ffffff;
+    filter: drop-shadow(4px 4px 8px transparent);
+}
+
+#main-body a.doc-card:hover::after {
+    opacity: 1;
+}
+
+.doc-card-title {
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.doc-card-title::after {
+    content: " \2192";
+    color: #f03a6c;
+}
+
+.doc-card-text {
+    font-size: 14px;
+    line-height: 150%;
+    opacity: 0.85;
+}
