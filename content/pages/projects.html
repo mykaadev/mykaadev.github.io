@@ -1,0 +1,60 @@
+---
+layout: content_page
+title: Projects
+nav: projects
+permalink: /projects/
+hero_image: /resources/images/common/unfurl_portfolio.webp
+hero_title: Projects
+hero_subtitle: Software, games, translations, and other things I build.
+lead: Everything that isn't an Unreal plugin lives here. Small apps, game experiments, fan translations, and whatever else I end up making on the side.
+wrap_content: true
+show_contact: true
+---
+
+{% assign projects = site.pages | where_exp: "p", "p.path contains 'content/projects/'" | where_exp: "p", "p.name != '_README.md'" | sort: "date" | reverse %}
+{% assign project_types = projects | map: "type" | compact | uniq | sort %}
+
+{% if project_types.size > 1 %}
+  <div class="project-filters" role="group" aria-label="Filter projects by type" hidden>
+    <button type="button" class="project-filter" data-filter="all" aria-pressed="true">All</button>
+    {% for type in project_types %}
+      <button type="button" class="project-filter" data-filter="{{ type | slugify }}" aria-pressed="false">{{ type }}</button>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<div class="project-grid">
+  {% for project in projects %}
+    {% assign project_image = project.thumbnail | default: '/resources/images/common/unfurl_portfolio.webp' %}
+    <a class="project-card" href="{{ project.url | relative_url }}" data-type="{{ project.type | slugify }}">
+      <img class="project-card-image" src="{{ project_image | relative_url }}" alt="" loading="lazy" />
+      <div class="project-card-body">
+        <div class="project-tags">
+          {% if project.type %}<span class="project-tag project-tag-type">{{ project.type }}</span>{% endif %}
+          {% if project.status %}<span class="project-tag">{{ project.status }}</span>{% endif %}
+        </div>
+        <h3>{{ project.title }}</h3>
+        {% if project.summary %}<p>{{ project.summary }}</p>{% endif %}
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+<script>
+  (function () {
+    var bar = document.querySelector(".project-filters");
+    if (!bar) return;
+    var buttons = bar.querySelectorAll(".project-filter");
+    var cards = document.querySelectorAll(".project-card");
+    bar.hidden = false;
+    bar.addEventListener("click", function (event) {
+      var button = event.target.closest(".project-filter");
+      if (!button) return;
+      var filter = button.getAttribute("data-filter");
+      buttons.forEach(function (b) { b.setAttribute("aria-pressed", b === button ? "true" : "false"); });
+      cards.forEach(function (card) {
+        card.hidden = filter !== "all" && card.getAttribute("data-type") !== filter;
+      });
+    });
+  })();
+</script>

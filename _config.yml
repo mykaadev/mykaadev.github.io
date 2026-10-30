@@ -21,6 +21,7 @@ exclude:
   - scripts
   - content/articles/_README.md
   - content/articles/_articleTemplate.md
+  - content/projects/_README.md
   - .bundle
   - vendor
   - _site
@@ -38,6 +39,18 @@ defaults:
       permalink: /articles/:basename/
       discussion: true
       discussion_heading: Discuss this article
+      discussion_description: Questions, feedback, and ideas are welcome.
+      discussion_mapping: pathname
+  - scope:
+      path: "content/projects"
+      type: "pages"
+    values:
+      layout: project
+      nav: projects
+      show_contact: false
+      permalink: /projects/:basename/
+      discussion: true
+      discussion_heading: Discuss this project
       discussion_description: Questions, feedback, and ideas are welcome.
       discussion_mapping: pathname
 plugin_sync:

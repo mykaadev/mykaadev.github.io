@@ -1,0 +1,35 @@
+---
+layout: content_page
+nav: projects
+show_contact: false
+---
+
+<div class="project-meta">
+  <div class="project-tags">
+    {% if page.type %}<span class="project-tag project-tag-type">{{ page.type }}</span>{% endif %}
+    {% if page.status %}<span class="project-tag">{{ page.status }}</span>{% endif %}
+    {% for item in page.tech %}<span class="project-tag project-tag-tech">{{ item }}</span>{% endfor %}
+  </div>
+
+  {% if page.links %}
+    <div class="project-links">
+      {% for link in page.links %}
+        {% assign is_external = link.url | slice: 0, 4 %}
+        <a class="project-link" href="{{ link.url | relative_url }}"{% if is_external == 'http' %} target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<div class="article-content">
+{{ content }}
+</div>
+
+{% if page.discussion != false %}
+  {% include site/giscus.html
+    heading=page.discussion_heading
+    description=page.discussion_description
+    mapping=page.discussion_mapping
+    term=page.discussion_term %}
+{% endif %}
+<script defer src="{{ '/library/media-zoom.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

@@ -2153,3 +2153,219 @@ Plugin Doc Cards
     line-height: 150%;
     opacity: 0.85;
 }
+
+/*---------------------------------------------
+Projects
+---------------------------------------------*/
+
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0 20px;
+}
+
+.project-filter {
+    font: inherit;
+    font-size: 15px;
+    color: #c9c9c9;
+    background: rgba(10, 10, 10, 0.34);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    padding: 6px 14px;
+    min-height: 36px;
+    cursor: pointer;
+    transition: all 150ms ease-in;
+}
+
+.project-filter:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.project-filter[aria-pressed="true"] {
+    color: #000000;
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+.project-filter:focus-visible {
+    outline: 2px solid #f03a6c;
+    outline-offset: 2px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+#main-body a.project-card,
+#main-body a.project-card:visited {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: #190d0f;
+    color: #989898;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25));
+    transition: all ease-in-out 0.2s;
+}
+
+#main-body a.project-card[hidden] {
+    display: none;
+}
+
+#main-body a.project-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, transparent 40%, rgba(241, 59, 109, 1) 200%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all ease-in-out 0.2s;
+}
+
+#main-body a.project-card:hover,
+#main-body a.project-card:active {
+    color: #989898;
+    background: #190d0f;
+    border-color: #ffffff;
+    filter: drop-shadow(4px 4px 8px transparent);
+}
+
+#main-body a.project-card:hover::after {
+    opacity: 1;
+}
+
+#main-body .project-card-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 0;
+    border-radius: 0;
+}
+
+.project-card-body {
+    padding: 12px 14px 16px;
+}
+
+.project-card-body h3 {
+    margin: 8px 0 4px;
+    color: #ffffff;
+    font-size: 22px;
+    font-family: "Abel", sans-serif;
+}
+
+.project-card-body p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #b9b9b9;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.project-tag {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #9b9b9b;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+
+.project-tag-type {
+    color: #f03a6c;
+    border-color: rgba(240, 58, 108, 0.5);
+}
+
+.project-tag-tech {
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #333;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#main-body a.project-link,
+#main-body a.project-link:visited {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    color: #ffffff;
+    background: #190d0f;
+    transition: all 150ms ease-in;
+}
+
+#main-body a.project-link:hover {
+    color: #000000;
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+#main-body a.project-link:first-child {
+    border-color: #f03a6c;
+}
+
+#main-body a.project-link:first-child:hover {
+    border-color: #ffffff;
+}
+
+.article-project-link {
+    margin-bottom: 24px;
+}
+
+@media only screen and (max-width: 700px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-meta {
+        display: grid;
+    }
+
+    #main-body a.project-link {
+        flex: 1 1 130px;
+        text-align: center;
+    }
+
+    /* Five header links: wrap into rows of three instead of overflowing a fixed height */
+    #main-header-text {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto;
+        padding-bottom: 8px;
+    }
+
+    #main-header #main-header-text a {
+        flex: 0 0 calc(33.333% - 8px);
+        width: auto;
+        margin: 2px;
+        font-size: 19px;
+    }
+}

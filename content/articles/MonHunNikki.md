@@ -6,6 +6,7 @@ thumbnail: /resources/images/articles/MonHunNikki/Lovely.png
 meta_description: "Translating MonHun Nikki Poka Poka Ailu Mura G for PSP"
 og_description: "Translating MonHun Nikki Poka Poka Ailu Mura G for PSP"
 og_image: /resources/images/articles/MonHunNikki/Lovely.png
+project: /projects/poka-poka-translation/
 ---
 # Turning a Japanese PSP Game Into an English Build Without Setting the ISO on Fire
 

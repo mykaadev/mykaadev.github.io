@@ -5,6 +5,16 @@ hero_subtitle: Notes, breakdowns, and development logs.
 show_contact: false
 ---
 
+{% if page.project %}
+  {% assign linked_project = site.pages | where: "url", page.project | first %}
+  <div class="doc-cards article-project-link">
+    <a class="doc-card" href="{{ page.project | relative_url }}">
+      <span class="doc-card-title">{{ linked_project.title | default: "Project page" }}</span>
+      <span class="doc-card-text">Download, links, and status for this project.</span>
+    </a>
+  </div>
+{% endif %}
+
 <div class="article-content">
 {{ content }}
 </div>
