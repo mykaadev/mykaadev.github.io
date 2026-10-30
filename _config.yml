@@ -83,12 +83,22 @@ plugin_sync:
   repo_overrides:
     NsDungeons:
       category: Algorithm
+    NsInteraction:
+      category: Gameplay
+    NsSession:
+      category: Utility
     NsSpyglass:
       category: Utility
     NsSynapse:
       category: Algorithm
     NsTween:
       category: Visuals
+    NsUIFramework:
+      category: Gameplay
+    NsVehicles:
+      category: Gameplay
+    NsVoice:
+      category: Utility
   discussions:
     enabled: true
     category: General
