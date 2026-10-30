@@ -81,6 +81,8 @@ plugin_sync:
     utility: Utility
     visuals: Visuals
   repo_overrides:
+    NsBonsai:
+      category: Tools
     NsDungeons:
       category: Algorithm
     NsInteraction:

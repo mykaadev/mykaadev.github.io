@@ -2165,25 +2165,25 @@ Projects
     margin: 4px 0 20px;
 }
 
+/* Same box as the Download / GitHub buttons. A shown category has the pink outline, a hidden one is greyed out */
 .project-filter {
     font: inherit;
     font-size: 15px;
-    color: #c9c9c9;
-    background: rgba(10, 10, 10, 0.34);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 999px;
-    padding: 6px 14px;
-    min-height: 36px;
+    color: #6f6f6f;
+    background: #190d0f;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 6px 12px;
     cursor: pointer;
     transition: all 150ms ease-in;
 }
 
-.project-filter:hover {
+.project-filter[aria-pressed="true"] {
     color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: #f03a6c;
 }
 
-.project-filter[aria-pressed="true"] {
+.project-filter:hover {
     color: #000000;
     background: #ffffff;
     border-color: #ffffff;
@@ -2313,7 +2313,8 @@ Projects
 #main-body a.project-link,
 #main-body a.project-link:visited {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 6px 12px;
+    font-size: 15px;
     border: 2px solid rgba(255, 255, 255, 0.6);
     border-radius: 6px;
     color: #ffffff;
@@ -2344,7 +2345,8 @@ Projects
 #main-body a.page-back,
 #main-body a.page-back:visited {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 6px 12px;
+    font-size: 15px;
     border: 2px solid rgba(255, 255, 255, 0.6);
     border-radius: 6px;
     color: #ffffff;
