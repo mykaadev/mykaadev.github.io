@@ -1,0 +1,192 @@
+/* NsTween showcase: the easing playground (.ns-ease) */
+
+.ns-ease {
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.ns-ease figcaption {
+    margin: 0 0 12px;
+    font-size: 14px;
+    line-height: 150%;
+    color: #989898;
+}
+
+.ns-ease code {
+    font-family: "Overpass Mono", monospace;
+}
+
+.ns-ease li b {
+    font-weight: normal;
+}
+
+/* Live widget: one column, or two columns when the widget is wide */
+.ns-ease.is-live {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px 24px;
+    align-items: start;
+}
+
+.ns-ease.is-live.ns-ease-wide {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+}
+
+.ns-ease.is-live figcaption {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.ns-ease-view {
+    min-width: 0;
+}
+
+.ns-ease-canvas {
+    display: block;
+    width: 100%;
+    height: 240px;
+    border-radius: 6px;
+    background: #101114;
+}
+
+.ns-ease-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.ns-ease-field {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: #989898;
+    cursor: pointer;
+}
+
+.ns-ease-field input[type="range"] {
+    width: 110px;
+    margin: 0;
+    accent-color: #f03a6c;
+}
+
+.ns-ease-field input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: #f03a6c;
+}
+
+.ns-ease-field input[type="number"] {
+    width: 4.5em;
+    padding: 4px 6px;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    background: #101114;
+    color: #ffffff;
+    font-family: "Overpass Mono", monospace;
+    font-size: 13px;
+    accent-color: #f03a6c;
+}
+
+.ns-ease-field output {
+    min-width: 2.5em;
+    font-family: "Overpass Mono", monospace;
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.ns-ease-play {
+    min-width: 5em;
+    padding: 6px 16px;
+    border: 0;
+    border-radius: 4px;
+    background: #f03a6c;
+    color: #ffffff;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.ns-ease-status {
+    margin: 10px 0 0;
+    font-family: "Overpass Mono", monospace;
+    font-size: 12px;
+    line-height: 160%;
+    color: #989898;
+}
+
+.ns-ease-status span {
+    display: block;
+}
+
+/* The preset list becomes a grid of buttons */
+.ns-ease.is-live ul {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ns-ease.is-live li {
+    display: grid;
+    grid-template-columns: 4.5em minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 13px;
+}
+
+.ns-ease.is-live li b {
+    color: #989898;
+}
+
+.ns-ease-chips {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+}
+
+.ns-ease-chip {
+    min-width: 0;
+    padding: 5px 4px;
+    border: 1px solid #2a2a2e;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    font-family: "Overpass Mono", monospace;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.ns-ease-chip:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.ns-ease-chip[aria-pressed="true"] {
+    border-color: #f03a6c;
+    background: #190d0f;
+    color: #f03a6c;
+}
+
+.ns-ease button:focus-visible,
+.ns-ease input:focus-visible {
+    outline: 2px solid #f03a6c;
+    outline-offset: 2px;
+}
+
+@media only screen and (max-width: 760px) {
+    .ns-ease {
+        padding: 12px;
+    }
+}

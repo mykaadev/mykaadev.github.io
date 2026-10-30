@@ -1,0 +1,241 @@
+/* NsUIFramework showcase: a screen stack on three layers */
+
+.ns-uistack {
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.ns-uistack figcaption {
+    margin: 0 0 16px;
+    font-size: 14px;
+    color: #989898;
+}
+
+.ns-uistack ul {
+    margin: 0 0 12px;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.ns-uistack li b {
+    font-weight: normal;
+    color: #ffffff;
+}
+
+.ns-uistack > p {
+    margin: 12px 0 0;
+    font-size: 14px;
+    color: #666666;
+}
+
+/* The open buttons replace the list of example screens */
+.ns-uistack.is-live ul {
+    display: none;
+}
+
+.ns-uistack button {
+    border: 1px solid #333333;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    font-family: "Overpass Mono", monospace;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.ns-uistack button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.ns-uistack button:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.ns-uistack button:focus-visible {
+    outline: 2px solid #f03a6c;
+    outline-offset: 2px;
+}
+
+.ns-uistack-open {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.ns-uistack-open button {
+    display: grid;
+    gap: 2px;
+    padding: 8px 10px;
+    text-align: left;
+    border-left-width: 3px;
+}
+
+.ns-uistack-open button span {
+    font-size: 11px;
+    color: #989898;
+}
+
+.ns-uistack-open .ns-uistack-layer-game {
+    border-left-color: #3aa0f0;
+}
+
+.ns-uistack-open .ns-uistack-layer-menu {
+    border-left-color: #f0b43a;
+}
+
+.ns-uistack-open .ns-uistack-layer-modal {
+    border-left-color: #f03a6c;
+}
+
+.ns-uistack-layers {
+    display: grid;
+    gap: 6px;
+}
+
+.ns-uistack-row {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    padding: 8px;
+    border-radius: 6px;
+    background: #101114;
+}
+
+.ns-uistack-head {
+    display: grid;
+    gap: 6px;
+    font-family: "Overpass Mono", monospace;
+    font-size: 13px;
+    color: #989898;
+}
+
+.ns-uistack-head button {
+    padding: 2px 6px;
+    font-size: 11px;
+    justify-self: start;
+}
+
+.ns-uistack-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ns-uistack-card {
+    position: relative;
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+    max-width: 100%;
+    padding: 6px 30px 6px 10px;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #666666;
+}
+
+.ns-uistack-card b {
+    font-weight: normal;
+    font-size: 14px;
+    color: #ffffff;
+    overflow-wrap: anywhere;
+}
+
+.ns-uistack-card.is-active {
+    border-color: #f03a6c;
+    background: #190d0f;
+    color: #f03a6c;
+}
+
+.ns-uistack-card.is-suspended b {
+    color: #989898;
+}
+
+.ns-uistack-card.is-passive {
+    border-style: dashed;
+}
+
+.ns-uistack-card button {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    line-height: 1;
+}
+
+.ns-uistack-empty {
+    padding: 6px 0;
+    font-size: 12px;
+    color: #666666;
+}
+
+.ns-uistack-status {
+    min-height: 3em;
+    margin: 12px 0 8px;
+    font-family: "Overpass Mono", monospace;
+    font-size: 13px;
+    line-height: 150%;
+    color: #ffffff;
+}
+
+.ns-uistack-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ns-uistack-actions button {
+    padding: 6px 12px;
+}
+
+.ns-uistack-log-title {
+    margin: 16px 0 4px;
+    font-size: 12px;
+    color: #989898;
+}
+
+.ns-uistack-log {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: "Overpass Mono", monospace;
+    font-size: 12px;
+    line-height: 160%;
+    color: #666666;
+}
+
+.ns-uistack-log li {
+    margin: 0;
+    padding: 0;
+}
+
+.ns-uistack-log li:first-child {
+    color: #989898;
+}
+
+@media (max-width: 760px) {
+    .ns-uistack {
+        padding: 12px;
+    }
+
+    .ns-uistack-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ns-uistack-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

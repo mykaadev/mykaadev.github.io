@@ -1,0 +1,185 @@
+/* NsVehicles showcase: gearbox and gauges (library/showcases/nsvehicles.js) */
+
+.ns-gearbox {
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.ns-gearbox figcaption {
+    margin: 0 0 16px;
+    font-size: 14px;
+    line-height: 150%;
+    color: #989898;
+}
+
+.ns-gearbox table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    table-layout: auto;
+    background: transparent;
+    font-size: 14px;
+}
+
+.ns-gearbox thead {
+    position: static;
+    background: transparent;
+}
+
+.ns-gearbox td:first-child {
+    min-width: 0;
+}
+
+.ns-gearbox th,
+.ns-gearbox td {
+    padding: 4px 8px;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: left;
+    background: transparent;
+}
+
+.ns-gearbox th {
+    font-weight: normal;
+    color: #666666;
+}
+
+.ns-gearbox td:last-child {
+    font-family: "Overpass Mono", monospace;
+    color: #ffffff;
+}
+
+.ns-gearbox.is-live table {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #989898;
+}
+
+.ns-gearbox-view {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px 24px;
+}
+
+.ns-gearbox-gauges {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+}
+
+.ns-gearbox-gauges canvas {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #101114;
+}
+
+.ns-gearbox-controls {
+    display: grid;
+    gap: 12px;
+    align-content: start;
+    font-size: 14px;
+}
+
+.ns-gearbox-speed {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px 8px;
+    color: #989898;
+}
+
+.ns-gearbox-speed input[type="range"] {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0;
+    accent-color: #f03a6c;
+}
+
+.ns-gearbox-out {
+    font-family: "Overpass Mono", monospace;
+    color: #ffffff;
+}
+
+.ns-gearbox-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ns-gearbox-buttons button {
+    padding: 6px 12px;
+    border: 1px solid #3a3b42;
+    border-radius: 6px;
+    background: #16171b;
+    color: #ffffff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.ns-gearbox-buttons button:hover {
+    border-color: #f03a6c;
+}
+
+.ns-gearbox-buttons button[aria-pressed="true"] {
+    background: #190d0f;
+    border-color: #f03a6c;
+}
+
+.ns-gearbox-check {
+    color: #989898;
+    cursor: pointer;
+}
+
+.ns-gearbox-check input {
+    accent-color: #f03a6c;
+}
+
+.ns-gearbox-readout {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 4px 12px;
+    align-content: start;
+    margin: 0;
+    font-size: 14px;
+}
+
+.ns-gearbox-readout dt {
+    color: #666666;
+}
+
+.ns-gearbox-readout dd {
+    margin: 0;
+    font-family: "Overpass Mono", monospace;
+    color: #ffffff;
+    overflow-wrap: anywhere;
+}
+
+.ns-gearbox button:focus-visible,
+.ns-gearbox input:focus-visible {
+    outline: 2px solid #f03a6c;
+    outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+    .ns-gearbox {
+        padding: 12px;
+    }
+
+    .ns-gearbox-view {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 420px) {
+    .ns-gearbox-gauges {
+        gap: 8px;
+    }
+}

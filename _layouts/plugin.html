@@ -44,3 +44,11 @@ show_contact: true
 {% endif %}
 <script defer src="{{ '/library/media-zoom.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 <script defer src="{{ '/library/showcase.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+{% comment %} The showcase widget of this plugin, if it has one: library/showcases/<repo in lower case>.js and .css {% endcomment %}
+{% assign showcase_slug = page.repo | downcase %}
+{% assign showcase_js = '/library/showcases/' | append: showcase_slug | append: '.js' %}
+{% assign showcase_css = '/library/showcases/' | append: showcase_slug | append: '.css' %}
+{% for file in site.static_files %}
+  {% if file.path == showcase_css %}<link rel="stylesheet" href="{{ file.path | relative_url }}?v={{ site.time | date: '%s' }}" />{% endif %}
+  {% if file.path == showcase_js %}<script defer src="{{ file.path | relative_url }}?v={{ site.time | date: '%s' }}"></script>{% endif %}
+{% endfor %}

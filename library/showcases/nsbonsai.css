@@ -1,0 +1,239 @@
+/* NsBonsai showcase: the name pruner. The plain fragment stays readable without the script. */
+
+.ns-bonsai {
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 150%;
+    color: #ffffff;
+}
+
+.ns-bonsai figcaption {
+    font-size: 14px;
+    color: #989898;
+    margin-bottom: 14px;
+}
+
+.ns-bonsai code {
+    font-family: "Overpass Mono", monospace;
+    overflow-wrap: anywhere;
+}
+
+.ns-bonsai > p,
+.ns-bonsai details p {
+    margin: 12px 0 0;
+    color: #989898;
+}
+
+.ns-bonsai ul[data-list="examples"] {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.ns-bonsai details {
+    margin-top: 14px;
+    color: #989898;
+}
+
+.ns-bonsai summary {
+    cursor: pointer;
+}
+
+.ns-bonsai summary:focus-visible {
+    outline: 2px solid #f03a6c;
+    outline-offset: 2px;
+}
+
+.ns-bonsai table {
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+}
+
+.ns-bonsai th,
+.ns-bonsai td {
+    padding: 2px 8px 2px 0;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.ns-bonsai th {
+    color: #666666;
+    font-weight: normal;
+}
+
+.ns-bonsai td:last-child {
+    font-family: "Overpass Mono", monospace;
+    color: #f03a6c;
+}
+
+.ns-bonsai ul[data-list="domains"],
+.ns-bonsai ul[data-list="aliases"] {
+    margin: 6px 0 0;
+    padding-left: 20px;
+    font-size: 13px;
+}
+
+.ns-bonsai ul[data-list="domains"] b {
+    font-weight: normal;
+    color: #ffffff;
+}
+
+/* With the script, the example list becomes the example buttons */
+.ns-bonsai.is-live ul[data-list="examples"] {
+    display: none;
+}
+
+.ns-bonsai-app {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+}
+
+.ns-bonsai-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.ns-bonsai-field {
+    display: grid;
+    gap: 4px;
+    flex: 1 1 170px;
+    min-width: 0;
+}
+
+.ns-bonsai-field--wide {
+    flex: 2 1 240px;
+}
+
+.ns-bonsai-label {
+    font-size: 12px;
+    color: #666666;
+}
+
+.ns-bonsai-input {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    border: 1px solid #2a2b30;
+    border-radius: 6px;
+    background: #101114;
+    color: #ffffff;
+    font: inherit;
+    accent-color: #f03a6c;
+}
+
+.ns-bonsai-name {
+    font-family: "Overpass Mono", monospace;
+}
+
+.ns-bonsai-input:focus-visible,
+.ns-bonsai-example:focus-visible {
+    outline: 2px solid #f03a6c;
+    outline-offset: 2px;
+}
+
+.ns-bonsai-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.ns-bonsai-example {
+    max-width: 100%;
+    padding: 4px 10px;
+    border: 1px solid #2a2b30;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #c8c8c8;
+    font-family: "Overpass Mono", monospace;
+    font-size: 13px;
+    text-align: left;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+}
+
+.ns-bonsai-example:hover {
+    border-color: #f03a6c;
+    color: #ffffff;
+}
+
+.ns-bonsai-result {
+    display: grid;
+    gap: 6px;
+    padding: 14px;
+    border-radius: 6px;
+    background: #101114;
+}
+
+.ns-bonsai-final {
+    font-size: 20px;
+    line-height: 140%;
+    overflow-wrap: anywhere;
+}
+
+.ns-bonsai-sep {
+    color: #666666;
+}
+
+/* One color for each part of the name */
+.ns-bonsai .ns-bonsai-part--type { color: #f03a6c; }
+.ns-bonsai .ns-bonsai-part--domain { color: #5ab0f0; }
+.ns-bonsai .ns-bonsai-part--category { color: #f0b45a; }
+.ns-bonsai .ns-bonsai-part--asset { color: #ffffff; }
+.ns-bonsai .ns-bonsai-part--variant { color: #7fd08a; }
+
+.ns-bonsai-why {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+}
+
+.ns-bonsai-why-item {
+    display: grid;
+    grid-template-columns: 6.5em minmax(0, 1fr);
+    column-gap: 10px;
+}
+
+.ns-bonsai-text {
+    color: #989898;
+}
+
+.ns-bonsai-text code {
+    margin-right: 4px;
+}
+
+.ns-bonsai-key {
+    font-size: 12px;
+    line-height: 175%;
+}
+
+@media (max-width: 420px) {
+    .ns-bonsai-why-item {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.ns-bonsai-note {
+    margin: 0;
+    padding: 8px 12px;
+    border-left: 2px solid #7fd08a;
+    color: #c8c8c8;
+}
+
+@media (max-width: 760px) {
+    .ns-bonsai {
+        padding: 12px;
+    }
+
+    .ns-bonsai-final {
+        font-size: 16px;
+    }
+}

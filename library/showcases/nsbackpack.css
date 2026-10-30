@@ -1,0 +1,102 @@
+/* NsBackpack showcase: a grid backpack with shaped items */
+
+.ns-backpack {
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.ns-backpack figcaption {
+    font-size: 14px;
+    color: #989898;
+    margin: 0 0 16px;
+}
+
+.ns-backpack ul {
+    margin: 0 0 12px;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.ns-backpack li b {
+    font-weight: normal;
+    color: #ffffff;
+}
+
+.ns-backpack > p {
+    margin: 12px 0 0;
+    font-size: 14px;
+    color: #666666;
+}
+
+/* The grid replaces the list of start stacks */
+.ns-backpack.is-live ul {
+    display: none;
+}
+
+.ns-backpack-view {
+    min-width: 0;
+}
+
+.ns-backpack-grid {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 6px;
+    background: #101114;
+    touch-action: none;
+    cursor: grab;
+}
+
+.ns-backpack-grid:focus {
+    outline: none;
+}
+
+.ns-backpack-grid:focus-visible {
+    outline: 2px solid #f03a6c;
+    outline-offset: 2px;
+}
+
+.ns-backpack-status {
+    min-height: 3em;
+    margin: 12px 0 8px;
+    font-family: "Overpass Mono", monospace;
+    font-size: 13px;
+    line-height: 150%;
+    color: #ffffff;
+}
+
+.ns-backpack-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ns-backpack-tools button {
+    padding: 6px 10px;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    font-family: "Overpass Mono", monospace;
+    font-size: 13px;
+    cursor: pointer;
+    accent-color: #f03a6c;
+}
+
+.ns-backpack-tools button:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.ns-backpack-tools button:focus-visible {
+    outline: 2px solid #f03a6c;
+    outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+    .ns-backpack {
+        padding: 12px;
+    }
+}

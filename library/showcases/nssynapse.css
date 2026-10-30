@@ -1,0 +1,249 @@
+/* NsSynapse showcase: utility AI scores (.ns-utility) */
+
+.ns-utility {
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.ns-utility figcaption {
+    margin: 0 0 12px;
+    font-size: 14px;
+    line-height: 150%;
+    color: #989898;
+}
+
+.ns-utility li b {
+    font-weight: normal;
+}
+
+/* Live widget: one column, or the inputs on the left and the actions on the right */
+.ns-utility.is-live {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "caption" "inputs" "result" "actions";
+    gap: 16px 24px;
+    align-items: start;
+}
+
+.ns-utility.is-live.ns-utility-wide {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas: "caption caption" "inputs actions" "result actions";
+}
+
+.ns-utility.is-live figcaption {
+    grid-area: caption;
+    margin: 0;
+}
+
+.ns-utility.is-live .ns-utility-inputs {
+    grid-area: inputs;
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ns-utility.is-live .ns-utility-inputs > li {
+    margin: 0;
+}
+
+.ns-utility-input {
+    display: grid;
+    grid-template-columns: 5.5em minmax(0, 1fr) 3em;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.ns-utility-input-name {
+    color: #ffffff;
+}
+
+.ns-utility-input input[type="range"] {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    accent-color: #f03a6c;
+}
+
+.ns-utility-input-value {
+    font-family: "Overpass Mono", monospace;
+    font-size: 13px;
+    text-align: right;
+    color: #ffffff;
+}
+
+.ns-utility-hint {
+    display: block;
+    padding-left: calc(5.5em + 8px);
+    font-size: 12px;
+    color: #666666;
+}
+
+.ns-utility-result {
+    grid-area: result;
+    margin: 0;
+    font-family: "Overpass Mono", monospace;
+    font-size: 14px;
+    color: #f03a6c;
+}
+
+/* The action cards */
+.ns-utility.is-live .ns-utility-actions {
+    grid-area: actions;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ns-utility.is-live .ns-utility-actions > li {
+    margin: 0;
+    padding: 12px;
+    border: 1px solid #222226;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.ns-utility.is-live .ns-utility-actions > li[aria-current="true"] {
+    border-color: #f03a6c;
+    background: #190d0f;
+}
+
+.ns-utility-head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.ns-utility-name {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.ns-utility-badge {
+    display: none;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: #f03a6c;
+    color: #ffffff;
+    font-size: 11px;
+}
+
+.ns-utility-actions > li[aria-current="true"] .ns-utility-badge {
+    display: inline-block;
+}
+
+.ns-utility-score {
+    margin-left: auto;
+    font-family: "Overpass Mono", monospace;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.ns-utility-bar {
+    height: 6px;
+    margin: 8px 0 10px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.ns-utility-bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 3px;
+    background: #666666;
+}
+
+.ns-utility-actions > li[aria-current="true"] .ns-utility-bar span {
+    background: #f03a6c;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .ns-utility-bar span {
+        transition: width 120ms linear;
+    }
+}
+
+.ns-utility-terms {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ns-utility-terms li {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.ns-utility-curve {
+    display: block;
+    width: 64px;
+    height: 40px;
+}
+
+.ns-utility-curve-back {
+    fill: #101114;
+}
+
+.ns-utility-curve-line {
+    fill: none;
+    stroke: #989898;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+}
+
+.ns-utility-curve-dot {
+    fill: #f03a6c;
+}
+
+.ns-utility-term {
+    min-width: 0;
+    font-size: 13px;
+    line-height: 140%;
+}
+
+.ns-utility-term b {
+    display: block;
+    color: #ffffff;
+}
+
+.ns-utility-math,
+.ns-utility-formula {
+    font-family: "Overpass Mono", monospace;
+    font-size: 11px;
+    color: #989898;
+    overflow-wrap: anywhere;
+}
+
+.ns-utility-formula {
+    margin: 10px 0 0;
+    line-height: 150%;
+}
+
+.ns-utility input:focus-visible {
+    outline: 2px solid #f03a6c;
+    outline-offset: 2px;
+}
+
+@media only screen and (max-width: 760px) {
+    .ns-utility {
+        padding: 12px;
+    }
+}

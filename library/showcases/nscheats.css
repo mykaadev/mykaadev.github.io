@@ -1,0 +1,384 @@
+/* NsCheats showcase: the cheat window and the console strip. The plain fragment stays readable without the script. */
+
+.ns-cheats {
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 150%;
+    color: #ffffff;
+}
+
+.ns-cheats figcaption {
+    font-size: 14px;
+    color: #989898;
+    margin-bottom: 14px;
+}
+
+.ns-cheats code {
+    font-family: "Overpass Mono", monospace;
+    overflow-wrap: anywhere;
+}
+
+.ns-cheats > ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.ns-cheats > ul b {
+    font-weight: normal;
+    color: #ffffff;
+}
+
+.ns-cheats > ul span,
+.ns-cheats > ul i {
+    color: #989898;
+}
+
+.ns-cheats > ul i {
+    font-style: normal;
+    color: #666666;
+}
+
+.ns-cheats > p {
+    margin: 12px 0 0;
+    color: #989898;
+}
+
+/* With the script, the entry list becomes the window */
+.ns-cheats.is-live > ul {
+    display: none;
+}
+
+.ns-cheats button,
+.ns-cheats input,
+.ns-cheats select {
+    font: inherit;
+    accent-color: #f03a6c;
+}
+
+.ns-cheats button:focus-visible,
+.ns-cheats input:focus-visible,
+.ns-cheats select:focus-visible {
+    outline: 2px solid #f03a6c;
+    outline-offset: 2px;
+}
+
+.ns-cheats-app {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+}
+
+.ns-cheats-window {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    border: 1px solid #2a2b30;
+    border-radius: 8px;
+    background: #0d0e10;
+    overflow: hidden;
+    container-type: inline-size;
+}
+
+.ns-cheats-window[hidden],
+.ns-cheats-closed[hidden] {
+    display: none;
+}
+
+.ns-cheats-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 6px 4px 12px;
+    background: #16171b;
+    font-size: 13px;
+    color: #989898;
+}
+
+.ns-cheats-close {
+    width: 32px;
+    height: 28px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: #989898;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.ns-cheats-close:hover {
+    background: #f03a6c;
+    color: #ffffff;
+}
+
+.ns-cheats-top {
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #2a2b30;
+}
+
+.ns-cheats-search,
+.ns-cheats-field,
+.ns-cheats-command {
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 6px 10px;
+    border: 1px solid #2a2b30;
+    border-radius: 6px;
+    background: #101114;
+    color: #ffffff;
+}
+
+.ns-cheats-search {
+    flex: 1 1 auto;
+}
+
+.ns-cheats-button,
+.ns-cheats-tab,
+.ns-cheats-section,
+.ns-cheats-chip {
+    padding: 5px 12px;
+    border: 1px solid #2a2b30;
+    border-radius: 6px;
+    background: #16171b;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.ns-cheats-button:hover,
+.ns-cheats-tab:hover,
+.ns-cheats-section:hover,
+.ns-cheats-chip:hover {
+    border-color: #f03a6c;
+}
+
+.ns-cheats-tab[aria-pressed="true"],
+.ns-cheats-section[aria-pressed="true"] {
+    border-color: #f03a6c;
+    background: #190d0f;
+}
+
+.ns-cheats-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 12px 4px;
+}
+
+.ns-cheats-body {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 12px;
+    padding: 4px 12px 12px;
+    align-items: start;
+}
+
+.ns-cheats-sections {
+    padding: 8px;
+    border-radius: 6px;
+    background: #121316;
+}
+
+.ns-cheats-heading {
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #989898;
+}
+
+.ns-cheats-section-list {
+    display: grid;
+    gap: 4px;
+}
+
+.ns-cheats-section {
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.ns-cheats-panel {
+    min-width: 0;
+    padding: 10px;
+    border-radius: 6px;
+    background: #121316;
+}
+
+.ns-cheats-panel-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px 12px;
+    margin-bottom: 8px;
+}
+
+.ns-cheats-panel-title {
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.ns-cheats-panel-count {
+    color: #989898;
+}
+
+.ns-cheats-rows {
+    display: grid;
+    gap: 6px;
+}
+
+.ns-cheats-row {
+    padding: 9px 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.ns-cheats-row-name {
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.ns-cheats-row-desc {
+    margin-top: 4px;
+    font-size: 13px;
+    color: #989898;
+    overflow-wrap: anywhere;
+}
+
+.ns-cheats-row-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.ns-cheats-row-controls:empty {
+    display: none;
+}
+
+.ns-cheats-debug {
+    flex: 1 1 160px;
+    font-family: "Overpass Mono", monospace;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.ns-cheats-number {
+    width: 160px;
+    max-width: 100%;
+    font-family: "Overpass Mono", monospace;
+}
+
+.ns-cheats-text,
+.ns-cheats-picker {
+    flex: 1 1 160px;
+}
+
+.ns-cheats-check {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+.ns-cheats-empty {
+    color: #989898;
+}
+
+.ns-cheats-closed {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 14px;
+    border: 1px dashed #2a2b30;
+    border-radius: 8px;
+    color: #989898;
+}
+
+.ns-cheats-console {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    border: 1px solid #2a2b30;
+    border-radius: 8px;
+    background: #0b0b0d;
+    font-family: "Overpass Mono", monospace;
+    font-size: 12.5px;
+    line-height: 160%;
+}
+
+.ns-cheats-log {
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    min-height: 3.2em;
+    max-height: 176px;
+    overflow-y: auto;
+}
+
+.ns-cheats-line {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.ns-cheats-line--input { color: #ffffff; }
+.ns-cheats-line--log { color: #c8c8c8; }
+.ns-cheats-line--warn { color: #f0b45a; }
+.ns-cheats-line--exec { color: #f03a6c; }
+.ns-cheats-line--call,
+.ns-cheats-line--note { color: #666666; }
+
+.ns-cheats-prompt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-top: 1px solid #2a2b30;
+}
+
+.ns-cheats-caret {
+    color: #f03a6c;
+}
+
+.ns-cheats-command {
+    flex: 1 1 auto;
+    border: 0;
+    background: transparent;
+    font-family: "Overpass Mono", monospace;
+}
+
+.ns-cheats-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 12px 10px;
+}
+
+.ns-cheats-chip {
+    max-width: 100%;
+    padding: 2px 8px;
+    color: #c8c8c8;
+    font-family: "Overpass Mono", monospace;
+    font-size: 12px;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+/* A narrow window puts the sections over the entries */
+@container (max-width: 540px) {
+    .ns-cheats-body {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ns-cheats-section-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 760px) {
+    .ns-cheats {
+        padding: 12px;
+    }
+}

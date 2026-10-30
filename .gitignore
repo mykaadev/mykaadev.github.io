@@ -6,5 +6,5 @@ vendor
 .bundle
 _generated/plugins/*.md
 _includes/generated/readmes/*.md
-showcases/
+/showcases/
 _generated/plugins/docs/
