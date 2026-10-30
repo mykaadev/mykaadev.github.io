@@ -2634,43 +2634,33 @@ Vault Cards (plugins that are not public yet)
 }
 
 /*---------------------------------------------
-Phone (650 px and less): smaller type, a compact header and title, and one row of buttons
+Phone (650 px and less): the whole site at one smaller scale, so the phone keeps the
+proportions of the desktop. Only the parts that need a phone layout get their own rules.
 ---------------------------------------------*/
 
 @media only screen and (max-width: 650px) {
+    /* One scale for all text, spacing, and boxes (17 px body text shows as about 14 px) */
     body {
-        font-size: 16px;
+        zoom: 0.82;
+    }
+
+    h2,
+    h3 {
+        letter-spacing: 1.5px;
     }
 
     h2 {
-        font-size: 22px;
-        letter-spacing: 1.5px;
-        margin-top: 28px;
-    }
-
-    h3 {
-        font-size: 18px;
-        letter-spacing: 1px;
-        margin-top: 24px;
-    }
-
-    h4 {
-        font-size: 16px;
-    }
-
-    #index-about #index-bio p {
-        font-size: 17px;
-        line-height: 26px;
+        margin-top: 32px;
     }
 
     /* Header: a smaller logo, the icons under it, and the five links in one row */
     #main-header #main-header-name {
-        transform: translateX(-50%) scale(0.7);
+        transform: translateX(-50%) scale(0.75);
         transform-origin: top center;
     }
 
     #main-header #main-header-icons {
-        top: 64px;
+        top: 70px;
     }
 
     #main-header #main-header-icons a {
@@ -2681,9 +2671,9 @@ Phone (650 px and less): smaller type, a compact header and title, and one row o
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 2px;
+        gap: 4px;
         height: auto;
-        margin: 76px 8px 0;
+        margin: 84px 8px 0;
         padding: 4px 0;
         width: auto;
     }
@@ -2692,31 +2682,31 @@ Phone (650 px and less): smaller type, a compact header and title, and one row o
         flex: 0 1 auto;
         width: auto;
         margin: 0;
-        padding: 0 3px;
-        font-size: 13px;
+        padding: 0 6px;
+        font-size: 16px;
         letter-spacing: 0;
     }
 
-    /* Page title */
+    /* Page title: as tall as its text */
     #page-title-parent {
-        height: 132px;
+        height: 150px;
         margin-top: 12px;
     }
 
     #page-title-parent h1,
     #page-title-parent:not(.blog-header-image) h1,
     #page-title-parent #page-title h1 {
-        font-size: 30px;
-        padding-top: 10px;
+        font-size: 36px;
+        padding-top: 12px;
     }
 
     #page-title-parent p,
     #page-title-parent #page-title p {
-        font-size: 16px;
-        margin: 12px 16px;
+        font-size: 18px;
+        margin: 14px 16px;
     }
 
-    /* Plugin and project buttons: small, and they share one or two rows */
+    /* Buttons share one or two rows */
     .project-meta {
         gap: 8px;
         margin-bottom: 16px;
@@ -2730,12 +2720,69 @@ Phone (650 px and less): smaller type, a compact header and title, and one row o
     #main-body a.project-link,
     #main-body a.project-link:visited {
         flex: 1 1 auto;
-        padding: 4px 8px;
-        font-size: 13px;
+        padding: 5px 10px;
         text-align: center;
     }
 
-    .doc-card-title {
-        font-size: 17px;
+    /* Cards: two columns, as on a small desktop window */
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .project-card-body {
+        padding: 8px 10px 12px;
+    }
+
+    .project-card-body h3 {
+        margin: 6px 0 4px;
+        font-size: 20px;
+        letter-spacing: 0;
+    }
+
+    .project-card-body p {
+        font-size: 15px;
+    }
+
+    /* Tables keep readable columns and scroll sideways when they are wider than the screen */
+    #main-body table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        table-layout: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #main-body table th,
+    #main-body table td {
+        min-width: 7em;
+        padding: 8px 10px;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    #main-body table td:first-child {
+        min-width: 8em;
+    }
+
+    #main-body pre {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    /* About: the tech stack wraps inside its boxes, so no box is wider than the screen */
+    .tech-stack {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tech-items {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        padding-bottom: 0;
+        gap: 8px 0;
+    }
+
+    .tech-card {
+        min-width: 84px;
     }
 }
