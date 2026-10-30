@@ -2339,6 +2339,64 @@ Projects
     margin-bottom: 24px;
 }
 
+/* Back button at the top of articles, projects, plugins, and plugin docs */
+/* Same look as the Download / GitHub buttons */
+#main-body a.page-back,
+#main-body a.page-back:visited {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    color: #ffffff;
+    background: #190d0f;
+    transition: all 150ms ease-in;
+}
+
+#main-body a.page-back:hover {
+    color: #000000;
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+/* Articles have no button row, so the back button sits on its own */
+.article-back {
+    margin-bottom: 24px;
+}
+
+.project-meta-start {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+/* The doc page you are on */
+#main-body a.project-link[aria-current="page"] {
+    color: #000000;
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+/* Plugin category sections, shown or hidden by the chips above them */
+.plugin-section {
+    margin-bottom: 28px;
+}
+
+.plugin-section[hidden] {
+    display: none;
+}
+
+.plugin-section > h3 {
+    padding-bottom: 6px;
+    border-bottom: 1px solid #333;
+}
+
+.plugin-section-count {
+    margin-left: 4px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
 @media only screen and (max-width: 700px) {
     .project-grid {
         grid-template-columns: 1fr;

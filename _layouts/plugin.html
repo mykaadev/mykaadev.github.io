@@ -4,6 +4,30 @@ nav: plugins
 show_contact: true
 ---
 
+<div class="project-meta">
+  <div class="project-meta-start">
+    {% include site/page_back.html label=page.back_label url=page.back_url default_label="Plugins" default_url="/plugins/" %}
+    <div class="project-tags">
+      <span class="project-tag project-tag-type">Unreal Plugin</span>
+      {% if page.plugin_doc %}
+        <span class="project-tag">Docs</span>
+      {% elsif page.category %}
+        <span class="project-tag">{{ page.category }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="project-links">
+    {% unless page.plugin_doc %}
+      {% if page.download %}<a class="project-link" href="{{ page.download }}" target="_blank" rel="noopener">Download</a>{% endif %}
+    {% endunless %}
+    {% for doc in page.docs %}
+      <a class="project-link project-link-doc" href="{{ doc.url | relative_url }}"{% if doc.url == page.url %} aria-current="page"{% endif %}>{{ doc.label }}</a>
+    {% endfor %}
+    {% if page.github %}<a class="project-link" href="{{ page.github }}" target="_blank" rel="noopener">GitHub</a>{% endif %}
+  </div>
+</div>
+
 {{ content }}
 
 {% if page.discussion != false %}

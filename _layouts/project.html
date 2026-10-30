@@ -5,10 +5,13 @@ show_contact: false
 ---
 
 <div class="project-meta">
-  <div class="project-tags">
-    {% if page.type %}<span class="project-tag project-tag-type">{{ page.type }}</span>{% endif %}
-    {% if page.status %}<span class="project-tag">{{ page.status }}</span>{% endif %}
-    {% for item in page.tech %}<span class="project-tag project-tag-tech">{{ item }}</span>{% endfor %}
+  <div class="project-meta-start">
+    {% include site/page_back.html label=page.back_label url=page.back_url default_label="Projects" default_url="/projects/" %}
+    <div class="project-tags">
+      {% if page.type %}<span class="project-tag project-tag-type">{{ page.type }}</span>{% endif %}
+      {% if page.status %}<span class="project-tag">{{ page.status }}</span>{% endif %}
+      {% for item in page.tech %}<span class="project-tag project-tag-tech">{{ item }}</span>{% endfor %}
+    </div>
   </div>
 
   {% if page.links %}

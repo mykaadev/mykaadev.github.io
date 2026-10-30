@@ -5,6 +5,10 @@ hero_subtitle: Notes, breakdowns, and development logs.
 show_contact: false
 ---
 
+<div class="article-back">
+  {% include site/page_back.html label=page.back_label url=page.back_url default_label="Articles" default_url="/articles/" %}
+</div>
+
 {% if page.project %}
   {% assign linked_project = site.pages | where: "url", page.project | first %}
   <div class="doc-cards article-project-link">

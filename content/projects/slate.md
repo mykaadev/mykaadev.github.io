@@ -9,10 +9,10 @@ meta_description: "Slate, a local-first desktop Markdown workspace for notes, jo
 og_image: /resources/images/projects/Slate/LandingPage.png
 tech: [C++, Lua, Markdown]
 links:
-  - label: GitHub
-    url: https://github.com/mykaadev/Slate
   - label: Download
     url: https://github.com/mykaadev/Slate/releases/latest
+  - label: GitHub
+    url: https://github.com/mykaadev/Slate
 ---
 
 ![Slate home screen](/resources/images/projects/Slate/LandingPage.png)

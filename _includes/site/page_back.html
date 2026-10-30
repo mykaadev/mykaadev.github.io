@@ -1,0 +1,3 @@
+{% assign back_label = include.label | default: include.default_label %}
+{% assign back_url = include.url | default: include.default_url %}
+<a class="page-back" href="{{ back_url | relative_url }}">&larr; {{ back_label }}</a>

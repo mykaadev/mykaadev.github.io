@@ -108,6 +108,7 @@ module Jekyll
           showcase = sync_showcase(repo_name, branch, readme_meta)
           page_data = build_page_data(repo, topics, readme_meta, branch)
           docs = sync_docs(repo_name, branch, normalized_readme, page_data, showcase)
+          page_data["docs"] = docs
           normalized_readme = inline_showcases(normalized_readme, "", showcase, repo_name, branch)
           normalized_readme = build_doc_cards(normalized_readme, docs, repo_name, branch)
           normalized_readme = rewrite_doc_links(normalized_readme, "", docs, page_data, repo_name, branch)
@@ -453,6 +454,16 @@ module Jekyll
         output.join("\n")
       end
 
+      # The plugin's doc pages as front matter, for the doc buttons at the top of its pages
+      def doc_nav_yaml(docs)
+        return "docs: []" if docs.nil? || docs.empty?
+
+        items = docs.values.map do |doc|
+          "  - label: \"#{escape_yaml(doc["title"])}\"\n    url: \"#{escape_yaml(doc["url"])}\""
+        end
+        "docs:\n#{items.join("\n")}"
+      end
+
       def inline_markdown_html(text)
         escaped = text.to_s.gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;").gsub("\"", "&quot;")
         escaped.gsub(/`([^`]+)`/, "<code>\\1</code>").gsub(/\*\*([^*]+)\*\*/, "<strong>\\1</strong>")
@@ -479,18 +490,15 @@ module Jekyll
           repo: "#{escape_yaml(repo_name)}"
           github: "#{escape_yaml("https://github.com/#{@github_user}/#{repo_name}/blob/#{branch}/#{path}")}"
           permalink: "#{escape_yaml(doc["url"])}"
+          back_label: "#{escape_yaml(page_data["title"])}"
+          back_url: "#{escape_yaml(page_data["permalink"])}"
           discussion: false
+          #{doc_nav_yaml(docs)}
           ---
-
-          [&larr; Back to #{page_data["title"]}](#{page_data["permalink"]})
 
           {% raw %}
           %%DOC_BODY%%
           {% endraw %}
-
-          ---
-
-          > [View this page on GitHub](https://github.com/#{@github_user}/#{repo_name}/blob/#{branch}/#{path})
         MARKDOWN
 
         destination = File.join(pages_dir, "docs", repo_name, "#{doc_slug(path)}.md")
@@ -772,6 +780,9 @@ module Jekyll
 
         discussion_data = build_discussion_data(repo_name, repo, overrides, meta)
         date_value = parse_date(first_present(overrides["date"], meta["date"], repo["pushed_at"], repo["created_at"]))
+        github_value = repo["html_url"].to_s.empty? ? "https://github.com/#{@github_user}/#{repo_name}" : repo["html_url"].to_s
+        # The repos have no releases, so the download is a zip of the default branch
+        download_value = first_present(overrides["download"], meta["download"], "#{github_value}/archive/refs/heads/#{branch}.zip")
         {
           "title" => title_value,
           "short-description" => short_description,
@@ -780,7 +791,8 @@ module Jekyll
           "thumbnail" => thumbnail_value,
           "date" => date_value.strftime("%Y-%m-%d"),
           "topics" => topics,
-          "github" => repo["html_url"].to_s.empty? ? "https://github.com/#{@github_user}/#{repo_name}" : repo["html_url"].to_s,
+          "github" => github_value,
+          "download" => download_value,
           "permalink" => permalink_value,
           "discussion" => discussion_data["enabled"],
           "discussion_mapping" => discussion_data["mapping"],
@@ -815,6 +827,7 @@ module Jekyll
           category: "#{escape_yaml(page_data["category"])}"
           repo: "#{escape_yaml(repo_name)}"
           github: "#{escape_yaml(page_data["github"])}"
+          download: "#{escape_yaml(page_data["download"])}"
           permalink: "#{escape_yaml(page_data["permalink"])}"
           discussion: #{page_data["discussion"] ? "true" : "false"}
           discussion_heading: "Discuss this plugin"
@@ -826,6 +839,7 @@ module Jekyll
           discussion_category: "#{escape_yaml(page_data["discussion_category"])}"
           discussion_category_id: "#{escape_yaml(page_data["discussion_category_id"])}"
           discussion_configured: #{page_data["discussion_configured"] ? "true" : "false"}
+          #{doc_nav_yaml(page_data["docs"])}
           topics:
           #{topics.empty? ? "  - plugin" : topics}
           ---
