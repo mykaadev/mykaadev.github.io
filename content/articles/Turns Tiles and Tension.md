@@ -9,420 +9,322 @@ og_image: /resources/images/articles/TurnsTilesTension/Tactics-Ogre-Reborn%20Com
 ---
 
 # Classic Turn-Based vs Tactical Turn-Based Combat
-*On abstraction, space, pacing, and what each form is actually trying to make the player think about*
+*Or: why "turn-based" doesn't actually tell you much*
 
-There is a habit I keep seeing in game discussions, and to be fair, I have done it too.
+Small confession first: I do this too.
 
-We say *turn-based combat* as if that phrase is already specific enough.
+Someone says a game is *turn-based*, and everyone nods like that explained something.
 
-It usually is not.
+It didn't.
 
 ![Cool Slime Yay!](/resources/images/articles/TurnsTilesTension/Slime.jpg)
 
-Once you put **Dragon Quest**, **Darkest Dungeon**, **Fire Emblem**, **Tactics Ogre**, **Final Fantasy Tactics**, **Into the Breach**, and **Triangle Strategy** under the same umbrella, the category becomes so broad that it stops being useful. The turns are shared. The design goals are not.
+Put **Dragon Quest**, **Darkest Dungeon**, **Fire Emblem**, **Tactics Ogre**, **Final Fantasy Tactics**, **Into the Breach**, and **Triangle Strategy** in the same bucket and the bucket stops meaning anything. They all take turns. That's roughly where the similarities end.
 
-That was the point where my own thinking started to shift.
+So at some point I stopped asking "is it turn-based?" and started asking this instead:
 
-I stopped asking whether a game was “turn-based,” and started asking a much more useful question:
+> what is the game actually making me think about?
 
-> **What is the game actually asking the player to reason about?**
+And that splits things pretty cleanly.
 
-That question turns out to split the space very cleanly.
+Classic turn-based combat makes you think about **actions, resources, and order**. What do I use, on who, and when.
 
-Classic turn-based combat is usually asking the player to reason about **actions, resources, and sequencing**.
+Tactical turn-based combat makes you think about **position, exposure, terrain, and what the board looks like next turn**.
 
-Tactical turn-based combat is usually asking the player to reason about **position, exposure, terrain, and future board state**.
-
-Those sound close. In practice, they produce very different games.
-
-This article is an attempt to break that difference down properly - not as a vague genre conversation, but as a game design one.
+On paper those sound close. Play two of them back to back and they really aren't.
 
 ---
 
-## A useful historical split
+## Where The Split Comes From
 
-One reason these conversations get muddy is that both traditions share ancestry.
-
-Early digital RPG combat inherited a lot from tabletop forms: turns, stats, probabilities, party composition, attack resolution. But once those ideas met computer interfaces, two distinct lines started to harden.
+Both families come from the same place. Early RPG combat borrowed a lot from tabletop: turns, stats, dice, parties, attack rolls. Then those ideas landed on computers and kind of went two different ways.
 
 ![Dragon Quest](/resources/images/articles/TurnsTilesTension/DragonQuestSlime.jpg)
 
-One line moved toward **abstraction and menu-driven clarity**.
+One way went toward **menus and abstraction**.
 
-That is the line most people associate with classic JRPG combat. *Dragon Quest* is the obvious anchor point here: Square Enix still frames the original game as the first episode of the series, first released in 1986, and it remains one of the clearest expressions of classic command-based combat.[1] That lineage is not just about chronology; it is about design philosophy. The battlefield is simplified so the decision can be focused.
+That's the classic JRPG thing. *Dragon Quest* is the obvious example: Square Enix still treats the 1986 original as the start of the series, and it's still about the cleanest version of "pick a command, watch it happen" you'll find.[1] The battlefield is basically a backdrop. The game strips it down on purpose so you can focus on the choice.
 
 ![Fire Emblem Shadow](/resources/images/articles/TurnsTilesTension/FireEmblemShadow.jpg)
 
-The other line moved toward **board-state reasoning**.
+The other way went toward **the board**.
 
-Nintendo still describes the original *Fire Emblem: Shadow Dragon and the Blade of Light* as the first game in the series, released in 1990, and importantly, it sits in a lineage where terrain, unit placement, and loss conditions are not side considerations - they are the game.[2] By the mid-1990s, *Tactics Ogre* had pushed that form further, and later games like *Final Fantasy Tactics* and *Triangle Strategy* would refine the same core idea in different directions.[3][4]
+Nintendo still calls *Fire Emblem: Shadow Dragon and the Blade of Light* (1990) the first game in the series, and in that family terrain, unit placement, and losing units aren't side details. They're the game.[2] *Tactics Ogre* pushed it further in the mid-90s, and *Final Fantasy Tactics* and *Triangle Strategy* later took the same core idea in their own directions.[3][4]
 
-That split matters because these two forms solve different design problems.
+So you end up with two very different design questions. One is:
 
-Classic turn-based combat is trying to answer:
+> how do I make picking an action interesting?
 
-> How do we make choosing an action interesting?
+The other is:
 
-Tactical turn-based combat is trying to answer:
+> how do I make the battlefield interesting?
 
-> How do we make the battlefield itself interesting?
-
-That is the real fork in the road.
+Same turns. Different problem.
 
 ---
 
-## The defining difference: abstraction of space
+## The Big One: What Happens To Space
 
-If I had to reduce the whole article to one design axis, it would be this:
+If I had to squash this whole article into one line:
 
-> **Classic turn-based combat abstracts space. Tactical turn-based combat operationalizes it.**
+> **Classic combat abstracts space. Tactical combat makes you play in it.**
 
-That sounds more academic than it is, so it is worth unpacking.
+In a classic system the game usually doesn't care where anyone is standing in the world. It might care about *relative* position, but it squashes that into something simple.
 
-In a classic system, the battle usually does not care about literal world position. It may still care about *relative* position, but that position is abstracted into a simpler representation.
-
-Rows. Ranks. Frontline and backline. Target slots.
+Rows. Ranks. Front line, back line. Target slots.
 
 ![My beloved darkest dungeon](/resources/images/articles/TurnsTilesTension/darkest-dungeon.jpg)
 
-This is where a game like *Darkest Dungeon* becomes such a good example. It is still very much a classic turn-based combat system in its structure - abilities, status pressure, sequencing, party loadouts, attrition - but it introduces **positional abstraction** through ranks. Your party and the enemy line both exist in a compact formation model. Position matters, but it matters in a symbolic way: who can hit rank 3, who gets ruined by shuffle, who needs the front to function, who can lunge backward, who can force a pull. That is not spatial tactics in the battlefield sense. It is still classical combat design, but with an extra positional layer folded into abstraction.
+*Darkest Dungeon* is my favourite example of this (yes, I'm biased). Structurally it's classic: abilities, status effects, turn order, party loadouts, slowly bleeding out over a whole dungeon. But it adds **ranks**. Your party and the enemies each stand in a little four-slot line, and position matters a lot... just symbolically. Who can hit rank 3. Who gets wrecked by a shuffle. Who's useless unless they're up front. Who can lunge backwards. Who can drag someone forward.
 
-This is an important nuance, because it shows that the distinction is not “position exists” versus “position does not exist.”
+That's not tactics on a map. It's classic combat with a positional layer folded in.
 
-The distinction is:
+And that's the important bit. The difference isn't "position exists" vs "position doesn't exist". It's:
 
-- in classic systems, position is usually **compressed into a smaller symbolic model**
-- in tactical systems, position is usually **expanded into navigable space**
+- classic: position gets **compressed into a small symbolic model**
+- tactical: position gets **expanded into space you actually move around in**
 
-That expansion changes the player’s thought process completely.
+That one change rewires how you think during a fight.
 
 ---
 
-## What classic turn-based combat is really optimizing for
+## What Classic Combat Is Good At
 
-Classic turn-based combat is often at its best when it is optimizing for **clarity, tempo, and systemic readability**.
+Classic combat at its best is fast, clear, and easy to read.
 
-That sounds modest, but it is actually a very strong design advantage.
+That sounds like faint praise. It isn't. It's a big advantage.
 
-When the battlefield is abstracted, the player can direct most of their attention toward:
+When you don't have to read a map, your whole brain goes to:
 
-- what an ability does
-- which target is best
-- whether now is the right moment to commit a resource
-- how to sequence abilities for maximum value
-- how much risk to absorb this turn versus later
+- what does this ability actually do
+- who's the best target
+- is now the moment to burn that resource
+- what order gets the most out of my turn
+- how much damage can I eat now vs later
 
-This creates a decision space that is usually **tighter**, **faster to parse**, and **more legible through UI**.
+The decisions are tighter, quicker to read, and they fit nicely in a menu.
 
-That is why classic systems are so good at supporting:
+Which is why classic systems are so good at carrying status effects, elemental weaknesses, party roles, combos, scripted bosses, and long attrition across a whole dungeon.
 
-- status-effect ecosystems
-- elemental matchups
-- party role interaction
-- combo sequencing
-- boss scripting
-- long-form attrition over many fights
-
-A classic system can afford to become numerically rich because its spatial model is comparatively light.
-
-That trade is easy to underestimate.
+The map is light, so the numbers get to be heavy. Easy trade to underestimate.
 
 ![Paranoid](/resources/images/articles/TurnsTilesTension/DDParanoia.jpg)
 
-The more a system removes spatial interpretation, the more room it creates for:
+Less space to read means more room for abilities with real personality, resource tension, a bit of RNG spice, and scripted encounters.
 
-- ability identity
-- resource tension
-- probabilistic texture
-- encounter scripting
+It's also why classic games can throw way more fights at you without it getting exhausting. Each one resolves faster because you're picking actions, not evaluating a whole board.
 
-This is part of why classic combat often supports larger volumes of fights more comfortably. Encounters can resolve faster because the player’s cognitive load is concentrated in action selection rather than full board evaluation.
+And that speed isn't just convenience. It's a pacing tool. Classic combat slots nicely into the bigger loop of exploring, levelling, money, gear, and surviving the dungeon. Not every fight has to be a handcrafted puzzle.
 
-And that speed is not just convenience. It is a pacing tool.
-
-Classic turn-based combat tends to work very well in games where battle is part of a larger rhythm of:
-
-- exploration
-- progression
-- economy
-- equipment tuning
-- dungeon endurance
-
-In other words, classic combat often sits comfortably inside a broader RPG loop because it does not demand that every single encounter behave like a bespoke tactical puzzle.
+Some fights are just... Tuesday.
 
 ---
 
-## What tactical turn-based combat is really optimizing for
+## What Tactical Combat Is Good At
 
-Tactical turn-based combat shifts the design burden.
+Tactical combat moves the problem somewhere else.
 
-Once units occupy literal navigable space, the interesting question is no longer only *what can this unit do?* It becomes:
+Once units stand on real tiles, the question isn't only *what can this unit do?* It turns into:
 
-- where can this unit do it from?
+- where can it do it from?
 - what does moving there expose?
-- what space does this unit control by standing there?
-- how does this decision change the next two turns, not just this one?
+- what does it control just by standing there?
+- what does this do to the next two turns, not just this one?
 
-Now the system is not just evaluating actions.
+So now you're not just picking actions. You're picking **what the board turns into**.
 
-It is evaluating **state transitions**.
-
-That is why tactical systems so often feel deeper even when they contain fewer raw abilities than classic systems. Space multiplies consequences.
+That's why tactics games can feel deeper even with fewer abilities. Space multiplies everything.
 
 ![Tactics Ogre Combat](/resources/images/articles/TurnsTilesTension/Tactics-Ogre-Reborn-Review_05.png)
 
-A simple attack command in a tactical game is rarely just an attack command. It is bundled with:
+An attack in a tactics game is never just an attack. It comes bundled with the path you took, the angle you came from, who can hit you back now, whether you just opened a flank, what the terrain is doing, and where it leaves you in the turn order.
 
-- pathing
-- line of approach
-- threat exposure
-- flank possibility
-- terrain implication
-- turn-order consequence
+All that stuff stacking on top of each other is where the emergent, "oh no" moments come from.
 
-That bundling creates emergence.
+Nintendo's own *Triangle Strategy* tips are pretty blunt about it: "Positioning is the key to victory." Then they list exactly what you'd expect: high ground for safety and damage, back attacks for crits, and free follow-up attacks when you sandwich an enemy.[4] The Steam page says basically the same thing in fewer words: terrain, elevation, flanking, follow-ups.[5]
 
-Nintendo’s own *Triangle Strategy* tips are unusually blunt about this: “Positioning is the key to victory,” and the examples they give are exactly the ones you would expect - high ground for safety and damage, back attacks for criticals, and automatic follow-up attacks when units surround an enemy.[4] The Steam page is even more concise: terrain, elevation, flanking, and coordinated follow-ups are presented as the heart of battle depth.[5]
+That's not marketing fluff. It's a different economy.
 
-That is not just flavor text. It reflects a different design economy.
+In a tactics game, **space is a resource**.
 
-In a tactical system, **space itself becomes a resource**.
-
-- Choke points are resources.
+- A choke point is a resource.
 - Height is a resource.
-- Tempo on a bridge is a resource.
-- Occupying a safe attack angle is a resource.
-- Denying a tile can matter as much as dealing damage.
+- Getting to the bridge first is a resource.
+- A safe angle to attack from is a resource.
+- Blocking a tile can matter as much as hitting something.
 
-This is why good tactical combat often feels less like “using moves” and more like “negotiating a board.”
-
----
-
-## The real design trade: explicit complexity vs emergent complexity
-
-This is the part I find most useful when comparing the two forms.
-
-Classic turn-based combat tends toward **explicit complexity**.
-
-The game says:
-
-- here are the actions
-- here are the costs
-- here are the numbers
-- here are the outcomes you should expect
-
-If the system is deep, it is usually deep because of how those explicit pieces interact.
-
-Tactical combat tends toward **emergent complexity**.
-
-The game says:
-
-- here is the space
-- here are the rules of movement and attack
-- now deal with the consequences of putting those rules on a map
-
-The depth comes less from the size of the action list and more from the interaction between:
-
-- geometry
-- unit capabilities
-- timing
-- objective structure
-
-Neither form is inherently superior. But they place design effort in different places.
-
-Classic combat asks the designer to make actions and numerical systems compelling.
-
-Tactical combat asks the designer to make maps, movement rules, and positional incentives compelling.
-
-That difference matters a lot in production.
+Good tactics combat feels less like "using moves" and more like haggling with the map.
 
 ---
 
-## Why tactical systems are harder to communicate
+## Explicit Complexity vs Emergent Complexity
 
-I do not think tactical systems are always harder to design than classic systems.
+This is the comparison I find most useful.
 
-I do think they are usually harder to **teach cleanly**.
+Classic combat leans toward **explicit complexity**. The game hands you the pieces: here are the actions, here's what they cost, here are the numbers, here's roughly what will happen. If it's deep, it's deep because of how those pieces combine.
 
-Classic systems communicate very naturally through menus and numbers. Their causes and effects are often easier to express in interface.
+Tactical combat leans toward **emergent complexity**. The game says: here's a map, here's how moving and attacking work, good luck. The depth comes less from how many buttons you have and more from geometry, unit abilities, timing, and objectives all bumping into each other.
 
-Tactical systems rely heavily on spatial literacy.
+Neither one is better. They just put the design work in different places.
 
-The player has to understand things like:
+Classic: make the actions and the numbers interesting.
 
-- movement range
-- enemy reach
-- danger zones
-- line of sight
-- cover or elevation advantage
-- whether a tile is safe now but terrible one turn later
+Tactical: make the maps, the movement rules, and the reasons to stand somewhere interesting.
+
+And if you're actually building one of these, that difference decides where your time goes.
+
+---
+
+## Tactics Games Are Harder To Explain
+
+I don't think tactics games are always harder to *design*.
+
+I do think they're usually harder to *teach*.
+
+Classic systems explain themselves through menus and numbers. Cause and effect fits in a tooltip.
+
+Tactical systems need the player to read space. Movement range. Enemy reach. Danger zones. Line of sight. Cover or height. And the nasty one: a tile that's safe right now and terrible next turn.
 
 ![Tactics Ogre Combat](/resources/images/articles/TurnsTilesTension/Tactics-Ogre-Reborn%20Combat.png)
 
-That means the interface burden is much higher.
+All of that has to be on screen somehow. That's a lot more UI work.
 
-A tactical game with poor readability can feel unfair even when it is mathematically consistent.
+A tactics game that's hard to read can feel unfair even when the math is perfectly consistent.
 
-That is one reason Nintendo spent part of the *Fire Emblem* series’ evolution broadening accessibility with modes like Newcomer/Casual and later Phoenix Mode: when positional consequence and permadeath coexist, the cost of misunderstanding can be severe enough to eject players from the form entirely.[2]
+That's part of why Nintendo kept adding accessibility options to *Fire Emblem*, like Newcomer/Casual mode and later Phoenix Mode. Mix "where you stand matters" with permadeath, and one misread can be bad enough to make people quit the genre entirely.[2]
 
-This is where tactical combat earns both its highs and its frustrations.
+So this is where tactics games get both their best moments and their worst ones.
 
-When it is readable, it feels brilliant.
+Readable? It feels brilliant.
 
-When it is not, it feels like the game punished the player for not seeing an invisible sentence in the rules.
+Not readable? It feels like the game punished you for missing a sentence in the rules that nobody ever showed you.
 
-That is not a small problem. It is one of the central design problems of the form.
+And that's not a polish problem. It's one of *the* problems of the genre.
 
 ---
 
-## Failure states are structured differently
+## Losing Feels Different
 
-Classic turn-based combat usually makes failure feel like one of three things:
+In classic combat, losing usually comes down to one of these:
 
-- poor resource management
-- bad sequencing
-- inability to answer a specific threat
+- you managed resources badly
+- you did things in the wrong order
+- you had no answer for one specific threat
 
-Tactical combat often makes failure feel like **positional overcommitment**.
+In tactical combat, losing usually feels like **you overcommitted somewhere**.
 
-That changes the emotional texture of play.
+A classic game tells you:
 
-A classic system says:
+> you spent too much, healed too late, brought the wrong party, or picked the wrong plan.
 
-> you spent too much, healed too late, brought the wrong composition, or took the wrong line.
-
-A tactical system says:
+A tactics game tells you:
 
 > you stood in the wrong place, too early, for the wrong reason.
 
-Those are very different forms of regret.
+Those hurt in very different ways. The second one feels more personal, because moving *is* committing.
 
-The second one tends to feel more personal because movement is commitment.
-
-I kept circling back to that idea while thinking about these systems.
+I kept coming back to that.
 
 Position is commitment.
 
 ![Into the Breach](/resources/images/articles/TurnsTilesTension/IntoTheBreach.jpg)
 
-Once a tactical game is good, movement stops being a setup action and becomes the action. The attack is often just the visible payoff.
+In a good tactics game, moving stops being the setup before the action. Moving is the action. The attack is just the part you get to watch.
 
-That is also why so many tactical games become memorable through stories of sacrifice, overextension, and rescue. The battlefield creates narrative through placement.
+It's also why tactics games produce so many war stories. The unit that held the bridge. The rescue that almost didn't happen. The healer you sent way too far forward (we've all done it). The map writes the story through where people stood.
 
-Game Developer’s feature on *Into the Breach* gets at this from another angle. Justin Ma describes how the game asks players to unlearn the idea that losing a mech is automatically the worst outcome, because the real failure state sits in civilian infrastructure and the power grid instead.[6] That is fascinating design, but the deeper point is broader:
+Game Developer's piece on *Into the Breach* comes at this from another angle. Justin Ma talks about how the game makes you unlearn "losing a mech is the worst thing that can happen", because the real loss condition is the civilian buildings and the power grid.[6] Which is cool on its own, but the bigger idea is:
 
-> tactical games can relocate value away from the unit and into the board state itself.
+> tactics games can move what you care about off the units and onto the board.
 
-That is much harder to do in a classic abstract battle model.
-
----
-
-## The content burden is different too
-
-A classic turn-based system can get a lot of mileage out of:
-
-- enemy composition
-- stat tuning
-- skill interactions
-- phase scripting
-- dungeon pressure
-
-A tactical system must also make the **arena** worth thinking about.
-
-That sounds obvious, but it has huge consequences.
-
-If the map is uninteresting, tactical combat collapses quickly.
-
-Good tactical encounters rely on meaningful spatial asymmetry:
-
-- narrow vs open lanes
-- elevation breaks
-- protected backlines
-- escort or defend geometry
-- delayed reinforcements that matter because of where they appear
-- objective placement that competes with combat efficiency
-
-This means tactical combat is often more expensive in encounter design than it first appears.
-
-A flat rectangle with no positional drama can reduce even a mechanically sound system into repetitive trades.
-
-Classic systems have their own content burden, of course, but it is usually concentrated in **action design** and **encounter scripting** rather than **arena architecture**.
-
-That distinction becomes very important when deciding scope.
+That's really hard to pull off on a classic battle screen.
 
 ---
 
-## Classic systems are not “less tactical” - they are tactical in a different layer
+## The Content Bill Is Different Too
 
-This is where I think discussions often become unhelpful.
+Classic combat gets a lot of mileage out of enemy groups, stat tuning, skill interactions, boss phases, and dungeon pressure.
 
-People sometimes talk about classic systems as if they are shallower by default.
+Tactical combat needs all of that *and* a map worth thinking about.
 
-I do not think that is true.
+Obvious? Sure. But it has huge consequences.
 
-I think they are tactical in a different layer.
+If the map is boring, tactical combat falls apart fast.
 
-Classic combat can be deeply tactical in terms of:
+Good tactics maps need some kind of asymmetry:
 
-- action timing
-- damage race management
-- healing thresholds
-- rank manipulation
-- buff/debuff windows
-- cooldown pressure
-- comp-building
+- narrow lanes vs open ground
+- height changes
+- a back line worth protecting
+- something to escort or defend
+- reinforcements that matter because of *where* they show up
+- objectives that pull you away from the most efficient way to fight
 
-What it usually does *not* do is externalize those decisions into a literal board.
+So tactics encounters cost a lot more to make than they look like they do.
 
-That difference matters because the player experiences the problem differently.
+Put a perfectly good system on a flat rectangle and it turns into two lines trading hits until someone runs out of HP.
 
-In a classic game, the tactical problem is often:
+Classic games have their own content costs, obviously, but those mostly live in **ability design** and **encounter scripting**, not **level layout**.
 
-> given the current battle state, what sequence yields the best swing?
+If you're scoping a project, that's a big deal.
 
-In a tactical game, the tactical problem is often:
+---
 
-> how do I shape the next battle state before I commit the action?
+## Classic Isn't "Less Tactical", It's Tactical Somewhere Else
+
+This is where a lot of these conversations go off the rails.
+
+People talk about classic combat like it's the shallow option by default.
+
+I don't buy that.
+
+It's tactical in a different layer. Timing your actions, racing damage, deciding when to heal, rank manipulation, buff and debuff windows, cooldowns, building your party. All of that is tactical.
+
+What it doesn't do is put those decisions on a literal board.
+
+And that changes how the problem feels. In a classic game the question is usually:
+
+> given where the fight is right now, what sequence gives me the biggest swing?
+
+In a tactics game it's:
+
+> how do I set up the next board before I commit to anything?
 
 One is action-first. The other is state-first.
 
-That is a much cleaner distinction than “simple” versus “deep.”
+Way more useful than "simple" vs "deep".
 
 ---
 
-## A note on pacing: why classic combat often survives repetition better
+## Pacing: Why Classic Handles Repetition Better
 
-One thing I have become increasingly convinced of is that classic systems usually tolerate **higher encounter frequency**.
+Something I'm more and more sure of: classic systems can handle **a lot more fights**.
 
-That is not because they are worse.
+Not because they're worse. Because they're cheaper to read.
 
-It is because they are cheaper to parse.
+If every fight asks you to read the geometry, predict threats, and commit to tiles, you can't throw fifty of them at the player before lunch. Tactics combat just burns more brain per fight.
 
-If each battle asks the player to fully evaluate geometry, future threat, and tile commitment, then battle density has to be handled carefully. Tactical combat burns more cognitive energy per encounter.
+So good tactics games usually do one of three things:
 
-That is why many strong tactical games either:
+- fewer fights,
+- more handcrafted maps,
+- or every fight becomes a puzzle instead of a routine.
 
-- keep encounter count lower,
-- make each map more bespoke,
-- or turn the battle into a puzzle-like object rather than a routine one.
+*Into the Breach* is the puzzle option. Game Developer described it as a game where you "out-maneuver and out-think" the enemy, and that's fair, because each turn is less about trading efficiently and more about putting the board back in order before everything goes wrong.[6]
 
-*Into the Breach* is a great example of this puzzle pressure. Game Developer described it as a tactics game where you “out-maneuver and out-think” the enemy, and that framing is accurate because each turn is less about exchange efficiency and more about restoring board order.[6]
+Classic systems handle dungeon crawls, long stretches of fights, and grinding way more naturally, because the loop is quicker to read and quicker to play.
 
-Classic systems, meanwhile, can support dungeon crawls, long stretches of battle, and grinding structures more naturally because the loop is usually faster to read and faster to execute.
+So if your game wants lots of fights as part of a bigger progression rhythm, classic probably fits.
 
-This matters when choosing a combat form for a project.
-
-If a game wants many battles as part of a larger progression rhythm, classic combat often fits that cadence better.
-
-If a game wants each battle to feel authored, situational, and spatially distinctive, tactical combat often earns the extra load.
+If you want every fight to feel handmade and tied to its map, tactical is usually worth the extra load.
 
 ---
 
-## Tactical depth is not the same thing as strategic depth
+## Tactical Depth Isn't Strategic Depth
 
-This is a subtle but important distinction.
+Small distinction, but it matters.
 
-A lot of tactical games are excellent at **short-arc decision-making**. They ask urgent local questions:
+A lot of tactics games are great at **short-term decisions**. Urgent, local stuff:
 
 - can I stop this threat this turn?
 - can I hold this tile?
@@ -430,182 +332,120 @@ A lot of tactical games are excellent at **short-arc decision-making**. They ask
 
 ![Tactics Ogre Inventory](/resources/images/articles/TurnsTilesTension/Tactics-Ogre-Reborn-Review_01.jpg)
 
-Keith Burgun’s framing of short arcs and long arcs is useful here: tactical games often excel at immediate local operations, but they can still need larger structures to create strategic texture over time.[7]
+Keith Burgun has a good way of framing this as short arcs and long arcs: tactics games nail the immediate stuff, but they still need something bigger on top to get real strategy over time.[7]
 
-That larger structure can come from:
+That bigger layer can be a campaign map, permadeath, roster management, an economy, upgrade paths, branching objectives.
 
-- campaign maps
-- permadeath
-- roster management
-- resource economies
-- long-term upgrade direction
-- branching objectives
+Classic RPGs tend to get this almost for free, through attrition, money, and builds over a long game.
 
-This is another area where classic and tactical forms differ in emphasis.
+Tactics games sometimes have to work harder so the battle game and the campaign game don't end up as two separate things that never talk to each other.
 
-Classic turn-based RPGs often embed strategy through long-term attrition, economy, and build paths almost by default.
-
-Tactical games sometimes need to work harder to ensure that the battlefield game does not become isolated from the larger campaign game.
-
-When they do solve it well, the result is powerful. But it is worth recognizing that “deep tactical combat” does not automatically mean “strong strategic game.”
+When they get it right, it's amazing. But "deep tactical combat" doesn't automatically mean "good strategy game".
 
 ---
 
-## Why hybrid systems are so tempting
+## Why Everyone Wants A Hybrid
 
-Once you look at the strengths side by side, the temptation to hybridize becomes obvious.
+Put the strengths side by side and it's easy to see why designers keep mixing them.
 
-Classic systems offer:
+Classic gives you speed, clarity, rich ability sets, and UI that doesn't make you squint.
 
-- speed
-- clarity
-- strong ability ecosystems
-- low interface ambiguity
+Tactical gives you drama on the map, emergent problem-solving, units that matter because of where they are, and consequences you can actually see.
 
-Tactical systems offer:
+So of course people try to steal from both. And sometimes it works really well.
 
-- spatial drama
-- emergent problem-solving
-- positional identity
-- richer board-state consequence
+*Triangle Strategy* has very distinct characters, clear ability roles, and a visible turn order, but the whole thing still sits on top of terrain, flanking, and placement.[4][5]
 
-So naturally, designers keep trying to borrow from both.
+And the *Darkest Dungeon* games show how much tactical feel you can sneak into a classic setup with ranks and role pressure, without ever turning into a grid tactics game.
 
-And sometimes that works beautifully.
+But hybrids have a cost.
 
-A game like *Triangle Strategy* uses highly differentiated characters, explicit ability roles, and a visible turn structure, but still anchors the whole thing in terrain, flanking, and placement.[4][5]
-
-Meanwhile, games in the *Darkest Dungeon* family show how much tactical identity can be smuggled into a classic framework through positional abstraction and role pressure, without ever fully becoming a board-based tactics game.
-
-But hybridization has a cost.
-
-If a system combines:
+Stack all of these into one system:
 
 - heavy spatial reasoning
-n- dense ability interactions
-- layered status systems
-- complex objective structures
+- dense ability interactions
+- layered status effects
+- complicated objectives
 
-then the player can end up doing too much bookkeeping to enjoy any of it.
+and the player ends up doing so much bookkeeping they stop enjoying any of it.
 
-This is where restraint matters.
+So, restraint.
 
-A combat system does not need to maximize every dimension.
+A combat system doesn't need to max out every stat.
 
-It needs to know which dimension is carrying the experience.
+It needs to know which one is doing the heavy lifting.
 
 ---
 
-## What each form is best at evoking
+## What Each One Is Best At Making You Feel
 
-This may be the most practical way to think about the difference.
+Probably the most practical way to look at all this.
 
-### Classic turn-based combat is especially good at evoking:
+### Classic turn-based is great at:
 
-- tension through attrition
-- role interplay through abilities
-- momentum swings through sequencing
-- high encounter readability
-- campaign endurance and resource anxiety
+- tension from slowly running out of everything
+- party roles playing off each other
+- big momentum swings from getting the order right
+- fights you can read at a glance
+- that "do I have enough potions to make it back?" anxiety
 
-### Tactical turn-based combat is especially good at evoking:
+### Tactical turn-based is great at:
 
-- battlefield control
+- controlling the battlefield
 - sacrifice and rescue
-- flanking, trapping, and denial
-- situational cleverness
-- the emotional weight of commitment
+- flanking, trapping, blocking
+- feeling clever about one very specific situation
+- the weight of committing to a move
 
-That last point matters more than I expected.
+That last one surprised me the most.
 
-Tactical systems often feel more *dramatic* not because they are more cinematic, but because a position on the board can carry moral and strategic weight at the same time.
+Tactics games often feel more *dramatic*, not because they're more cinematic, but because a spot on the board can carry strategic and emotional weight at the same time.
 
-A unit holding a bridge, baiting a pincer, or choosing whether to save an ally at the cost of formation is not just executing a move. It is inhabiting a situation.
+A unit holding a bridge, baiting a pincer, or breaking formation to save someone isn't just doing a move. It's *in a situation*.
 
-That is a very particular kind of drama.
+Classic games can absolutely do drama too, just differently: the slow drain, surviving bad odds, the clutch turn, the build finally paying off.
 
-Classic systems can absolutely produce drama too, but they usually do it through:
+One gets its drama from **the board**.
 
-- attrition curves
-- survival against bad odds
-- clutch sequencing
-- build payoff
-
-One is drama through **board state**.
-
-The other is drama through **system pressure**.
+The other gets it from **the system squeezing you**.
 
 ---
 
-## So which one is “better”?
+## So Which One Is Better?
 
-I do not think that is the useful question.
+Wrong question.
 
-The better question is:
+The one I'd ask instead:
 
-> **What kind of thought do I want the player to enjoy?**
+> **what kind of thinking do I want the player to enjoy?**
 
-If the answer is:
+If it's reading a system, managing pressure, getting the order right, building an efficient party, and surviving a long grind... classic is probably your pick.
 
-- reading a system,
-- managing pressure,
-- sequencing actions,
-- building efficient parties,
-- navigating long-form attrition,
+If it's reading a battlefield, controlling space, taking positional risks, committing to a formation, and solving fights by moving as much as by attacking... go tactical.
 
-then classic turn-based combat is often the stronger fit.
+Obvious once you say it out loud. But I think that's where these conversations should start.
 
-If the answer is:
-
-- reading a battlefield,
-- controlling space,
-- taking positional risks,
-- committing to formation,
-- solving encounters through movement as much as through action,
-
-then tactical turn-based combat is usually the right direction.
-
-That sounds obvious once stated, but I think it is where a lot of combat design conversations should begin.
-
-Not with genre labels.
-
-With the thought pattern you want to reward.
+Not with genre labels. With the kind of thinking you want to reward.
 
 ---
 
-## A final personal note
+## Where I Ended Up
 
-The more I looked at these systems, the less interested I became in arguing about which one is more sophisticated.
+The more I dug into this, the less I cared about which one is more "sophisticated". That argument never goes anywhere.
 
-That argument usually goes nowhere.
+What stuck with me was way simpler:
 
-What stayed interesting to me was something much simpler:
+> classic games make me think about **what to do**.
+>
+> tactical games make me think about **where to become dangerous**.
 
-classic systems make me think about **what to do**.
+Same turns. Completely different feeling.
 
-tactical systems make me think about **where to become dangerous**.
+And once I saw it that way, a lot of games I love suddenly made a lot more sense.
 
-That is not just a mechanical distinction. It changes the entire emotional texture of combat.
+Anyway. Go play *Into the Breach*, then go play *Dragon Quest*, and pay attention to what your brain is doing in each one.
 
-And once I started looking at it that way, a lot of games made more sense.
-
----
-
-## Closing thought
-
-Classic turn-based combat and tactical turn-based combat both live under the same broad family, but they are not minor variants of each other.
-
-They are different ways of structuring player thought.
-
-One compresses the battlefield so actions become clearer.
-
-The other expands the battlefield so consequence becomes spatial.
-
-Neither is the final form of turn-based design.
-
-They are just two very different answers to the same enduring question:
-
-> **How do we make a player stop, think, and care before they commit?**
+That's the whole article, really.
 
 ---
 
