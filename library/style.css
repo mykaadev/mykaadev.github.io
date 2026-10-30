@@ -402,8 +402,10 @@ Body elements
 
 #main-body a:hover:not(.image-portfolio,
 .blog-link) {
-    color: black;
-    background: white;
+
+    color: #f03a6c;
+    background: none;
+    border-bottom-color: #f03a6c;
 }
 
 #main-body a.img-link {
@@ -550,10 +552,11 @@ Header
 
 #main-header a:hover,
 #main-header-text a.header-link-current:hover {
-    color: #000000;
-    background-color: #ffffff;
+
+    color: #ffffff;
+    background-color: transparent;
     text-decoration: none;
-    border: solid 2px rgba(255, 255, 255, 1);
+    border: solid 2px #f03a6c;
     transition: all 150ms ease-in;
 }
 
@@ -680,9 +683,10 @@ Header
 }
 
 #main-header-text a.header-link-current {
+
     color: #dddddd;
     text-decoration: none;
-    border: solid 2px rgba(255, 255, 255, 1);
+    border: solid 2px #f03a6c;
 }
 
 #main-header #main-header-icons {
@@ -702,8 +706,9 @@ Header
 }
 
 #main-header #main-header-icons a:hover {
+
     background-color: transparent;
-    border: 2px solid white;
+    border: 2px solid #f03a6c;
 }
 
 #main-header #main-header-icons img {
@@ -874,8 +879,8 @@ Index
 }
 
 .contact-link:hover {
-    border-color: #ffffff;
-    /* Uses text color for border */
+
+    border-color: #f03a6c;
     background-color: transparent !important;
     transform: translateY(-4px);
 }
@@ -1078,8 +1083,9 @@ blockquote.logo-quote:hover {
 
 .index-section a.card:hover,
 .index-section a.card:active {
+
     background-color: unset;
-    border: 2px solid white;
+    border: 2px solid #f03a6c;
     transition: all ease-in-out 0.2s;
     filter: drop-shadow(4px 4px 8px transparent);
 }
@@ -1718,13 +1724,13 @@ Article Quick Nav
 }
 
 .article-quick-nav-btn:hover {
-    color: #000000;
-    background-color: #ffffff;
-    border: solid 2px rgba(255, 255, 255, 1);
+
+    border: solid 2px #f03a6c;
 }
 
 .article-quick-nav-btn:hover img {
-    filter: brightness(0) invert(0);
+
+    filter: brightness(0) invert(1);
 }
 
 @media only screen and (max-width: 1080px) {
@@ -1803,8 +1809,9 @@ body.media-zoom-enabled #main-body img {
 }
 
 #media-zoom-close:hover {
-    background: #fff;
-    color: #000;
+
+    border-color: #f03a6c;
+    color: #fff;
 }
 
 body.media-zoom-open {
@@ -2127,9 +2134,10 @@ Plugin Doc Cards
 
 #main-body a.doc-card:hover,
 #main-body a.doc-card:active {
+
     color: #989898;
     background: #190d0f;
-    border-color: #ffffff;
+    border-color: #f03a6c;
     filter: drop-shadow(4px 4px 8px transparent);
 }
 
@@ -2184,9 +2192,9 @@ Projects
 }
 
 .project-filter:hover {
-    color: #000000;
-    background: #ffffff;
-    border-color: #ffffff;
+
+    color: #ffffff;
+    border-color: #f03a6c;
 }
 
 .project-filter:focus-visible {
@@ -2230,9 +2238,10 @@ Projects
 
 #main-body a.project-card:hover,
 #main-body a.project-card:active {
+
     color: #989898;
     background: #190d0f;
-    border-color: #ffffff;
+    border-color: #f03a6c;
     filter: drop-shadow(4px 4px 8px transparent);
 }
 
@@ -2323,17 +2332,19 @@ Projects
 }
 
 #main-body a.project-link:hover {
-    color: #000000;
-    background: #ffffff;
-    border-color: #ffffff;
+
+    color: #ffffff;
+    background: #190d0f;
+    border-color: #f03a6c;
 }
 
-#main-body a.project-link:first-child {
+#main-body a.project-link:first-child:not(.project-link-doc) {
     border-color: #f03a6c;
 }
 
 #main-body a.project-link:first-child:hover {
-    border-color: #ffffff;
+
+    border-color: #f03a6c;
 }
 
 .article-project-link {
@@ -2355,9 +2366,10 @@ Projects
 }
 
 #main-body a.page-back:hover {
-    color: #000000;
-    background: #ffffff;
-    border-color: #ffffff;
+
+    color: #ffffff;
+    background: #190d0f;
+    border-color: #f03a6c;
 }
 
 /* Articles have no button row, so the back button sits on its own */
@@ -2374,9 +2386,10 @@ Projects
 
 /* The doc page you are on */
 #main-body a.project-link[aria-current="page"] {
-    color: #000000;
-    background: #ffffff;
-    border-color: #ffffff;
+
+    color: #ffffff;
+    background: #190d0f;
+    border-color: #f03a6c;
 }
 
 /* Plugin category sections, shown or hidden by the chips above them */
@@ -2427,5 +2440,195 @@ Projects
         width: auto;
         margin: 2px;
         font-size: 19px;
+    }
+}
+
+/*---------------------------------------------
+Vault Cards (plugins that are not public yet)
+---------------------------------------------*/
+
+/* Locked plugins in the Vault Distribution table: the same squares, faded */
+.vault-locked-icons {
+    opacity: 0.22;
+    filter: grayscale(1);
+}
+
+.vault-card {
+    --rx: 0deg;
+    --ry: 0deg;
+    --mx: 50%;
+    --my: 50%;
+    position: relative;
+    perspective: 800px;
+    animation: vault-float 6s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+}
+
+.vault-card-inner {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px dashed rgba(240, 58, 108, 0.55);
+    border-radius: 8px;
+    background: #190d0f;
+    color: #989898;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25));
+    transform: rotateX(var(--rx)) rotateY(var(--ry));
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out, border-color 0.2s ease-in-out;
+}
+
+.vault-card:hover .vault-card-inner {
+
+    border-color: #f03a6c;
+    border-style: solid;
+}
+
+/* The picture area: scanlines over a dark plate, a big count, and a stamp */
+.vault-card-art {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background:
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 3px),
+        radial-gradient(circle at 50% 40%, rgba(240, 58, 108, 0.22), transparent 65%),
+        #0e0809;
+}
+
+.vault-card-lock {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    font-size: 18px;
+    opacity: 0.7;
+}
+
+.vault-card-stamp {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 2px 8px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f03a6c;
+    border: 1px solid rgba(240, 58, 108, 0.6);
+    border-radius: 4px;
+    transform: rotate(-6deg);
+}
+
+.vault-card-number,
+.vault-card-title {
+    position: relative;
+}
+
+.vault-card-number {
+    font-family: "Abel", "Rubik", sans-serif;
+    font-size: 76px;
+    line-height: 1;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-shadow: -2px 0 rgba(240, 58, 108, 0.8), 2px 0 rgba(70, 220, 255, 0.6);
+}
+
+/* Glitch layers: two copies of the text, shifted and sliced, shown only while the card glitches */
+.vault-card-number::before,
+.vault-card-number::after,
+.vault-card-title::before,
+.vault-card-title::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.vault-card-number::before,
+.vault-card-title::before {
+    color: #f03a6c;
+}
+
+.vault-card-number::after,
+.vault-card-title::after {
+    color: #46dcff;
+}
+
+.vault-card.is-glitching .vault-card-number::before,
+.vault-card.is-glitching .vault-card-title::before {
+    opacity: 0.85;
+    animation: vault-glitch-a 0.35s steps(2) infinite;
+}
+
+.vault-card.is-glitching .vault-card-number::after,
+.vault-card.is-glitching .vault-card-title::after {
+    opacity: 0.85;
+    animation: vault-glitch-b 0.3s steps(2) infinite;
+}
+
+.vault-card.is-glitching .vault-card-art {
+    animation: vault-flicker 0.25s steps(3) infinite;
+}
+
+.vault-card.is-glitching .vault-card-inner {
+    border-color: #46dcff;
+}
+
+/* Holo shine that follows the pointer, as on a foil card */
+.vault-card-shine {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.22), transparent 45%),
+        linear-gradient(115deg, transparent 30%, rgba(240, 58, 108, 0.18) 45%, rgba(70, 220, 255, 0.16) 55%, transparent 70%);
+    mix-blend-mode: screen;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.vault-card:hover .vault-card-shine {
+    opacity: 1;
+}
+
+@keyframes vault-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-4px) rotate(-0.4deg); }
+}
+
+@keyframes vault-glitch-a {
+    0% { clip-path: inset(10% 0 60% 0); transform: translate(-4px, -1px); }
+    50% { clip-path: inset(55% 0 20% 0); transform: translate(3px, 1px); }
+    100% { clip-path: inset(30% 0 45% 0); transform: translate(-2px, 0); }
+}
+
+@keyframes vault-glitch-b {
+    0% { clip-path: inset(65% 0 5% 0); transform: translate(4px, 1px); }
+    50% { clip-path: inset(5% 0 75% 0); transform: translate(-3px, -1px); }
+    100% { clip-path: inset(40% 0 35% 0); transform: translate(2px, 0); }
+}
+
+@keyframes vault-flicker {
+    0% { filter: none; }
+    50% { filter: hue-rotate(40deg) saturate(1.6) brightness(1.2); transform: translateX(-2px); }
+    100% { filter: none; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vault-card,
+    .vault-card.is-glitching .vault-card-art,
+    .vault-card.is-glitching .vault-card-number::before,
+    .vault-card.is-glitching .vault-card-number::after,
+    .vault-card.is-glitching .vault-card-title::before,
+    .vault-card.is-glitching .vault-card-title::after {
+        animation: none;
+    }
+
+    .vault-card-inner {
+        transform: none;
     }
 }

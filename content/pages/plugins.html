@@ -22,12 +22,15 @@ show_contact: true
     {% assign cat = pair[0] %}
     {% assign icon = pair[1] %}
     {% assign count = plugins | where: "category", cat | size %}
+    {% assign planned = site.plugin_vault.planned[cat] | default: 0 %}
+    {% assign locked = planned | minus: count %}
     <tr>
       <td>{{ cat }}</td>
       <td>
         {% for i in (1..count) %}
           {{ icon }}
         {% endfor %}
+        {% if locked > 0 %}<span class="vault-locked-icons" title="{{ locked }} not public yet">{% for i in (1..locked) %}{{ icon }}{% endfor %}</span>{% endif %}
       </td>
     </tr>
   {% endfor %}
@@ -40,7 +43,8 @@ show_contact: true
 <div class="project-filters" role="group" aria-label="Show or hide plugin categories" hidden>
   {% for cat in base_categories %}
     {% assign plugins_in_cat = plugins | where: "category", cat %}
-    {% if plugins_in_cat.size > 0 %}
+    {% assign planned = site.plugin_vault.planned[cat] | default: 0 %}
+    {% if plugins_in_cat.size > 0 or planned > 0 %}
       <button type="button" class="project-filter" data-section="{{ cat | slugify }}" aria-pressed="true">{{ cat }} <span class="plugin-section-count">{{ plugins_in_cat.size }}</span></button>
     {% endif %}
   {% endfor %}
@@ -48,7 +52,9 @@ show_contact: true
 
 {% for cat in base_categories %}
   {% assign plugins_in_cat = plugins | where: "category", cat %}
-  {% if plugins_in_cat.size > 0 %}
+  {% assign planned = site.plugin_vault.planned[cat] | default: 0 %}
+  {% assign locked = planned | minus: plugins_in_cat.size %}
+  {% if plugins_in_cat.size > 0 or locked > 0 %}
     <section class="plugin-section" id="{{ cat | slugify }}">
       <h3>{{ cat }}</h3>
       <div class="project-grid">
@@ -66,6 +72,26 @@ show_contact: true
             </div>
           </a>
         {% endfor %}
+        {% if locked > 0 %}
+          <div class="vault-card" data-count="{{ locked }}" role="img" aria-label="{{ locked }} more {{ cat }} plugins in the vault, not public yet">
+            <div class="vault-card-inner">
+              <div class="vault-card-art" aria-hidden="true">
+                <span class="vault-card-lock">&#x1F512;</span>
+                <span class="vault-card-number" data-text="+{{ locked }}">+{{ locked }}</span>
+                <span class="vault-card-stamp">Classified</span>
+              </div>
+              <div class="project-card-body" aria-hidden="true">
+                <div class="project-tags">
+                  <span class="project-tag project-tag-type">In the vault</span>
+                  <span class="project-tag">{{ cat }}</span>
+                </div>
+                <h3 class="vault-card-title" data-text="Still cooking">Still cooking</h3>
+                <p>{{ locked }} more {{ cat }} {% if locked == 1 %}plugin{% else %}plugins{% endif %}, not public yet.</p>
+              </div>
+              <span class="vault-card-shine" aria-hidden="true"></span>
+            </div>
+          </div>
+        {% endif %}
       </div>
     </section>
   {% endif %}
@@ -85,3 +111,4 @@ show_contact: true
     });
   })();
 </script>
+<script defer src="{{ '/library/vault-cards.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

@@ -53,6 +53,17 @@ defaults:
       discussion_heading: Discuss this project
       discussion_description: Questions, feedback, and ideas are welcome.
       discussion_mapping: pathname
+
+# Plugins in the vault that are not public yet. Each number is the planned total for that category.
+# The Plugins page shows the planned total minus the public plugins, so each new public plugin lowers the locked card by one.
+plugin_vault:
+  planned:
+    Algorithm: 12
+    Gameplay: 27
+    Tools: 15
+    Utility: 21
+    Visuals: 9
+
 plugin_sync:
   enabled: true
   github_user: mykaadev
