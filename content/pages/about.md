@@ -41,6 +41,13 @@ meta_description: About Micael Silva (mykaa), tools programmer and game developm
     <p><strong>Tools / Gameplay Programmer</strong> at <a href="https://westfell-studios.itch.io/" rel="nofollow" target="_blank">WestFell</a><br />[ Feb 2021 - Nov 2021 ]<br />Shipped a puzzle platformer from core gameplay mechanics to editor extensions to help level designers.</p>
   </div>
 </blockquote>
+<blockquote class="logo-quote glitch-entry" aria-label="Unreadable entry">
+  <img src="{{ '/resources/icons/glitch-entry.png' | relative_url }}" alt="" class="company-logo glitch-logo" />
+  <div class="quote-content">
+    <p><strong class="glitch-text" data-random="true" data-text="x▒#Qv░&amp;k">x▒#Qv░&amp;k</strong> at <span class="glitch-text" data-random="true" data-length="16" data-text="q#▓Lw░x.&amp;Rk▒zT/e">q#▓Lw░x.&amp;Rk▒zT/e</span><br /><span class="glitch-text" data-clean="[ 2016 - Today ]" data-text="[ 2016 - T░d▓y ]">[ 2016 - T░d▓y ]</span><br /><span class="glitch-text glitch-muted" data-whisper="why are you still here" data-clean="Signal lost. There is nothing to see here." data-text="Sig▒al lost. There is n█thing to see h░re.">Sig▒al lost. There is n█thing to see h░re.</span></p>
+  </div>
+</blockquote>
+<script defer src="{{ '/library/glitch-entry.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
 <hr>
 
