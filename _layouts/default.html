@@ -40,3 +40,11 @@ show_contact: false
 {% endif %}
 <script defer src="{{ '/library/article-quick-nav.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 <script defer src="{{ '/library/media-zoom.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+{% comment %} Interactive figures of an article: list the names in front matter, for example "showcases: [playermodeling]". Each name loads library/showcases/<name>.css and .js {% endcomment %}
+{% if page.showcases %}
+<script defer src="{{ '/library/showcase.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+{% for showcase_name in page.showcases %}
+<link rel="stylesheet" href="{{ '/library/showcases/' | append: showcase_name | append: '.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
+<script defer src="{{ '/library/showcases/' | append: showcase_name | append: '.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+{% endfor %}
+{% endif %}
